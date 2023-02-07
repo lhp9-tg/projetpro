@@ -1,0 +1,238 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem;
+    font-family: "Source Sans Pro", sans-serif;
+    color: #383838;
+    background-color: #f8f8f8;
+}
+
+/* Partie Menu */
+
+header { 
+    width: 100%;
+    height: 10vh;
+    border-bottom : 1px black solid;
+    background-color: rgb(128, 128, 128, 0.50);
+    display: flex;
+    justify-content: space-between;
+}
+
+nav>ul {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap : 50px;
+    list-style: none;
+    margin-right: 50px;
+}
+
+nav>ul>li>a {
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+}
+
+/* Partie card */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    position: relative;
+}
+
+/* Partie flèches de navigation */
+
+.previous-button {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: rotate(180deg);
+    width: 100px;
+    height: 100px; 
+    cursor: pointer;
+    opacity: 0.5;
+    transition: hover 0.3s ease;
+}
+
+
+.previous-button:hover {
+    transform:rotate(180deg);
+    opacity: 1;
+    scale: 1.1;
+    transition: hover 0.3s ease;
+}
+
+.next-button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 100px;; 
+    height: 100px; 
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.3s ease;
+}
+
+.next-button:hover {
+    opacity: 1;
+    scale: 1.1;
+    transition: 0.3s ease;
+}
+
+
+/* Partie carrousel */
+
+.carrousel {
+    width: 80vw;
+    height: 75vh;
+    position : relative;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 50px
+}
+
+/* Partie card précédente et suivante */
+
+.container>div {
+    width: 15vw;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(128, 128, 128, 0.50);;
+}
+
+.previous-card {
+    border : 1px black solid;
+    border-radius: 10px;
+    -webkit-mask: linear-gradient(270deg, #000, #0000);
+    mask: linear-gradient(270deg,#000, #0000);
+}
+
+.next-card {
+    border : 1px black solid;
+    border-radius: 10px;
+    -webkit-mask: linear-gradient(90deg, #000, #0000);
+    mask: linear-gradient(90deg,#000, #0000);
+}
+
+/* Card principale */
+
+.container>.flip-card {
+    width: 65vw;
+    height: 75vh;
+    background-color: transparent;
+    perspective: 1000px;
+    display: flex;
+    flex-direction: column;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+    border: 1px black solid;
+    border-radius: 10px;
+}
+
+.flip-card-front {
+    background-color: rgba(128, 128, 128, 0.50);;
+    color: black;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flip-card-front-img>img {
+    object-fit: contain;
+    max-height: 75vh;
+    border-radius: 10px 0 0 10px;
+}
+
+.flip-card-back {
+    background-color: rgba(128, 128, 128, 0.50);
+    transform: rotateY(180deg);
+}
+
+h1 {
+    padding: 0 10px;
+}
+
+p {
+    border-top: black 1px solid;
+    padding-top: 5px;
+    padding: 0 10px;
+}
+
+
+
+/* Partie timeline */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.50);
+    height: 10vh;
+}
+
+:root {
+    --rayon : 25px;
+    --thickness : 5px;
+    --gap : calc(calc(var(--thickness) - var(--rayon))/2);
+}
+
+.timeline {
+    height: 6vh;
+    width: 80vw;
+}
+
+.years {
+    position: absolute;
+    margin-top: 4vh;
+    height: var(--thickness);
+    width: 80vw;
+    background-color: gray;
+    border-radius: 3px;
+    z-index: 2;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.dots {
+    margin-top: var(--gap);
+    height: var(--rayon);
+    width: var(--rayon);
+    background-color: gray;
+    border-radius: 50%;
+    z-index: 1;
+}
