@@ -24,64 +24,112 @@ removeDot ()
 
 
 
-// Le carrousel dans son ensemble
-const carrousel = document.querySelector('.carrousel')
+// // Le carrousel dans son ensemble
+// const carrousel = document.querySelector('.carrousel')
 
-// On récupère le conteneur de tous les éléments
-const container = document.querySelector('.container')
+// // On récupère le conteneur de tous les éléments
+// const container = document.querySelector('.container')
 
-// Liste des cards
-const slides = Array.from(container.children)
+// // Liste des cards
+// const cards = Array.from(container.children)
 
-//Le contenu des cards
-const previouscard = document.querySelector('.previous-card')
-const flipcardfront = document.querySelector('.flip-card-front')
-const flipcardback = document.querySelector('.flip-card-back')
-const nextcard = document.querySelector('.next-card')
+// //Le contenu des cards
+// let previouscard = document.querySelector('.previous-card')
+// let flipcard = document.querySelector('.flip-card')
+// let nextcard = document.querySelector('.next-card')
 
-//Les boutons
-const previousbutton = document.querySelector('.previous-button')
-const nextbutton = document.querySelector('.next-button')
+// //Les boutons
+// const previousbutton = document.querySelector('.previous-button')
+// const nextbutton = document.querySelector('.next-button')
 
-let i = 0
+// // let i = 0
 
-slideWidth = flipcardfront.getBoundingClientRect().width
+// function cardWidth(card) {
+//     return card.getBoundingClientRect().width
+// }
 
-function slideNext(){
+// function slideNext(){
 
-    i++
+//     // i++
 
-    // Si on dépasse la fin du diaporama, on repart au début
-    if(i == slides.length - 1){
-        i = 0
-    }
+//     // // Si on dépasse la fin du diaporama, on repart au début
+//     // if(i == cards.length - 1){
+//     //     i = 0
+//     // }
 
-    // On calcule la valeur du décalage
-    let decal = -slideWidth * i
-    container.style.transform = `translateX(${decal}px)`
-}
+//     // On calcule la valeur du décalage
+//     let decal
+//     setTimeout( () => {
 
-function slidePrev(){
-    // On décrémente le compteur
-    i--
+//         decal = cardWidth(flipcard)
+//         container.children[0].style = `translateX(${decal}px)`
+        
+        
+//         decal = cardWidth(flipcard)
+//         container.children[1].style.transform = `translateX(${decal}px)`
 
-    //Si on dépasse le début du diaporama, on repart à la fin
-    if(i == -slideWidth + 1){
-        i = 0
-    }
+//         decal = cardWidth(flipcard)
+//         container.children[2].style.transform = `translateX(${decal}px)`
+        
+//     }, 100)
 
-    // On calcule la valeur du décalage
-    let decal = -slideWidth * i
-    container.style.transform = `translateX(${decal}px)`
-}
+//     //Re-création d'une previouscard
+//     // let newpreviouscard = document.createElement('div')
+//     // newpreviouscard.className = 'previous-card'
+//     // newpreviouscard = container.insertBefore(newpreviouscard, container.firstChild)
+
+//     //Renaming des cards
+//     // container.children[1].className = 'flip-card'
+//     // container.children[2].className = 'next-card'
+
+// }
+
+// function slidePrev(){
+//     // On décrémente le compteur
+//     // i--
+
+//     //Si on dépasse le début du diaporama, on repart à la fin
+//     // if(i == -cards.length + 1){
+//     //     i = 0
+//     // }
+
+//     // On calcule la valeur du décalage
+//     let decal
+//     setTimeout( () => {
+
+        
+//         container.children[0].className = 'flip-card'
+//         decal = cardWidth(previouscard) 
+//         container.children[0].style.transform = `translateX(${decal}px)`
+        
+        
+//         decal = cardWidth(flipcard) + cardWidth(container)*0.05
+//         container.children[1].style.transform = `translateX(${decal}px)`
+
+//         decal = cardWidth(flipcard)
+//         container.children[2].style.transform = `translateX(${decal}px)`
+        
+//     }, 100)
+// }
 
 
-previousbutton.addEventListener('click', () => {
-    slidePrev()
-})
+// previousbutton.addEventListener('click', () => {
+//     slidePrev()
+// })
 
-nextbutton.addEventListener('click', () => {    
-    slideNext()
-})
+// nextbutton.addEventListener('click', () => {    
+//     slideNext()
+// })
 
+
+// Defilement des cards
+const container = document.querySelector('.container');
+
+document.querySelector('.prev-arrow').addEventListener('click', (e)=>{
+    container.append(container.querySelector('.item:first-of-type'));
+});
+
+document.querySelector('.next-arrow').addEventListener('click', (e)=>{
+    container.prepend(container.querySelector('.item:last-of-type'));
+});
 

@@ -1,13 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
 html {
-    font-size: 62.5%;
+    --value: -2100;
+    --width: calc(var(--value) * -1 * 1px);
+    --distance: calc(var(--value) * .67 * 1px);
+    --perspective: calc(var(--value) * -.33 * 1px);
+    --angle: calc(var(--value) / 75 * 1deg);
+    --zoom: 2.2;
+    --active-translate-modifier: .6;
+    --vertical-offset: -0px;
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-size: 1.6rem;
+    font-size: 1rem;
     font-family: "Source Sans Pro", sans-serif;
     color: #383838;
     background-color: #f8f8f8;
@@ -24,7 +31,7 @@ header {
     justify-content: space-between;
 }
 
-nav>ul {
+nav ul {
     margin: 0;
     display: flex;
     align-items: center;
@@ -34,167 +41,127 @@ nav>ul {
     margin-right: 50px;
 }
 
-nav>ul>li>a {
+nav ul a {
     text-decoration: none;
     color: black;
     font-size: 2rem;
 }
 
+.logo img {
+    width: auto;
+    height: 100%;
+}
+
+
+
 /* Partie card */
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
     height: 80vh;
+
     position: relative;
+    overflow-x: clip;
+    overflow-y: hidden;
 }
+
+.container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    perspective: var(--perspective);
+    transform-style: preserve-3d;
+    position: absolute;  
+    transform: scale(var(--zoom)) translateY(calc(var(--vertical-offset) * -1));  
+}
+
+.item {
+    height: calc(100% - 20px);
+    width: calc(20%);
+
+    transition: all 2s;
+    position : absolute;
+
+    border : 1px black solid;
+    border-radius: 15px;
+
+}
+
+.container .item:nth-of-type(1) {
+    background-color: green;
+    transform: rotateY(calc(var(--angle) * 2)) translateZ(var(--distance)) translateY(var(--vertical-offset));
+  }
+  
+  .container .item:nth-of-type(2) {
+    background-color: green;
+    transform: rotateY(calc(var(--angle) * 1)) translateZ(var(--distance)) translateY(var(--vertical-offset));
+  }
+  
+  .container .item:nth-of-type(3) {
+    width: 45vw;
+    background-color: blue;
+    transform: rotateY(0deg) translateZ(calc(var(--distance) * var(--active-translate-modifier))) translateY(var(--vertical-offset));
+  }
+  
+  .container .item:nth-of-type(4) {
+    background-color: green;
+    transform: rotateY(calc(var(--angle) * -1)) translateZ(var(--distance)) translateY(var(--vertical-offset));
+  }
+  
+  .container .item:nth-of-type(5) {
+    background-color: green;
+    transform: rotateY(calc(var(--angle) * -2)) translateZ(var(--distance)) translateY(var(--vertical-offset));
+  }
+
+
+
 
 /* Partie flèches de navigation */
 
-.previous-button {
+.prev-arrow {
     position: absolute;
     top: 50%;
-    left: 0;
+    left: 10px;
     transform: rotate(180deg);
     width: 100px;
     height: 100px; 
     cursor: pointer;
     opacity: 0.5;
     transition: hover 0.3s ease;
+    z-index: 2;
 }
 
-
-.previous-button:hover {
+.prev-arrow:hover {
     transform:rotate(180deg);
     opacity: 1;
     scale: 1.1;
     transition: hover 0.3s ease;
+    z-index: 2;
 }
 
-.next-button {
+.next-arrow {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 10px;
     width: 100px;; 
     height: 100px; 
     cursor: pointer;
     opacity: 0.5;
     transition: 0.3s ease;
+    z-index: 2;
 }
 
-.next-button:hover {
+.next-arrow:hover {
     opacity: 1;
     scale: 1.1;
-    transition: 0.3s ease;
+    transition: hover 0.3s ease;
+    z-index: 2;
 }
 
-
-/* Partie carrousel */
-
-.carrousel {
-    width: 80vw;
-    height: 75vh;
-    position : relative;
-}
-
-.container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap : 50px
-}
-
-/* Partie card précédente et suivante */
-
-.container>div {
-    width: 15vw;
-    height: 75vh;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(128, 128, 128, 0.50);;
-}
-
-.previous-card {
-    border : 1px black solid;
-    border-radius: 10px;
-    -webkit-mask: linear-gradient(270deg, #000, #0000);
-    mask: linear-gradient(270deg,#000, #0000);
-}
-
-.next-card {
-    border : 1px black solid;
-    border-radius: 10px;
-    -webkit-mask: linear-gradient(90deg, #000, #0000);
-    mask: linear-gradient(90deg,#000, #0000);
-}
-
-/* Card principale */
-
-.container>.flip-card {
-    width: 65vw;
-    height: 75vh;
-    background-color: transparent;
-    perspective: 1000px;
-    display: flex;
-    flex-direction: column;
-}
-
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden; 
-    backface-visibility: hidden;
-    border: 1px black solid;
-    border-radius: 10px;
-}
-
-.flip-card-front {
-    background-color: rgba(128, 128, 128, 0.50);;
-    color: black;
-    display: flex;
-    justify-content: flex-start;
-}
-
-.flip-card-front-img>img {
-    object-fit: contain;
-    max-height: 75vh;
-    border-radius: 10px 0 0 10px;
-}
-
-.flip-card-back {
-    background-color: rgba(128, 128, 128, 0.50);
-    transform: rotateY(180deg);
-}
-
-h1 {
-    padding: 0 10px;
-}
-
-p {
-    border-top: black 1px solid;
-    padding-top: 5px;
-    padding: 0 10px;
-}
-
-
-
-/* Partie timeline */
 
 footer {
     display: flex;
@@ -202,8 +169,14 @@ footer {
     justify-content: center;
     align-items: center;
     background-color: rgba(128, 128, 128, 0.50);
+    position: absolute;
+    bottom: 0;
     height: 10vh;
+    width: 100%;
+
 }
+
+/* Partie timeline */
 
 :root {
     --rayon : 25px;

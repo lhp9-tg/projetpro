@@ -1,0 +1,141 @@
+html {  
+    --value: -1500;
+    --width: calc(var(--value) * -1 * 1px);
+    --distance: calc(var(--value) * .67 * 1px);
+    --perspective: calc(var(--value) * -.33 * 1px);
+    --angle: calc(var(--value) / 75 * 1deg);
+    --zoom: 2.3;
+    --active-translate-modifier: .6;
+    --vertical-offset: -0px;
+    font-family: 'Segoe UI'
+  }
+  
+  button{
+    position: absolute;
+    z-index: 100;
+  }
+  
+  .next {
+    right: 0px;
+  }
+  
+  .viewport{
+     width: var(--width);
+    height: 300px;
+    position: relative;
+    overflow-x: clip;
+  }
+  
+   .track { 
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+    perspective: var(--perspective);
+    transform-style: preserve-3d;
+    position: absolute;  
+    transform: scale(var(--zoom)) translateY(calc(var(--vertical-offset) * -1));
+  }
+
+
+  
+  .item{
+    height: calc(100% - 20px);
+    width: calc(18%);
+    
+    background-color: #999;
+    transition: all 10s;
+
+    display: flex;
+    position: absolute;
+    /*  
+    background-image: url('http://placekitten.com/300/300');
+    perspective: 750px;
+    border-radius: 15px;
+    /*  */
+  }
+
+/*
+  .item .preview {
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5em;
+    display: flex;
+    width: 100%;
+    overflow: clip;
+    text-shadow: 0px 0px 3px black;
+    border-radius: 15px;
+  }
+  
+ */
+
+
+/* .item .caption {
+      color: white;
+      position: absolute;
+      top: 100%;
+      color: black;
+      opacity: 0;
+      margin-top: 20px;
+      width: 200%;
+      left: -50%;
+    transition: all .1s;
+    text-align: justify;
+    background: rgba(255,255,255, .2)
+  } */
+
+
+ 
+  /* .item .shadow {
+    background: linear-gradient(rgba(0,0,0, .2) 0%, rgba(0,0,0, .1));
+    opacity: .9;
+    position: absolute;
+    filter: blur( 35px);
+    height: 110%;
+    width: 110%;
+    transform: translateZ(-307px) translateY(432px) translateX(2px) scale(1.2) rotateX(96deg);
+  } */
+  
+
+  .track .item:nth-of-type(1) {
+    background-color: green;
+    transform: rotateY(calc(var(--angle) * 3)) translateZ(var(--distance)) translateY(var(--vertical-offset));
+  }
+  
+  .track .item:nth-of-type(2) {
+    background-color: green;
+    transform: rotateY(calc(var(--angle) * 2)) translateZ(var(--distance))  translateY(var(--vertical-offset));
+  }
+  
+  .track .item:nth-of-type(3) {
+    background-color: green;
+    transform: rotateY(calc(var(--angle))) translateZ(var(--distance)) translateY(var(--vertical-offset));
+  }
+  
+  .track .item:nth-of-type(4) {
+    background-color: blue;
+    transform: rotateY(0deg) translateZ(calc(var(--distance) * var(--active-translate-modifier))) translateY(var(--vertical-offset));
+  }
+  
+  .track .item:nth-of-type(4) .caption {
+    opacity: 1;
+    transition-delay:.2s;
+  }
+  
+  .track .item:nth-of-type(5) {
+    background-color: green;
+    transform: rotateY(calc(var(--angle) * -1)) translateZ(var(--distance)) translateY(var(--vertical-offset));
+  }
+  
+  .track .item:nth-of-type(6) {
+    background-color: green;
+    transform: rotateY(calc(var(--angle) * -2)) translateZ(var(--distance)) translateY(var(--vertical-offset));
+  }
+  
+  .track .item:nth-of-type(7) {
+    background-color: green;
+    transform: rotateY(calc(var(--angle) * -3)) translateZ(var(--distance)) translateY(var(--vertical-offset));
+  }
