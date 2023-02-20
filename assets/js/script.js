@@ -4,9 +4,10 @@ function addDot () {
     const years = document.querySelector('.years')
 
     addbutton.addEventListener('click', () => {
-        const dot = document.createElement('div')
+        let dot = document.createElement('div')
         dot.className = 'dots'
         dot = years.appendChild(dot)
+        
     })
 }
 
@@ -15,7 +16,9 @@ function removeDot () {
     const years = document.querySelector('.years')
 
     removeButton.addEventListener('click', () => {
-        years.firstChild.remove()
+        if (years.children.length > 1) {
+            years.children[1].remove()
+        }
     })
 }
 
