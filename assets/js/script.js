@@ -22,8 +22,8 @@ function removeDot () {
     })
 }
 
-addDot ()
-removeDot ()
+// addDot ()
+// removeDot ()
 
 
 
@@ -126,13 +126,16 @@ removeDot ()
 
 
 // Defilement des cards
-const container = document.querySelector('.container');
+// const container = document.querySelector('.container');
 
-document.querySelector('.prev-arrow').addEventListener('click', (e)=>{
-    container.append(container.querySelector('.item:first-of-type'));
-});
+// document.querySelector('.prev-arrow').addEventListener('click', (e)=>{
+//     container.append(container.querySelector('.item:first-of-type'));
+// });
 
-document.querySelector('.next-arrow').addEventListener('click', (e)=>{
-    container.prepend(container.querySelector('.item:last-of-type'));
-});
+// document.querySelector('.next-arrow').addEventListener('click', (e)=>{
+//     container.prepend(container.querySelector('.item:last-of-type'));
+// });
+
+
+
 

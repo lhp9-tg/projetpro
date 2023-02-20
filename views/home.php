@@ -1,6 +1,7 @@
 <?php 
-    require 'includes/header.php';
+require 'templates/header.php';
 ?>
+
     <main>
         <section class="hero">
             <div class="hero__content">
@@ -15,5 +16,6 @@
         </section>
     </main>
     
-</body>
-</html>
+<?php
+require 'templates/footer.php';
+?>

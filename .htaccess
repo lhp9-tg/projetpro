@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteRule "home" "controllers/home.php"
+RewriteRule "login" "controllers/login.php"
+ErrorDocument 404 /404.php
