@@ -67,7 +67,7 @@ nav ul a {
 
 main {
     width: 90vw;
-    height: 100%;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,21 +76,30 @@ main {
 
 /* Sign in */
 
-.modal {
-  /* background-color: white;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 50vw;
-  padding: 0 40px;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
-  border: #1b66ca 1px solid;
-  border-radius: 10px;
-  z-index: 1; */
+form .modern_input {
+  display : flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+form .modern_input .error_modern_input {
+  margin-left: 50px;
+  padding-bottom: 25px;
+  color: red;
+  font-weight: bold;
+}
+
+form .modern_input .error {
+  margin-left: 50px;
+  color: red;
+  font-weight: bold;
+}
+
+form .modern_input .error_cgu {
+  margin-left: 50px;
+  margin-bottom : -5px;
+  color: red;
+  font-weight: bold;
 }
 
 form.modern_form .labels {
@@ -111,7 +120,7 @@ form.modern_form .labels input {
 }
 form.modern_form .labels label {
   position: absolute;
-  top: 3px;
+  top: 5px;
   left: 5px;
   padding-top: 10px;
   font-size: 16px;
@@ -127,19 +136,19 @@ form.modern_form .labels input:valid ~ label {
   font-size: 12px;
 }
 
-.birthdate {
+.birthyear {
   display: flex;
   align-items: center;
 }
 
-.birthdate label{
+.birthyear label{
   display: block;
   margin-top : 1rem;
   margin-bottom : 1rem;
   font-weight: bold;
 }
 
-.birthdate select {
+.birthyear select {
   border : 2px solid #1b66ca;
   border-radius: 5px;
   height: 2rem;
@@ -174,6 +183,24 @@ form.modern_form .labels input:valid ~ label {
 .submit:hover {
   background-color: #1b66ca;
   color: white;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-weight: bold;
+  border: #1b66ca 2px solid;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 2px #535353;
+  padding: 50px;
 }
 
 
@@ -231,7 +258,7 @@ form.modern_form .labels input:valid ~ label {
   background-color: #adadad;
 }
 
-.understood {
+.modern_button {
   position : relative;
   margin : 1rem 0;
   width : 10vw;
@@ -249,7 +276,7 @@ form.modern_form .labels input:valid ~ label {
   transform : translateX(-50%);
 }
 
-.understood:hover {
+.modern_button:hover {
   background-color: #1b66ca;
   color: white;
 }
@@ -419,15 +446,13 @@ form.modern_form .labels input:valid ~ label {
 /* ******FOOTER****** */
 
 footer {
+  border-top: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(128, 128, 128, 0.50);
-    position: absolute;
-    bottom: 0;
-    height: 10vh;
     width: 100%;
+    height: auto;
 }
 
 /* Partie timeline */

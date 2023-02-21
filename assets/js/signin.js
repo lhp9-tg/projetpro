@@ -3,9 +3,7 @@
 const modal = document.querySelector(".modal")
 const trigger = document.querySelector(".modal_trigger")
 const closeButton = document.querySelector(".close-button")
-const understood = document.querySelector(".understood")
-
-console.log(trigger)
+const understood = document.querySelector(".modern_button")
 
 function toggleModal() {
 modal.classList.toggle("show-modal")

@@ -8,10 +8,7 @@ class Users
     private string $_password;
     private string $_age;
     private string $_email;
-    private int $_facebook;
-    private int $_instagram;
-    private int $_twitter;
-    private int $_token;
+    private string $_token;
 
     private object $_pdo;
 
@@ -34,17 +31,66 @@ class Users
     }
 
     /**
-     * methode pour récupérer la liste de tous les users_name
+     * methode pour récupérer la liste de tous les users_nickname
+     *
+     * @return int
+     */
+    public function VerifyName() : int
+    {
+        // nous préparons la requête
+        $query = $this->_pdo->prepare('SELECT * FROM users WHERE users_name = :users_name');
+
+        // nous executons la requête
+        $query->execute([
+            ':users_name' => $this->_name,
+        ]);
+
+        // on recupère le nombre de doublons
+        $count = $query->rowCount();
+
+        // nous retournons le resultat de la requête
+        return $count;
+    }
+
+    /**
+     * methode pour récupérer la liste de tous les users_email
+     *
+     * @return int
+     */
+    public function VerifyEmail() : int
+    {
+        // nous préparons la requête
+        $query = $this->_pdo->prepare('SELECT * FROM users WHERE users_email = :users_email');
+
+        // nous executons la requête
+        $query->execute([
+                ':users_email' => $this->_email,
+        ]);
+
+        // on recupère le nombre de doublons
+        $count = $query->rowCount();
+
+        // nous retournons le resultat de la requête
+        return $count;
+    }
+
+    /**
+     * methode pour ajouter un user dans la base de données
      *
      * @return array
      */
-    public function getAllUsersName() : array
+    public function AddUser() : array
     {
         // nous préparons la requête
-        $query = $this->_pdo->prepare('SELECT users_name FROM users');
+        $query = $this->_pdo->prepare('INSERT INTO users (users_name, users_password, users_age, users_email) VALUES (:users_name, :users_password, :users_age, :users_email)');
 
         // nous executons la requête
-        $query->execute();
+        $query->execute([
+            ':users_name' => $this->_name,
+            ':users_password' => $this->_password,
+            ':users_age' => $this->_age,
+            ':users_email' => $this->_email,
+        ]);
 
         // nous retournons le resultat de la requête
         return $query->fetchAll(PDO::FETCH_ASSOC);
