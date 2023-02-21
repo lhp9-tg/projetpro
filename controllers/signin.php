@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 $page = 'signin';
 
 require '../config/env.php';
@@ -72,12 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error['birthyear'] = 'La date saisie n\'est pas valide.';
     }
 
-    if (isset($_POST['socialmedia'])) {
-        if (!in_array($_POST['socialmedia'], $socials)) {
-            $error['socialmedia'] = 'La saisie est incorrecte';
-        }
-    }
-
     if (!isset($_POST['cgu'])) {
         $error['cgu'] = 'Veuillez valider les CGU';
     }
@@ -87,10 +82,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($showform === false) {
+        $_SESSION['user'] = [
+            'username' => $_POST['username'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+            'birthyear' => $_POST['year'],
+        ];
+
         $obj_users->_name = $_POST['username'];
         $obj_users->_email = $_POST['email'];
         $obj_users->_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $obj_users->_age = date('Y') - $_POST['year'];
+        $obj_users->_birthyear = $_POST['year'];
 
         $obj_users->addUser();
     }

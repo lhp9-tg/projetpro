@@ -79,9 +79,8 @@ require 'templates/header.php';
         </div>
 
         <?php }
-        else { ?>
-
-            
+        else { 
+        ?>
             <div class="success">
                 <p> Bonjour <?= $_POST['username'] ?>.<br>
                 <p>Vous êtes bien inscrit !

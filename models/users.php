@@ -6,7 +6,7 @@ class Users
     private int $_id;
     private string $_name;
     private string $_password;
-    private string $_age;
+    private string $_birthyear;
     private string $_email;
     private string $_token;
 
@@ -82,13 +82,13 @@ class Users
     public function AddUser() : array
     {
         // nous préparons la requête
-        $query = $this->_pdo->prepare('INSERT INTO users (users_name, users_password, users_age, users_email) VALUES (:users_name, :users_password, :users_age, :users_email)');
+        $query = $this->_pdo->prepare('INSERT INTO users (users_name, users_password, users_birthyear, users_email) VALUES (:users_name, :users_password, :users_birthyear, :users_email)');
 
         // nous executons la requête
         $query->execute([
             ':users_name' => $this->_name,
             ':users_password' => $this->_password,
-            ':users_age' => $this->_age,
+            ':users_birthyear' => $this->_birthyear,
             ':users_email' => $this->_email,
         ]);
 

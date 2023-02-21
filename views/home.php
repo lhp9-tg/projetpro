@@ -3,16 +3,17 @@ require 'templates/header.php';
 ?>
 
     <main>
-        <section class="hero">
-            <div class="hero__content">
-                <h2 class="hero__title">The Retrospective</h1>
-                <p class="hero__text">La liste complète des films que vous avez vu</p>
-                <a href="login.php" class="hero__button">Commencer</a>
+        <section>
+            <div>
+                <h2>The Retrospective</h2>
+                <p>La liste complète des films que vous avez vu</p>
             </div>
         </section>
         <section>
             <div>
-                <h2 class="section__title">Journal des modifications</h2>
+                <h2>Journal des modifications</h2>
+                <p>21/02/2023 : Mise en place de la partie inscription</p>
+            </div>
         </section>
     </main>
     

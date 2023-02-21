@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$page = 'login';
 
 if (isset($_GET['logout'])) {
     session_destroy();

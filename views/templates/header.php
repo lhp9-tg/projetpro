@@ -19,7 +19,7 @@
         <nav>
             <ul>
                 <li><a href="../controllers/home.php">Accueil</a></li>
-                <li><a href="../controllers/login.php">Se connecter</a></li>
+                <?= (isset($_SESSION['user'])) ? '<li><a href="../controllers/calendar.php">Se déconnecter</a></li>' : '<li><a href="../controllers/login.php">Se connecter</a></li>' ?>
                 <li><a href=".">S'inscrire</a></li>
             </ul>
         </nav>
