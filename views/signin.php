@@ -8,7 +8,7 @@ require 'templates/header.php';
         <form action="../controllers/signin.php" method="POST" class="modern_form">
             <h2>Créer votre compte</h2>
             <div class='modern_input'>
-                <div class="labels">
+                <div class="modern_label">
                     <input type="text" name="username" required>
                     <label>Entrer votre nom d'utilisateur</label>
                 </div>
@@ -16,7 +16,7 @@ require 'templates/header.php';
             </div>
             
             <div class='modern_input'>
-                <div class="labels">
+                <div class="modern_label">
                         <input type="email" name="email" required>
                         <label>Entrer votre email</label>
                 </div>
@@ -28,7 +28,7 @@ require 'templates/header.php';
             </div>
 
             <div class='modern_input'>
-                <div class="labels">
+                <div class="modern_label">
                         <input type="password" name="password" required>
                         <label>Entrer votre mot de passe</label>
                 </div>
@@ -36,7 +36,7 @@ require 'templates/header.php';
             </div>
             
             <div class='modern_input'>
-                <div class="birthyear">
+                <div class="select">
                         <label>Entrer votre année de naissance :</label>
                         <select name="year" id="birthyear">
                             <option value="">-- Année --</option>
@@ -46,7 +46,7 @@ require 'templates/header.php';
                             <?php } ?>
                         </select>
                 </div>
-                <p class="error"><?= isset($error['birthyear']) ? $error['birthyear'] : '' ?></p>
+                <p class="error_select"><?= isset($error['birthyear']) ? $error['birthyear'] : '' ?></p>
             </div>
             
 
@@ -55,13 +55,13 @@ require 'templates/header.php';
             </div>
         
             <div class='modern_input'>
-                <div class="cgu">
+                <div class="checkbox">
                     <br>
                     <input type="checkbox" id="cgu" name="cgu" required>
                     <label for="cgu">J'accepte les <span class="modal_trigger">Conditions Générales d'Utilisation (CGU)</span></label>
                     <br>
                 </div>
-                <p class="error_cgu"><?= isset($error['cgu']) ? $error['cgu'] : '' ?></p>
+                <p class="error_checkbox"><?= isset($error['cgu']) ? $error['cgu'] : '' ?></p>
             </div>
             
 
@@ -81,7 +81,7 @@ require 'templates/header.php';
         <?php }
         else { 
         ?>
-            <div class="success">
+            <div class="info">
                 <p> Bonjour <?= $_POST['username'] ?>.<br>
                 <p>Vous êtes bien inscrit !
             </div>

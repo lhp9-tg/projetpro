@@ -2,44 +2,48 @@
 require 'templates/header.php';
 ?>
 
-    <div id="container">
+    <main>
+
 
             <?php
                 if (isset($disconnected)) { ?>
 
                     <div class="info">
-                    <p><?= 'Vous avez bien été déconnecté'; ?></p>
-                    <a href="../controllers/login.php">Retour à l'accueil</a>
+                    <p>Vous avez bien été déconnecté</p>
+                    <a href="../controllers/home.php">Retour à l'accueil</a>
                     </div>
             <?php
                 }
 
                 if (!isset($disconnected)) { ?>
-                    
-                    <form id="connexion" action="" method="POST">
-                        <h1>Connexion</h1>
 
-                        <div class="labels">
-                        <input type="text" name="username" required>
-                        <label>Entrer le nom d'utilisateur</label>
-                        </div>
+                    <h2>Connexion</h2>
 
-                        <div class="labels">
-                        <input type="password" name="password" required>
-                        <label>Entrer le mot de passe</label>
-                        </div>
+                    <form id="connexion" action="" method="POST" class="modern_form">
 
-                        <br>
-                        <input type="submit" id='submit' value='Se connecter'>
+                    <?php foreach ($errors as $key => $value) { ?>
+                        <p class="error_top"><?= $value ?></p>
+                    <?php } ?>
 
-                        <?php foreach ($errors as $key => $value) { ?>
-                            <p><?= $value ?></p>
-                        <?php } ?>
+                    <div class="modern_label">
+                    <input type="text" name="username" required>
+                    <label>Entrer votre nom d'utilisateur</label>
+                    </div>
+
+                    <div class="modern_label">
+                    <input type="password" name="password" required>
+                    <label>Entrer votre mot de passe</label>
+                    </div>
+
+                    <br>
+                    <div class="col_center">
+                        <input type="submit" class='submit' value='Se connecter'>
+                    </div>
 
                     </form>
                 <?php }
             ?>
-    </div>
+    </main>
 
 <?php
 require 'templates/footer.php';

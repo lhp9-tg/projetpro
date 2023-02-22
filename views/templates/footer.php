@@ -9,7 +9,7 @@
 
         </footer>
 
-        <script src="../../assets/js/<?= $page ?>.js" ></script>
+        <script src="../../assets/js/script.js" ></script>
 
     </body>
 </html>

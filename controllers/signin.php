@@ -26,11 +26,11 @@ $error = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['username'])) {
-        $obj_users->_name = $_POST['username'];
+        
         if ($_POST['username'] === '') {
             $error['username'] = 'Ce champ est obligatoire.';
         }
-        elseif ($obj_users->VerifyName() > 0) {
+        elseif ($obj_users->CountName($_POST['username']) > 0) {
             $error['username'] = 'Votre nom d\'utilisateur est déjà pris.';
         }
         elseif (!preg_match($regexname, $_POST['username'])) {
@@ -39,11 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_POST['email'])) {
-        $obj_users->_email = $_POST['email'];
+        
         if ($_POST['email'] === '') {
             $error['email'] = 'Ce champ est obligatoire.';
         }
-        elseif ($obj_users->VerifyEmail() > 0) {
+        elseif ($obj_users->CountEmail($_POST['email']) > 0) {
             $error['email'] = 'Votre adresse mail est déjà prise.';
         }
         elseif (!preg_match($regexemail, $_POST['email'])) {

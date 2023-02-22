@@ -8,14 +8,12 @@ if (isset($_GET['logout'])) {
     $disconnected = true;
 }
 
-@$json = file_get_contents('../data/users.json');
-if ($json === false) {
-    $error = 'Le JSON n\'a pas pu être importé';
-    exit();
-}
+require '../config/env.php';
+require '../helpers/database.php';
+require '../models/users.php';
 
-$data = json_decode($json, true);
-$users = $data['users'];
+$obj_users = new Users();
+
 $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -24,45 +22,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (empty($_POST['username'])) {
 
-            $errors['username'] = 'Le login est obligatoire';
-        } else {
-            foreach ($users as $key => $value) {
-                if ($_POST['username'] === $value['pseudo']) {
+            $errors['username'] = "Votre nom d'utilisateur est obligatoire";
 
-                    $userkey = $key;
-                    break;
-                }
-                if (!isset($userkey)) {
-                    $errors['verifyUsername'] = 'Le login n\'existe pas';
-                }
-            }
+        } elseif (!$obj_users->checkUsername($_POST['username'])) {
+
+            $errors['username'] = "Votre nom d'utilisateur est incorrect";
         }
     }
     if (isset($_POST['password'])) {
 
         if (empty($_POST['password'])) {
 
-            $errors['password'] = 'Le password est obligatoire';
+            $errors['password'] = 'Votre mot de passe est obligatoire';
         }
     }
     if (empty($errors)) {
-        if (!password_verify($_POST['password'] , $users[$userkey]['password'])) {
-            $errors['verifyPassword'] = 'Le password est incorrect';
+        $hash = $obj_users->CheckPassword($_POST['username']);
+        
+        if (!password_verify($_POST['password'], $hash['users_password'])) {
+
+        $errors['password'] = "Votre mot de passe est incorrect";
+
         }
         else {
-            $quota = $users[$userkey]['quota'];
-            $mail = $users[$userkey]['mail'];
 
-            $usersession = [
+            $_SESSION['user'] = [
                 'username' => $_POST['username'],
                 'password' => $_POST['password'],
-                'mail' => $mail,
-                'quota' => $quota
             ];
 
-            $_SESSION['user'] = $usersession;
-
-            header('Location: controller-gallery.php');
+            header('Location: home.php');
 
         }
     }

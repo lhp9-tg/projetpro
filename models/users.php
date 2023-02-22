@@ -35,14 +35,14 @@ class Users
      *
      * @return int
      */
-    public function VerifyName() : int
+    public function CountName($username) : int
     {
         // nous préparons la requête
         $query = $this->_pdo->prepare('SELECT * FROM users WHERE users_name = :users_name');
 
         // nous executons la requête
         $query->execute([
-            ':users_name' => $this->_name,
+                ':users_name' => $username,
         ]);
 
         // on recupère le nombre de doublons
@@ -57,14 +57,14 @@ class Users
      *
      * @return int
      */
-    public function VerifyEmail() : int
+    public function CountEmail($email) : int
     {
         // nous préparons la requête
         $query = $this->_pdo->prepare('SELECT * FROM users WHERE users_email = :users_email');
 
         // nous executons la requête
         $query->execute([
-                ':users_email' => $this->_email,
+                ':users_email' => $email,
         ]);
 
         // on recupère le nombre de doublons
@@ -95,4 +95,43 @@ class Users
         // nous retournons le resultat de la requête
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    /**
+     * methode pour récupérer un user par son users_name
+     *
+     * @return array
+     */
+    public function CheckUsername($username) : array
+    {
+        // nous préparons la requête
+        $query = $this->_pdo->prepare('SELECT * FROM users WHERE users_name = :users_name');
+
+        // nous executons la requête
+        $query->execute([
+            ':users_name' => $username,
+        ]);
+
+        // nous retournons le resultat de la requête
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * methode pour vérifier le mot de passe du user par son users_name et son password
+     *
+     * @return string
+     */
+    public function CheckPassword($username) : array
+    {
+        // nous préparons la requête
+        $query = $this->_pdo->prepare('SELECT users_password FROM users WHERE users_name = :users_name');
+
+        // nous executons la requête
+        $query->execute([
+            ':users_name' => $username,
+        ]);
+
+        // nous retournons le resultat de la requête
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
 }

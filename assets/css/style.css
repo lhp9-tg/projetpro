@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 
+/* ******GENERAL******  */
 
 body {
     margin: 0;
@@ -9,6 +10,88 @@ body {
     font-family: "Source Sans Pro", sans-serif;
     color: #383838;
     background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    align-items: center;
+}
+
+h1 {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  margin-left: 10px;
+}
+
+h2 {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  margin-left: 10px;
+  margin-bottom: 1rem;
+}
+
+/* Les DIV centrées à la Bootstrap */
+
+.col_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.row_center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Les DIV centées style modal d'information */
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-weight: bold;
+  border: #1b66ca 2px solid;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 2px #535353;
+  padding: 50px;
+}
+
+/* Les boutons modernes */
+
+.modern_button {
+  position : relative;
+  margin : 1rem 0;
+  width : 10vw;
+  height: 2.3em;
+  border: #1b66ca 2px solid;
+  border-radius: 5px;
+  font-weight: bolder;
+  color: #1b66ca;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1em;
+  align-self: center;
+  transition: background-color .5s ease;
+  transition: color .5s ease;
+  left: 50%;
+  transform : translateX(-50%);
+}
+
+.modern_button:hover {
+  background-color: #1b66ca;
+  color: white;
 }
 
 /* ******HEADER******  */
@@ -24,14 +107,6 @@ header {
 }
 
 /* Partie Menu */
-
-h1 {
-    font-family: 'Caveat', cursive;
-    font-size: 2rem;
-    font-weight: 600;
-    margin: 0;
-    margin-left: 10px;
-}
 
 .logo {
   height: 100%;
@@ -74,7 +149,7 @@ main {
     flex-direction: column;
 }
 
-/* Sign in */
+/* Les formaulaires */
 
 form .modern_input {
   display : flex;
@@ -82,31 +157,13 @@ form .modern_input {
   align-items: center;
 }
 
-form .modern_input .error_modern_input {
-  margin-left: 50px;
-  padding-bottom: 25px;
-  color: red;
-  font-weight: bold;
-}
+/* Les Champs INPUT modernes */
 
-form .modern_input .error {
-  margin-left: 50px;
-  color: red;
-  font-weight: bold;
-}
-
-form .modern_input .error_cgu {
-  margin-left: 50px;
-  margin-bottom : -5px;
-  color: red;
-  font-weight: bold;
-}
-
-form.modern_form .labels {
+form.modern_form .modern_label {
   position: relative;
 }
 
-form.modern_form .labels input {
+form.modern_form .modern_label input {
   width: 300px;
   height: 25px;
   font-size: 16px;
@@ -118,7 +175,7 @@ form.modern_form .labels input {
   padding-top: 20px;
   padding-left: 5px;
 }
-form.modern_form .labels label {
+form.modern_form .modern_label label {
   position: absolute;
   top: 5px;
   left: 5px;
@@ -129,46 +186,53 @@ form.modern_form .labels label {
   font-weight: bolder;
 }
 
-form.modern_form .labels input:focus ~ label,
-form.modern_form .labels input:valid ~ label {
+form.modern_form .modern_label input:focus ~ label,
+form.modern_form .modern_label input:valid ~ label {
   top: -8px;
   left: 5px;
   font-size: 12px;
 }
 
-.birthyear {
+/* Les SELECT modernes */
+
+.select {
   display: flex;
   align-items: center;
 }
 
-.birthyear label{
+.select label{
   display: block;
   margin-top : 1rem;
   margin-bottom : 1rem;
   font-weight: bold;
 }
 
-.birthyear select {
+.select select {
   border : 2px solid #1b66ca;
   border-radius: 5px;
   height: 2rem;
   margin-left : 40px;
 }
 
-.cgu label {
+/* Les checkbox modernes */
+
+.checkbox label {
   font-weight: bold;
 }
 
-.cgu .modal_trigger {
+.checkbox .modal_trigger {
   color: #1b66ca;
   cursor: pointer;;
   font-weight: bold;
 }
 
+/* Les buttons submit style modernes */
+
 .submit {
   margin : 1rem 0;
   width : 10vw;
   height: 2.3em;
+  width: auto;
   border: #1b66ca 2px solid;
   border-radius: 5px;
   font-weight: bolder;
@@ -185,22 +249,33 @@ form.modern_form .labels input:valid ~ label {
   color: white;
 }
 
-.success {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* Les erreurs de validation */
 
+form .modern_input .error_modern_input {
+  margin-left: 50px;
+  padding-bottom: 25px;
+  color: red;
   font-weight: bold;
-  border: #1b66ca 2px solid;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px 2px #535353;
-  padding: 50px;
+}
+
+form .modern_input .error_select {
+  margin-left: 50px;
+  color: red;
+  font-weight: bold;
+}
+
+form .modern_input .error_checkbox {
+  margin-left: 50px;
+  margin-bottom : -5px;
+  color: red;
+  font-weight: bold;
+}
+
+.error_top {
+  text-align: center;
+  color: red;
+  font-weight: bold;
 }
 
 
@@ -256,29 +331,6 @@ form.modern_form .labels input:valid ~ label {
 
 .close-button:hover {
   background-color: #adadad;
-}
-
-.modern_button {
-  position : relative;
-  margin : 1rem 0;
-  width : 10vw;
-  height: 2.3em;
-  border: #1b66ca 2px solid;
-  border-radius: 5px;
-  font-weight: bolder;
-  color: #1b66ca;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.1em;
-  align-self: center;
-  transition: background-color .5s ease;
-  transition: color .5s ease;
-  left: 50%;
-  transform : translateX(-50%);
-}
-
-.modern_button:hover {
-  background-color: #1b66ca;
-  color: white;
 }
 
 /* Partie card */
