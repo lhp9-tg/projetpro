@@ -6,7 +6,7 @@ require 'templates/header.php';
         <section>
             <div>
                 <h2>The Retrospective</h2>
-                <p>La liste complète des films que vous avez vu</p>
+                <p>La liste complète des films que vous avez vus</p>
             </div>
         </section>
         <section>

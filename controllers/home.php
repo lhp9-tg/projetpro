@@ -1,6 +1,6 @@
 <?php
 
 session_start();
-$page = 'home';
+$js = 'home';
 
 include '../views/home.php';
