@@ -10,10 +10,6 @@ body {
     font-family: "Source Sans Pro", sans-serif;
     color: #383838;
     background-color: #f8f8f8;
-    display: flex;
-    flex-direction: column;
-    justify-content:center ;
-    align-items: center;
 }
 
 h1 {
@@ -29,7 +25,6 @@ h2 {
   font-size: 2rem;
   font-weight: 600;
   margin: 0;
-  margin-left: 10px;
   margin-bottom: 1rem;
 }
 
@@ -143,10 +138,18 @@ nav ul a {
 main {
     width: 90vw;
     height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    overflow: auto;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Les formaulaires */
@@ -279,7 +282,7 @@ form .modern_input .error_checkbox {
 }
 
 
-/* Partie Modale */
+/* Les Modales */
 .modal {
   position: fixed;
   left: 0;
@@ -333,7 +336,7 @@ form .modern_input .error_checkbox {
   background-color: #adadad;
 }
 
-/* Partie card */
+/* Le caroussel */
 
 
 .caroussel {
@@ -355,7 +358,7 @@ form .modern_input .error_checkbox {
 }
 
 
-.container {
+.cards_container {
     width: 100%;
     height: 100%;
 
@@ -381,31 +384,31 @@ form .modern_input .error_checkbox {
 
 }
 
-.container .item:nth-of-type(1) {
+  .cards_container .item:nth-of-type(1) {
     transform: rotateY(calc(var(--angle) * 2)) translateZ(var(--distance)) translateY(var(--vertical-offset));
   }
   
-  .container .item:nth-of-type(2) {
+  .cards_container .item:nth-of-type(2) {
     transform: rotateY(calc(var(--angle) * 1)) translateZ(var(--distance)) translateY(var(--vertical-offset));
   }
   
-  .container .item:nth-of-type(3) {
+  .cards_container .item:nth-of-type(3) {
     width: 45vw;
     background-color: transparent;
     border: none;
     transform: rotateY(0deg) translateZ(calc(var(--distance) * var(--active-translate-modifier))) translateY(var(--vertical-offset));
   }
   
-  .container .item:nth-of-type(4) {
+  .cards_container .item:nth-of-type(4) {
     transform: rotateY(calc(var(--angle) * -1)) translateZ(var(--distance)) translateY(var(--vertical-offset));
   }
   
-  .container .item:nth-of-type(5) {
+  .cards_container .item:nth-of-type(5) {
     transform: rotateY(calc(var(--angle) * -2)) translateZ(var(--distance)) translateY(var(--vertical-offset));
   }
 
 
-/* Partie card 3D */
+/* Le caroussel : Partie card 3D */
 
 .item:nth-child(3) {
     background-color: transparent;
@@ -452,7 +455,7 @@ form .modern_input .error_checkbox {
   }
 
 
-/* Partie flèches de navigation */
+/* Le caroussel : Partie flèches de navigation */
 
 .prev-arrow {
     position: absolute;
@@ -479,7 +482,7 @@ form .modern_input .error_checkbox {
     position: absolute;
     top: 50%;
     right: 10px;
-    width: 100px;; 
+    width: 100px;
     height: 100px; 
     cursor: pointer;
     opacity: 0.5;
@@ -494,6 +497,46 @@ form .modern_input .error_checkbox {
     z-index: 2;
 }
 
+/* Résultats de la recherche */
+
+.movie {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border: 1px solid black;
+} 
+
+.movie .movie_image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie img {
+    width: 150px;
+    height: 225px;
+    margin: 10px;
+}
+
+.movie_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin: 10px;
+}
+
+/* La grille des résultats */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding: 10px 0;
+  }
 
 /* ******FOOTER****** */
 

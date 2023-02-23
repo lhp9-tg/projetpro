@@ -1,1 +1,175 @@
-{"page":1,"results":[{"adult":false,"backdrop_path":"/lVy5Zqcty2NfemqKYbVJfdg44rK.jpg","genre_ids":[28,80],"id":24,"original_language":"en","original_title":"Kill Bill: Vol. 1","overview":"Au cours d'un mariage, un commando armé massacre l'assistance, laissant pour morte la Mariée et l'enfant qu'elle porte. Après 4 ans de coma, la Mariée se lance à la poursuite des assassins, membres du clan de Bill, au sein duquel, sous le pseudonyme de Black Mamba, elle exerça elle-même autrefois ses talents de redoutable tueuse...","popularity":32.581,"poster_path":"/hM2fUVWViGIJT0Twz2BTXOBEYLM.jpg","release_date":"2003-10-10","title":"Kill Bill: Volume 1","video":false,"vote_average":7.97,"vote_count":15500},{"adult":false,"backdrop_path":"/70EtzaGfO2d8X5n8SLI4s61KuJh.jpg","genre_ids":[28,80,53],"id":393,"original_language":"en","original_title":"Kill Bill: Vol. 2","overview":"Après avoir éliminé ses deux anciennes collègues Vernita Green et O-Ren Ishii, la Mariée, alias Black Mamba, poursuit l'éradication du gang des Vipères Assassines. Prochaines cibles : Budd, puis Elle Driver, avant d'atteindre enfin son but ultime : tuer leur chef, Bill...","popularity":25.341,"poster_path":"/2O8FeZUGL4IuAmIikusSMdB8o2s.jpg","release_date":"2004-04-16","title":"Kill Bill: Volume 2","video":false,"vote_average":7.877,"vote_count":12387},{"adult":false,"backdrop_path":"/itcAHIwxKvSkFEVUsqSpOEIRwZy.jpg","genre_ids":[28,80,53],"id":414419,"original_language":"en","original_title":"Kill Bill: The Whole Bloody Affair","overview":"Kill Bill : The Whole Bloody Affair est une édition complète des deux films d'action d'arts martiaux Kill Bill : Volume 1 et Kill Bill : Volume 2. Le film était à l'origine prévu pour être publié comme une seule partie. Toutefois, en raison de la durée du film plus de 4 heures, il a été divisé en deux parties.","popularity":17.871,"poster_path":"/zomX76Pf3nUaTzRBk5BveLk1QPu.jpg","release_date":"2011-03-27","title":"Kill Bill : The Whole Bloody Affair","video":false,"vote_average":7.965,"vote_count":845},{"adult":false,"backdrop_path":"/2GFxMsZTiSU7i3GtwRnonx14nrb.jpg","genre_ids":[35],"id":983683,"original_language":"en","original_title":"Bill Burr Presents: Friends Who Kill","overview":"Bill Burr réunit ses amis humoristes les plus tapageurs pour une nuit tordante. De la pandémie de COVID-19 à Michael Jackson, aucun sujet ne sera épargné.","popularity":4.779,"poster_path":"/9gSpgNwjP3Qg8LAsrBgo1Fu6QdL.jpg","release_date":"2022-06-06","title":"Bill Burr Presents: Friends Who Kill","video":false,"vote_average":5.2,"vote_count":34},{"adult":false,"backdrop_path":null,"genre_ids":[35],"id":1001886,"original_language":"en","original_title":"Kill Bill Parody","overview":"A woman and her child are kidnapped by her lover and plans revenge on him.","popularity":0.6,"poster_path":null,"release_date":"","title":"Kill Bill Parody","video":false,"vote_average":10.0,"vote_count":1},{"adult":false,"backdrop_path":null,"genre_ids":[10402],"id":740725,"original_language":"en","original_title":"Beastie Boys: The $kill$ To Pay The Bill$","overview":"Looking Down The Barrel Of A Gun  So What'Cha Want  Netty's Girl  hake Your Rump  Egg Raid On Mojo  Shadrach (Mosh Version)  Holy Snappers  Hey Ladies  Slow And Low (Live)  Pass The Mic  Ask For Janice, Pt.II  Shadrach (Abstract Impressionist Version)","popularity":1.09,"poster_path":"/89CHZ3wSjIAghrSsS8TwXNCpe9R.jpg","release_date":"1992-01-01","title":"Beastie Boys: The $kill$ To Pay The Bill$","video":false,"vote_average":0.0,"vote_count":0},{"adult":false,"backdrop_path":"/2tQ9g2R1u80WQ9OEvYJQeTLFjGr.jpg","genre_ids":[37],"id":159282,"original_language":"es","original_title":"El hombre que mató a Billy el Niño","overview":"This spaghetti western presents a fictitious version of the often filmed legend of Pat Garrett and Billy the Kid. Billy becomes innocently an outlaw while protecting his mother, but then turns into a trigger happy killer. When he falls in love he tries with the help of Pat Garrett, a fatherly friend, to change back. However, circumstances force Billy to become violent again and it is Garrett who is credited with the killing.","popularity":1.338,"poster_path":"/tWjL6q1qE1x855fVvAvhtYZQU1z.jpg","release_date":"1967-03-09","title":"The Man Who Killed Billy the Kid","video":false,"vote_average":6.0,"vote_count":4},{"adult":false,"backdrop_path":"/nLxkQnNbuAY3MUsMlnjPKpTkLHV.jpg","genre_ids":[37],"id":144345,"original_language":"it","original_title":"Voltati... ti uccido","overview":"A gang of Mexican bandits make trouble for the owner of a gold mine, so he hires on a gunfighter.","popularity":0.6,"poster_path":"/x0NQRBMZSoZz72deASzzoCbbJ4v.jpg","release_date":"1967-10-21","title":"If One Is Born a Swine","video":false,"vote_average":0.0,"vote_count":0},{"adult":false,"backdrop_path":"/xUbgWoZUBnmAAw2jtzBdystKYo5.jpg","genre_ids":[35,18],"id":285205,"original_language":"no","original_title":"Her er Harold","overview":"For over 40 years, Harold has been running a successful business, Lunde Furniture, together with his wife, Marny. This comes to an end when IKEA decides to open a new superstore right next door to Harolds small furniture shop. Harold and Marny lose both their shop and their home to the bank, and to make matter worse, Marny is starting to lose her memory. In mounting anger and desperation, Harold wants revenge. He arms himself with a pistol, gets into his old Saab, and sets off for lmhult, Sweden, to kidnap his nemesis, the founder of IKEA, Ingvar Kamprad.","popularity":1.58,"poster_path":"/fh05jUBJJJH1daCKjL73vwbPSzI.jpg","release_date":"2014-10-31","title":"Here Is Harold","video":false,"vote_average":5.85,"vote_count":20}],"total_pages":1,"total_results":9}
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/lVy5Zqcty2NfemqKYbVJfdg44rK.jpg",
+            "genre_ids": [
+                28,
+                80
+            ],
+            "id": 24,
+            "original_language": "en",
+            "original_title": "Kill Bill: Vol. 1",
+            "overview": "Au cours d'un mariage, un commando armé massacre l'assistance, laissant pour morte la Mariée et l'enfant qu'elle porte. Après 4 ans de coma, la Mariée se lance à la poursuite des assassins, membres du clan de Bill, au sein duquel, sous le pseudonyme de Black Mamba, elle exerça elle-même autrefois ses talents de redoutable tueuse...",
+            "popularity": 32.581,
+            "poster_path": "/hM2fUVWViGIJT0Twz2BTXOBEYLM.jpg",
+            "release_date": "2003-10-10",
+            "title": "Kill Bill: Volume 1",
+            "video": false,
+            "vote_average": 7.97,
+            "vote_count": 15500
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/70EtzaGfO2d8X5n8SLI4s61KuJh.jpg",
+            "genre_ids": [
+                28,
+                80,
+                53
+            ],
+            "id": 393,
+            "original_language": "en",
+            "original_title": "Kill Bill: Vol. 2",
+            "overview": "Après avoir éliminé ses deux anciennes collègues Vernita Green et O-Ren Ishii, la Mariée, alias Black Mamba, poursuit l'éradication du gang des Vipères Assassines. Prochaines cibles : Budd, puis Elle Driver, avant d'atteindre enfin son but ultime : tuer leur chef, Bill...",
+            "popularity": 25.341,
+            "poster_path": "/2O8FeZUGL4IuAmIikusSMdB8o2s.jpg",
+            "release_date": "2004-04-16",
+            "title": "Kill Bill: Volume 2",
+            "video": false,
+            "vote_average": 7.877,
+            "vote_count": 12387
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/itcAHIwxKvSkFEVUsqSpOEIRwZy.jpg",
+            "genre_ids": [
+                28,
+                80,
+                53
+            ],
+            "id": 414419,
+            "original_language": "en",
+            "original_title": "Kill Bill: The Whole Bloody Affair",
+            "overview": "Kill Bill : The Whole Bloody Affair est une édition complète des deux films d'action d'arts martiaux Kill Bill : Volume 1 et Kill Bill : Volume 2. Le film était à l'origine prévu pour être publié comme une seule partie. Toutefois, en raison de la durée du film plus de 4 heures, il a été divisé en deux parties.",
+            "popularity": 17.871,
+            "poster_path": "/zomX76Pf3nUaTzRBk5BveLk1QPu.jpg",
+            "release_date": "2011-03-27",
+            "title": "Kill Bill : The Whole Bloody Affair",
+            "video": false,
+            "vote_average": 7.965,
+            "vote_count": 845
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/2GFxMsZTiSU7i3GtwRnonx14nrb.jpg",
+            "genre_ids": [
+                35
+            ],
+            "id": 983683,
+            "original_language": "en",
+            "original_title": "Bill Burr Presents: Friends Who Kill",
+            "overview": "Bill Burr réunit ses amis humoristes les plus tapageurs pour une nuit tordante. De la pandémie de COVID-19 à Michael Jackson, aucun sujet ne sera épargné.",
+            "popularity": 4.779,
+            "poster_path": "/9gSpgNwjP3Qg8LAsrBgo1Fu6QdL.jpg",
+            "release_date": "2022-06-06",
+            "title": "Bill Burr Presents: Friends Who Kill",
+            "video": false,
+            "vote_average": 5.2,
+            "vote_count": 34
+        },
+        {
+            "adult": false,
+            "backdrop_path": null,
+            "genre_ids": [
+                35
+            ],
+            "id": 1001886,
+            "original_language": "en",
+            "original_title": "Kill Bill Parody",
+            "overview": "A woman and her child are kidnapped by her lover and plans revenge on him.",
+            "popularity": 0.6,
+            "poster_path": null,
+            "release_date": "",
+            "title": "Kill Bill Parody",
+            "video": false,
+            "vote_average": 10.0,
+            "vote_count": 1
+        },
+        {
+            "adult": false,
+            "backdrop_path": null,
+            "genre_ids": [
+                10402
+            ],
+            "id": 740725,
+            "original_language": "en",
+            "original_title": "Beastie Boys: The $kill$ To Pay The Bill$",
+            "overview": "Looking Down The Barrel Of A Gun  So What'Cha Want  Netty's Girl  hake Your Rump  Egg Raid On Mojo  Shadrach (Mosh Version)  Holy Snappers  Hey Ladies  Slow And Low (Live)  Pass The Mic  Ask For Janice, Pt.II  Shadrach (Abstract Impressionist Version)",
+            "popularity": 1.09,
+            "poster_path": "/89CHZ3wSjIAghrSsS8TwXNCpe9R.jpg",
+            "release_date": "1992-01-01",
+            "title": "Beastie Boys: The $kill$ To Pay The Bill$",
+            "video": false,
+            "vote_average": 0.0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/2tQ9g2R1u80WQ9OEvYJQeTLFjGr.jpg",
+            "genre_ids": [
+                37
+            ],
+            "id": 159282,
+            "original_language": "es",
+            "original_title": "El hombre que mató a Billy el Niño",
+            "overview": "This spaghetti western presents a fictitious version of the often filmed legend of Pat Garrett and Billy the Kid. Billy becomes innocently an outlaw while protecting his mother, but then turns into a trigger happy killer. When he falls in love he tries with the help of Pat Garrett, a fatherly friend, to change back. However, circumstances force Billy to become violent again and it is Garrett who is credited with the killing.",
+            "popularity": 1.338,
+            "poster_path": "/tWjL6q1qE1x855fVvAvhtYZQU1z.jpg",
+            "release_date": "1967-03-09",
+            "title": "The Man Who Killed Billy the Kid",
+            "video": false,
+            "vote_average": 6.0,
+            "vote_count": 4
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/nLxkQnNbuAY3MUsMlnjPKpTkLHV.jpg",
+            "genre_ids": [
+                37
+            ],
+            "id": 144345,
+            "original_language": "it",
+            "original_title": "Voltati... ti uccido",
+            "overview": "A gang of Mexican bandits make trouble for the owner of a gold mine, so he hires on a gunfighter.",
+            "popularity": 0.6,
+            "poster_path": "/x0NQRBMZSoZz72deASzzoCbbJ4v.jpg",
+            "release_date": "1967-10-21",
+            "title": "If One Is Born a Swine",
+            "video": false,
+            "vote_average": 0.0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/xUbgWoZUBnmAAw2jtzBdystKYo5.jpg",
+            "genre_ids": [
+                35,
+                18
+            ],
+            "id": 285205,
+            "original_language": "no",
+            "original_title": "Her er Harold",
+            "overview": "For over 40 years, Harold has been running a successful business, Lunde Furniture, together with his wife, Marny. This comes to an end when IKEA decides to open a new superstore right next door to Harolds small furniture shop. Harold and Marny lose both their shop and their home to the bank, and to make matter worse, Marny is starting to lose her memory. In mounting anger and desperation, Harold wants revenge. He arms himself with a pistol, gets into his old Saab, and sets off for lmhult, Sweden, to kidnap his nemesis, the founder of IKEA, Ingvar Kamprad.",
+            "popularity": 1.58,
+            "poster_path": "/fh05jUBJJJH1daCKjL73vwbPSzI.jpg",
+            "release_date": "2014-10-31",
+            "title": "Here Is Harold",
+            "video": false,
+            "vote_average": 5.85,
+            "vote_count": 20
+        }
+    ],
+    "total_pages": 1,
+    "total_results": 9
+}

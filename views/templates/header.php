@@ -20,7 +20,8 @@
             <ul>
                 <li><a href="../controllers/home.php">Accueil</a></li>
                 <?= (isset($_SESSION['user'])) ? '<li><a href="../controllers/login.php?logout">Se déconnecter</a></li>' : '<li><a href="../controllers/login.php">Se connecter</a></li>' ?>
-                <?= (isset($_SESSION['user'])) ? '<li><a href="../controllers/user.php">Explorer</a></li>' : '<li><a href="../controllers/signin.php">S\'inscrire</a></li>' ?>
+                <?= (isset($_SESSION['user'])) ? '<li><a href="../controllers/explorer.php">Explorer</a></li>' : '<li><a href="../controllers/signin.php">S\'inscrire</a></li>' ?>
             </ul>
         </nav>
     </header>
+    <main>

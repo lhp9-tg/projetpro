@@ -126,14 +126,14 @@ function removeDot () {
 
 
 //Defilement des cards
-const container = document.querySelector('.container');
+const cards_container = document.querySelector('.cards_container');
 
 document.querySelector('.prev-arrow').addEventListener('click', (e)=>{
-    container.append(container.querySelector('.item:first-of-type'));
+    cards_container.append(cards_container.querySelector('.item:first-of-type'));
 });
 
 document.querySelector('.next-arrow').addEventListener('click', (e)=>{
-    container.prepend(container.querySelector('.item:last-of-type'));
+    cards_container.prepend(cards_container.querySelector('.item:last-of-type'));
 });
 
 

@@ -3,9 +3,9 @@
 session_start();
 $page = 'signin';
 
-require '../config/env.php';
-require '../helpers/database.php';
-require '../models/users.php';
+require_once '../config/env.php';
+require_once '../helpers/database.php';
+require_once '../models/users.php';
 
 // Les regex
 
