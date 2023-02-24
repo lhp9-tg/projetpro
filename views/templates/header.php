@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../../assets/img/logo.png">
     <link rel="stylesheet" href="../../assets/css/style.css">
-    <title>The Retrospective, la liste complète des films qui vous avez vu</title>
+    <title>The Retrospective</title>
 </head>
 
 <body>

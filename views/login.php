@@ -43,6 +43,8 @@ require 'templates/header.php';
     ?>
 </div>
 
+<script src="../assets/js/info.js"></script>
+
 <?php
 require 'templates/footer.php';
 ?>

@@ -4,7 +4,7 @@ require 'templates/header.php';
 
 <div class="container">
 
-    <div class="caroussel">
+    <div class="carousel">
         <img src="../assets/img/arrow.svg" alt="next-arrow" class="next-arrow">
         <img src="../assets/img/arrow.svg" alt="prev-arrow" class="prev-arrow">
 
@@ -145,7 +145,7 @@ require 'templates/header.php';
     </div>
 </footer>
 
-<script src="../assets/js/carrousel.js"></script>
+<script src="../assets/js/carousel.js"></script>
 </body>
 
 </html>

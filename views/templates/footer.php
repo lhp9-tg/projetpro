@@ -10,6 +10,7 @@
     </footer>
 
     <script src="../../assets/js/script.js" ></script>
+    <script src="https://kit.fontawesome.com/e997290e30.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

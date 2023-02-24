@@ -13,6 +13,23 @@ if (isset($_SESSION['discard_after']) && $now > $_SESSION['discard_after']) {
 // either new or old, it should live at most for another hour
 $_SESSION['discard_after'] = $now + 3600;
 
-$page = 'explorer';
+$page = 'my_retrospective';
 
-include '../views/explorer.php';
+require '../config/env.php';
+require '../helpers/database.php';
+require '../models/users.php';
+
+$obj_users = new Users();
+
+if (isset($_GET['id']))
+{
+    $id = $_GET['id'];
+    var_dump($id);
+}
+
+
+
+
+
+
+include '../views/my_retrospective.php';

@@ -58,7 +58,7 @@ require 'templates/header.php';
                 <div class="checkbox">
                     <br>
                     <input type="checkbox" id="cgu" name="cgu" required>
-                    <label for="cgu">J'accepte les <span class="modal_trigger">Conditions Générales d'Utilisation (CGU)</span></label>
+                    <label for="cgu">J'accepte les <span class="cgu">Conditions Générales d'Utilisation (CGU)</span></label>
                     <br>
                 </div>
                 <p class="error_checkbox"><?= isset($error['cgu']) ? $error['cgu'] : '' ?></p>
@@ -77,6 +77,7 @@ require 'templates/header.php';
                 require '../includes/cgu.html';
                 ?>
             </div>
+        </div>
 
         <?php } else {
         ?>
@@ -87,6 +88,9 @@ require 'templates/header.php';
     <?php } ?>
 
 </div>
+
+<script src="../assets/js/modal_cgu.js"></script>
+<script src="../assets/js/info.js"></script>
 
 <?php
 require 'templates/footer.php';

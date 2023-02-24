@@ -15,7 +15,7 @@ require 'templates/header.php';
             }
         }
 
-        if ($match != '' && (time() - filemtime($match) < 60)) {
+        if ($match != '' && (time() - filemtime($match) < 86400)) {
             $raw = file_get_contents($match);
             $json = json_decode($raw);
         } else {
@@ -25,13 +25,14 @@ require 'templates/header.php';
 
         if (!empty($json->results)) {
             ?>
+            <h2 style="text-align : center">Choisissez un film</h2>
             <div class='grid'>
             <?php
             foreach ($json->results as $movies) {
                 if ($movies->vote_count > 0 && $movies->overview != '' && $movies->release_date != '') {
                 ?>
-            
-                <div class='movie title=<?= $movies->id ?>'>
+        
+                <div class='movie' data-id='<?= $movies->id ?>'>
                     <div class="movie_image">
                 <?php if ($movies->poster_path === null) { ?>
                     <img src='../assets/img/no_image.png' alt='<?= $movies->title ?>'>
@@ -51,6 +52,13 @@ require 'templates/header.php';
             }
             ?>
             </div>
+
+            <div class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h2 style='border-bottom : 1px solid black'>Vous avez choisi : </h2>
+                </div>
+            </div>
         <?php
         } else { ?>
             <div class="info">
@@ -64,5 +72,13 @@ require 'templates/header.php';
         </div>
     <?php
     }
-    ?>
+?>
+
+<script src="../assets/js/modal_results.js"></script>
+<script src="../assets/js/rating.js"></script>
+<script src="../assets/js/info.js"></script>
+
+<?php
+require 'templates/footer.php';
+?>
 
