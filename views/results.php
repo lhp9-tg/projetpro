@@ -75,7 +75,6 @@ require 'templates/header.php';
 ?>
 
 <script src="../assets/js/modal_results.js"></script>
-<script src="../assets/js/rating.js"></script>
 <script src="../assets/js/info.js"></script>
 
 <?php

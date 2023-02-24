@@ -1,54 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 
-/* Système de notation par étoiles en CSS (pas de JS) : https://codepen.io/jmpp/pen/BWjaEM */
-
-
-.modal_rating {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-
-.stars {
-  display: inline-flex;
-  justify-content: center;
-	font-size: 2.5em;
-}
-
-.fa-star {
-  color: gray;
-  cursor: pointer;
-  padding: 2px;
-  transition: color 0.8s ease;
-}
-
-.fa-star.gold {
-  color: #ffdc0f;
-}
-
-/**
-     * Et là opère la magie du ':hover' !
-     */
-
-/* A l'état :hover sur le parent '.rating',
-       on force TOUTES les étoiles à passer en jaune. */
-.stars:hover .fa-star {
-  color: #ffdc0f;
-  transition: color 0.8s
-}
-
-/* Et si la souris survole une étoile en particulier,
-       on sélectionne toutes les étoiles qui sont APRÈS celle-ci
-       grâce à l'opérateur '~' et on les force en GRIS */
-.stars .fa-star:hover~.fa-star {
-  color: gray;
-}
-
-/******************************************************************/
-
 /* ******GENERAL******  */
 
 body {
@@ -316,7 +268,7 @@ form .modern_input .error_select {
   color: red;
   font-weight: bold;
 }
-
+error_ra
 form .modern_input .error_checkbox {
   margin-left: 50px;
   margin-bottom: -5px;
@@ -326,6 +278,11 @@ form .modern_input .error_checkbox {
 
 .error_top {
   text-align: center;
+  color: red;
+  font-weight: bold;
+}
+
+.error_rating {
   color: red;
   font-weight: bold;
 }
@@ -352,7 +309,7 @@ form .modern_input .error_checkbox {
   background-color: #eeeeee;
   padding: 1rem 1.5rem;
   width: 70vw;
-  height: 70vh;
+  height: auto;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -545,6 +502,17 @@ form .modern_input .error_checkbox {
 
 /* Résultats de la recherche */
 
+/* La grille des résultats */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding: 10px 0;
+}
+
 .movie {
   display: flex;
   flex-direction: row;
@@ -639,18 +607,55 @@ form .modern_input .error_checkbox {
   color: white;
 }
 
+/* Système de notation par étoiles en CSS (pas de JS) : https://codepen.io/jmpp/pen/BWjaEM */
 
 
-/* La grille des résultats */
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  padding: 10px 0;
+.modal_rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
+
+.stars {
+  display: inline-flex;
+  justify-content: center;
+	font-size: 2.5em;
+}
+
+.fa-star {
+  color: gray;
+  cursor: pointer;
+  padding: 2px;
+  transition: color 0.8s ease;
+}
+
+.fa-star.gold {
+  color: #ffdc0f;
+}
+
+/**
+     * Et là opère la magie du ':hover' !
+     */
+
+/* A l'état :hover sur le parent '.rating',
+       on force TOUTES les étoiles à passer en jaune. */
+.stars:hover .fa-star {
+  color: #ffdc0f;
+  transition: color 0.8s
+}
+
+/* Et si la souris survole une étoile en particulier,
+       on sélectionne toutes les étoiles qui sont APRÈS celle-ci
+       grâce à l'opérateur '~' et on les force en GRIS */
+.stars .fa-star:hover~.fa-star {
+  color: gray;
+}
+
+/******************************************************************/
+
+
 
 /* ******FOOTER****** */
 

@@ -16,16 +16,14 @@ function windowOnClick(event) {
     }
 }
 
-if (form.length > 0) {
-    cgu.addEventListener("click", toggleModal)
-    closeButton.addEventListener("click", toggleModal)
-    understood.addEventListener("click", toggleModal)
-    window.addEventListener("click", windowOnClick)
+cgu.addEventListener("click", toggleModal)
+closeButton.addEventListener("click", toggleModal)
+understood.addEventListener("click", toggleModal)
+window.addEventListener("click", windowOnClick)
 
-    // Fermeture de la modale avec la touche "Echap"
-    document.addEventListener('keydown', function (event) {
-        if (event.key === "Escape") {
-            toggleModal()
-        }
-    })
-}
+// Fermeture de la modale avec la touche "Echap"
+document.addEventListener('keydown', function (event) {
+    if (event.key === "Escape") {
+        toggleModal()
+    }
+})
