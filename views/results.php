@@ -5,8 +5,8 @@ require 'templates/header.php';
 
     <?php
 
-    if (isset($_POST['mot']) && !empty($_POST['mot'])) {
-        $motRecherche = urlencode(cleanString($_POST['mot']));
+    if (isset($_POST['search']) && !empty($_POST['search'])) {
+        $motRecherche = urlencode(cleanString($_POST['search']));
         $match = '';
 
         foreach (glob('cache/*.json') as $fichier) {

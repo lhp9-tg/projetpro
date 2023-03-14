@@ -1,0 +1,74 @@
+body {
+    background-image: url(../IMG/background.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+}
+
+
+.row.login,.row.secretary, .row.patient, .row.doctor, .row.appointments {
+    height: 100vh;
+    align-items: center;
+   
+}
+
+
+
+.card, nav.navbar {
+    background-color: rgba(255, 255, 255, 0.684);
+}
+
+div.col div.card.container-fluid {
+    height: 220px;
+    width: 400px;
+    border-radius: 20px;
+    border-color: white;
+}
+
+.card-body button {
+    width: 300px !important;
+}
+
+.modal-content {
+    border-radius: 20px;
+    border-color: white;
+}
+
+select {
+    width: 425px;
+}
+
+table.table  {
+    background-color: rgba(255, 255, 255, 0.684);
+    border-radius: 20px;
+}
+
+thead, tbody {
+    border-radius: 20px !important;
+    border-color: #f0f8ff00;
+}
+
+a {
+    text-decoration: none;
+    color: gray;
+}
+a:hover {
+    color:white;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    z-index: 1020;
+    width: 100%;
+
+    background-color: rgba(255, 255, 255, 0.684);
+}
+
+.dropdown-item.search {
+    width : 300px !important;
+
+}

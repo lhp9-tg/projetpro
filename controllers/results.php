@@ -15,7 +15,7 @@ $_SESSION['discard_after'] = $now + 3600;
 
 $page = 'results';
 
-require_once('../models/tmdbv2.php');
+require_once '../models/tmdbv2.php';
 
 function cleanString($string) {
 	$string = strtolower($string);

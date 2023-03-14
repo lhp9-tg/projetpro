@@ -1,0 +1,423 @@
+
+<!-- saved from url=(0055)http://clinique/Controllers/controller-list-patient.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./controller-list-patient.php_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./controller-list-patient.php_files/bootstrap-icons.css">
+    <link rel="stylesheet" href="./controller-list-patient.php_files/style.css">
+    <title></title>
+</head>
+<body>
+  <header>
+    <nav class="navbar fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="http://clinique/Controllers/controller-secretary.php">
+          <img src="./controller-list-patient.php_files/hospital-2.png">
+          <span class="text-muted fw-bold">
+            Liste des patients
+          </span>
+        </a>
+        <!-- fake toats message error / success -->
+        <div class=" rounded-5 m-0 p-2">
+                  </div>
+
+        <div class="dropstart">
+          <button class="btn btn-primary dropdown-toggle rounded-5" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-search"></i>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li>
+              <div class="dropdown-item search">
+                <!-- recherche par n de secu -->
+                <form class="d-flex" role="search" action="http://clinique/Controllers/controller-list-patient.php" method="get">
+                  <input class="form-control me-2" placeholder="n° de sécurité sociale" type="text" id="SSNumber" name="SSNumber" required="" minlength="15" maxlength="15" size="16">
+                  <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+              </div>
+              <div class="dropdown-item search">
+                <!-- recherche par date de naissance -->
+                <form class="d-flex" role="search" action="http://clinique/Controllers/controller-list-patient.php" method="get">
+                  <input class="form-control me-2" placeholder="date de naissance" type="date" id="DDNumber" name="Bdate" value="2023-03-08">
+                  <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+              </div>
+              <div class="dropdown-item search">
+                <button class="btn btn-outline-success rounded-5" type="button" onclick="window.location.href=&#39;./controller-list-patient.php&#39;">Liste complète</button>
+              </div>
+            </li>
+          </ul>
+          <a href="http://clinique/Controllers/controller-secretary.php"><button type="button" class="btn btn-secondary rounded-5"><img src="./controller-list-patient.php_files/u-turn-to-left.png"></button></a>
+        </div>
+
+
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <div class="row patient">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Date de naissance</th>
+            <th scope="col">Num Sécu</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Téléphone</th>
+            <th scope="col">Adresse</th>
+            <th scope="col"></th>
+
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- fetch all clients -->
+                      <tr class="patient" data="12">
+              <td>dfg</td> 
+              <td>sfdqfq</td>
+              <td>01/02/2000</td>
+              <td>874578215689435</td>
+              <td>ddsgsqfqsf@gmail.com</td>
+              <td>0000000000</td>
+              <td>sdqsfqfsqfqssq</td>
+              <td>
+                <button type="button" id="btnAddApptmt" class="btn btn-success rounded-5"><a href="http://clinique/Controllers/controller-secretary.php?id=12"><img src="./controller-list-patient.php_files/person-calendar.png" alt="Prendre RDV"></a></button>
+                <button type="button" id="btnEdit" class="btn btn-info rounded-5" data-bs-toggle="modal" data-bs-target="#modalEdit12"><img src="./controller-list-patient.php_files/edit.png"></button>
+                <button type="button" id="btnDelete" class="btn btn-danger rounded-5" data-bs-toggle="modal" data-bs-target="#modalDelete12"><img src="./controller-list-patient.php_files/delete-forever.png"></button>
+              </td>
+            </tr>
+            <tr class="consultation12">
+              <td colspan="8">
+                <div>
+                  Hello
+                </div>
+              </td>
+          </tr>
+                      <tr class="patient" data="13">
+              <td>Thais</td> 
+              <td>RE</td>
+              <td>09/09/1999</td>
+              <td>676467867844448</td>
+              <td>qdfqsfq@ghj.com</td>
+              <td>7696076679</td>
+              <td>fqslksfhqsgnqgbn</td>
+              <td>
+                <button type="button" id="btnAddApptmt" class="btn btn-success rounded-5"><a href="http://clinique/Controllers/controller-secretary.php?id=13"><img src="./controller-list-patient.php_files/person-calendar.png" alt="Prendre RDV"></a></button>
+                <button type="button" id="btnEdit" class="btn btn-info rounded-5" data-bs-toggle="modal" data-bs-target="#modalEdit13"><img src="./controller-list-patient.php_files/edit.png"></button>
+                <button type="button" id="btnDelete" class="btn btn-danger rounded-5" data-bs-toggle="modal" data-bs-target="#modalDelete13"><img src="./controller-list-patient.php_files/delete-forever.png"></button>
+              </td>
+            </tr>
+            <tr class="consultation13">
+              <td colspan="8">
+                <div>
+                  Hello
+                </div>
+              </td>
+          </tr>
+                      <tr class="patient" data="14">
+              <td>Thais</td> 
+              <td>Escufon</td>
+              <td>03/04/2004</td>
+              <td>685589558787758</td>
+              <td>ifdqhqgfiqgdh@ghty.com</td>
+              <td>8567599658</td>
+              <td>fqsqsdgsge</td>
+              <td>
+                <button type="button" id="btnAddApptmt" class="btn btn-success rounded-5"><a href="http://clinique/Controllers/controller-secretary.php?id=14"><img src="./controller-list-patient.php_files/person-calendar.png" alt="Prendre RDV"></a></button>
+                <button type="button" id="btnEdit" class="btn btn-info rounded-5" data-bs-toggle="modal" data-bs-target="#modalEdit14"><img src="./controller-list-patient.php_files/edit.png"></button>
+                <button type="button" id="btnDelete" class="btn btn-danger rounded-5" data-bs-toggle="modal" data-bs-target="#modalDelete14"><img src="./controller-list-patient.php_files/delete-forever.png"></button>
+              </td>
+            </tr>
+            <tr class="consultation14">
+              <td colspan="8">
+                <div>
+                  Hello
+                </div>
+              </td>
+          </tr>
+                  </tbody>
+
+      </table>
+    </div>
+
+          <!-- modal Edit -->
+      <div class="modal" tabindex="-1" id="modalEdit12" aria-labelledby="modalEditLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modifier les information d'un patient</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="http://clinique/Controllers/controller-list-patient.php" method="POST" id="formEdit12" enctype="multipart/form-data">
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-person-fill"></i></div>
+                  <input type="text" name="patient_lastname" id="patient_lastname" class="form-control" placeholder="Nom" aria-label="Input group example" aria-describedby="btnGroupAddon" value="dfg">
+                  <input type="text" name="patient_firstname" id="patient_firstname" class="form-control" placeholder="Prénom" aria-label="Input group example" aria-describedby="btnGroupAddon" value="sfdqfq">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-calendar"></i></div>
+                  <input type="date" name="patient_birthdate" id="patient_birthdate" class="form-control" placeholder="Date de naissance" aria-label="Input group example" aria-describedby="btnGroupAddon" value="01/02/2000">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-telephone-fill"></i></div>
+                  <input type="phone" name="patient_phone" id="patient_phone" class="form-control" placeholder="Téléphone" aria-label="Input group example" aria-describedby="btnGroupAddon" value="0000000000">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-file-earmark-medical-fill"></i></div>
+                  <input type="text" name="patient_secu" id="patient_secu" class="form-control" placeholder="Numéro de sécurité social" aria-label="Input group example" aria-describedby="btnGroupAddon" value="874578215689435">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-envelope-fill"></i></div>
+                  <input type="mail" name="patient_mail" id="patient_mail" class="form-control" placeholder="Adresse mail" aria-label="Input group example" aria-describedby="btnGroupAddon" value="ddsgsqfqsf@gmail.com">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-geo-alt-fill"></i></div>
+                  <input type="text" name="patient_adress" id="patient_adress" class="form-control" placeholder="Adresse" aria-label="Input group example" aria-describedby="btnGroupAddon" value="sdqsfqfsqfqssq">
+                </div>
+                <input type="hidden" name="patient_id" value="12">
+                <input type="hidden" name="patient_mail" value="ddsgsqfqsf@gmail.com">
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-image-fill"></i></div>
+                  <label for="patient_photo" class="btn border" onmouseover="this.style.background=&#39;#e9e3f1&#39;;" onmouseout="this.style.background=&#39;none&#39;;">Choisissez une photo :</label>
+                  <input type="txt" class="form-control" value="Aucune photo sélectionnée">
+                  <input type="file" name="patient_photo" id="patient_photo" class="form-control" aria-label="Input group example" aria-describedby="btnGroupAddon" style="display:none">
+                </div>
+                <div class=" rounded-5 mt-2 p-2">
+                                                    </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fermer</button>
+              <button type="submit" class="btn btn-outline-primary" onclick="document.forms[&#39;formEdit12&#39;].submit();">Modifier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal delete -->
+      <div class="modal" tabindex="-1" id="modalDelete12" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body text-center">
+              <h6> Voulez-vous supprimer cet élément définitivement?</h6>
+              <div class="text-center">
+                <p class="text-center"><strong>dfg sfdqfq</strong></p>
+                <form action="http://clinique/Controllers/controller-list-patient.php" method="get">
+                  <button type="submit" class="btn btn-primary" name="delete" value="12">Oui</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">non</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          <!-- modal Edit -->
+      <div class="modal" tabindex="-1" id="modalEdit13" aria-labelledby="modalEditLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modifier les information d'un patient</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="http://clinique/Controllers/controller-list-patient.php" method="POST" id="formEdit13" enctype="multipart/form-data">
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-person-fill"></i></div>
+                  <input type="text" name="patient_lastname" id="patient_lastname" class="form-control" placeholder="Nom" aria-label="Input group example" aria-describedby="btnGroupAddon" value="Thais">
+                  <input type="text" name="patient_firstname" id="patient_firstname" class="form-control" placeholder="Prénom" aria-label="Input group example" aria-describedby="btnGroupAddon" value="RE">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-calendar"></i></div>
+                  <input type="date" name="patient_birthdate" id="patient_birthdate" class="form-control" placeholder="Date de naissance" aria-label="Input group example" aria-describedby="btnGroupAddon" value="09/09/1999">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-telephone-fill"></i></div>
+                  <input type="phone" name="patient_phone" id="patient_phone" class="form-control" placeholder="Téléphone" aria-label="Input group example" aria-describedby="btnGroupAddon" value="7696076679">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-file-earmark-medical-fill"></i></div>
+                  <input type="text" name="patient_secu" id="patient_secu" class="form-control" placeholder="Numéro de sécurité social" aria-label="Input group example" aria-describedby="btnGroupAddon" value="676467867844448">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-envelope-fill"></i></div>
+                  <input type="mail" name="patient_mail" id="patient_mail" class="form-control" placeholder="Adresse mail" aria-label="Input group example" aria-describedby="btnGroupAddon" value="qdfqsfq@ghj.com">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-geo-alt-fill"></i></div>
+                  <input type="text" name="patient_adress" id="patient_adress" class="form-control" placeholder="Adresse" aria-label="Input group example" aria-describedby="btnGroupAddon" value="fqslksfhqsgnqgbn">
+                </div>
+                <input type="hidden" name="patient_id" value="13">
+                <input type="hidden" name="patient_mail" value="qdfqsfq@ghj.com">
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-image-fill"></i></div>
+                  <label for="patient_photo" class="btn border" onmouseover="this.style.background=&#39;#e9e3f1&#39;;" onmouseout="this.style.background=&#39;none&#39;;">Choisissez une photo :</label>
+                  <input type="txt" class="form-control" value="82381-Sticker-Rolling-Stones-Langue-logo.png">
+                  <input type="file" name="patient_photo" id="patient_photo" class="form-control" aria-label="Input group example" aria-describedby="btnGroupAddon" style="display:none">
+                </div>
+                <div class=" rounded-5 mt-2 p-2">
+                                                    </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fermer</button>
+              <button type="submit" class="btn btn-outline-primary" onclick="document.forms[&#39;formEdit13&#39;].submit();">Modifier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal delete -->
+      <div class="modal" tabindex="-1" id="modalDelete13" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body text-center">
+              <h6> Voulez-vous supprimer cet élément définitivement?</h6>
+              <div class="text-center">
+                <p class="text-center"><strong>Thais RE</strong></p>
+                <form action="http://clinique/Controllers/controller-list-patient.php" method="get">
+                  <button type="submit" class="btn btn-primary" name="delete" value="13">Oui</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">non</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          <!-- modal Edit -->
+      <div class="modal" tabindex="-1" id="modalEdit14" aria-labelledby="modalEditLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modifier les information d'un patient</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="http://clinique/Controllers/controller-list-patient.php" method="POST" id="formEdit14" enctype="multipart/form-data">
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-person-fill"></i></div>
+                  <input type="text" name="patient_lastname" id="patient_lastname" class="form-control" placeholder="Nom" aria-label="Input group example" aria-describedby="btnGroupAddon" value="Thais">
+                  <input type="text" name="patient_firstname" id="patient_firstname" class="form-control" placeholder="Prénom" aria-label="Input group example" aria-describedby="btnGroupAddon" value="Escufon">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-calendar"></i></div>
+                  <input type="date" name="patient_birthdate" id="patient_birthdate" class="form-control" placeholder="Date de naissance" aria-label="Input group example" aria-describedby="btnGroupAddon" value="03/04/2004">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-telephone-fill"></i></div>
+                  <input type="phone" name="patient_phone" id="patient_phone" class="form-control" placeholder="Téléphone" aria-label="Input group example" aria-describedby="btnGroupAddon" value="8567599658">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-file-earmark-medical-fill"></i></div>
+                  <input type="text" name="patient_secu" id="patient_secu" class="form-control" placeholder="Numéro de sécurité social" aria-label="Input group example" aria-describedby="btnGroupAddon" value="685589558787758">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-envelope-fill"></i></div>
+                  <input type="mail" name="patient_mail" id="patient_mail" class="form-control" placeholder="Adresse mail" aria-label="Input group example" aria-describedby="btnGroupAddon" value="ifdqhqgfiqgdh@ghty.com">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-geo-alt-fill"></i></div>
+                  <input type="text" name="patient_adress" id="patient_adress" class="form-control" placeholder="Adresse" aria-label="Input group example" aria-describedby="btnGroupAddon" value="fqsqsdgsge">
+                </div>
+                <input type="hidden" name="patient_id" value="14">
+                <input type="hidden" name="patient_mail" value="ifdqhqgfiqgdh@ghty.com">
+                <div class="input-group">
+                  <div class="input-group-text" id="btnGroupAddon"><i class="bi bi-image-fill"></i></div>
+                  <label for="patient_photo" class="btn border" onmouseover="this.style.background=&#39;#e9e3f1&#39;;" onmouseout="this.style.background=&#39;none&#39;;">Choisissez une photo :</label>
+                  <input type="txt" class="form-control" value="Aucune photo sélectionnée">
+                  <input type="file" name="patient_photo" id="patient_photo" class="form-control" aria-label="Input group example" aria-describedby="btnGroupAddon" style="display:none">
+                </div>
+                <div class=" rounded-5 mt-2 p-2">
+                                                    </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fermer</button>
+              <button type="submit" class="btn btn-outline-primary" onclick="document.forms[&#39;formEdit14&#39;].submit();">Modifier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal delete -->
+      <div class="modal" tabindex="-1" id="modalDelete14" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body text-center">
+              <h6> Voulez-vous supprimer cet élément définitivement?</h6>
+              <div class="text-center">
+                <p class="text-center"><strong>Thais Escufon</strong></p>
+                <form action="http://clinique/Controllers/controller-list-patient.php" method="get">
+                  <button type="submit" class="btn btn-primary" name="delete" value="14">Oui</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">non</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <footer class="text-center text-lg-start text-muted fixed-bottom ">
+
+    <div class="text-center p-2">
+        <button type="button" class="btn btn-outline-secondary rounded-5" data-bs-toggle="modal" data-bs-target="#mentions">
+            Mentions Légales
+        </button>
+    </div><!-- Button trigger modal -->
+
+
+</footer> 
+
+<!-- Modal -->
+<div class="modal modal-xl fade" id="mentions" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">MENTIONS LEGALES</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Le présent site est la propriété exclusive de la clinique fictive "Clinique des étudiants", établissement fictif géré par des étudiants dans le cadre de leur formation.<br><br>
+
+                Raison sociale : Clinique des étudiants<br>
+                Siège social : 123 Rue des Fictifs, 75000 Paris, France<br>
+                Directeur de la publication : Prénom Nom<br>
+                Contact : contact@clinique-etudiants.fr<br>
+                Téléphone : +33 (0)1 23 45 67 89<br><br>
+
+                HÉBERGEMENT<br>
+                Le présent site est hébergé par la société fictive "Hébergement Fictif" :<br>
+                Siège social : 456 Avenue des Fictifs, 69000 Lyon, France<br>
+                Contact : contact@hebergement-fictif.fr<br>
+                Téléphone : +33 (0)4 56 78 90 12<br><br>
+
+                PROPRIETE INTELLECTUELLE<br>
+                La présentation et le contenu du présent site constituent une œuvre protégée par la législation française et internationale en vigueur sur la propriété intellectuelle. La reproduction, l'utilisation, la diffusion ou la modification de tout ou partie du site sans autorisation expresse et préalable de la clinique des étudiants est interdite.<br><br>
+
+                DONNEES PERSONNELLES<br>
+                La clinique des étudiants s'engage à respecter la confidentialité des données personnelles communiquées par les utilisateurs du site. Les informations collectées sont destinées à un usage interne et ne seront en aucun cas cédées à des tiers.<br><br>
+
+                COOKIES<br>
+                Le site de la clinique des étudiants utilise des cookies pour améliorer l'expérience utilisateur. Les cookies sont des petits fichiers stockés sur votre ordinateur qui permettent de suivre votre navigation sur le site. Vous pouvez à tout moment les supprimer ou les désactiver dans les paramètres de votre navigateur.<br><br>
+
+                LOI APPLICABLE<br>
+                Le présent site et ses mentions légales sont soumis à la loi française. En cas de litige, les tribunaux français seront seuls compétents."<br><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+            </div>
+        </div>
+    </div>
+</div>    <script src="./controller-list-patient.php_files/bootstrap.bundle.min.js.téléchargement" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./controller-list-patient.php_files/view-list-patient.js.téléchargement"></script>
+
+
+
+
+
+</div></body></html>

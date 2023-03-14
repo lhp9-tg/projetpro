@@ -7,7 +7,7 @@ require 'templates/header.php';
 
     <form action="../controllers/results.php" method="post" class="modern_form">
         <div class="modern_label">
-            <input type="text" name="mot" required>
+            <input type="text" name="search" required>
             <label>Nom du film</label>
         </div>
 

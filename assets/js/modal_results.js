@@ -71,10 +71,10 @@ cards.forEach(card => {
                 });
             });
         });
-
+        
         // Les boutons de la modale
         modal_form = document.createElement("form");
-        modal_form.setAttribute("action", "my_retrospective.php");
+        modal_form.setAttribute("action", "my_list.php");
         modal_form.setAttribute("method", "GET");
         modal_form.classList.add("modal_select");
         modal.firstElementChild.appendChild(modal_form);

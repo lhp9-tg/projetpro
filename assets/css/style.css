@@ -152,6 +152,12 @@ main {
   justify-content: center;
 }
 
+/* La page Home */
+
+.soon li {
+  margin-bottom: 1rem;
+}
+
 /* Les formaulaires */
 
 form .modern_input {
@@ -525,6 +531,64 @@ form .modern_input .error_checkbox {
   background: linear-gradient(180deg, rgba(110, 140, 255, 0.5718662464985995) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
+.movie_list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 10px;
+  grid-template-areas : "movie_list_core movie_list_core movie_list_core movie_list_core movie_other_infos";
+  border: #000000 1px solid;
+  margin-bottom: 20px;
+  }
+
+.movie_list:hover {
+  background: rgb(110, 140, 255);
+  background: linear-gradient(180deg, rgba(110, 140, 255, 0.5718662464985995) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.movie_list_core {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  grid-area : movie_list_core;
+}
+
+
+.movie_list_other_infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+  grid-area : movie_other_infos;
+}
+
+.movie_viewing_date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie_list_stars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.movie_list_stars p {
+  text-align: center;
+}
+
+.movie_list_stars div i {
+  color: gray;
+  font-size: 20px;
+}
+
 .modal_movie {
   display: flex;
   flex-direction: row;
@@ -532,7 +596,8 @@ form .modern_input .error_checkbox {
 }
 
 .movie .movie_image,
-.modal_movie .movie_image {
+.modal_movie .movie_image,
+.movie_list_core .movie_image {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -540,13 +605,15 @@ form .modern_input .error_checkbox {
 }
 
 .movie img,
-.modal_movie img {
+.modal_movie img,
+.movie_list_core img {
   width: 150px;
   height: 225px;
   margin: 10px;
 }
 
-.movie .movie_info {
+.movie .movie_info
+.movie_list_core .movie_info {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
