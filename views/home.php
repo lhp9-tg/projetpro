@@ -18,6 +18,7 @@ require 'templates/header.php';
     <p>24/02/2023 : Mise en place de la partie ajout de film</p>
     <p>24/02/2023 : Mise en place du système de notation</p>
     <p>27/02/2023 : Mise en place de la partie liste de films de l'utilisateur</p>
+    <p>14/03/2023 : Base de données retravaillée, affichage de la date de visionnage et de la note, mise en place du fichier PHP pour l'AJAX</p>
 
     <h2>A venir</h2>
     <ul class="soon">

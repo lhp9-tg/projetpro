@@ -133,7 +133,7 @@ class Movies
     }
 
         /**
-     * methode pour ajouter un film à la liste d'un user
+     * 
      *
      * @return array
      */
@@ -154,5 +154,35 @@ class Movies
         ]);
         return $query2->fetch(PDO::FETCH_ASSOC);
     
+    }
+
+    /**
+     * Mise à jour du rating d'un film
+     *
+     * @return array
+     */
+    public function updateRating($tmdb_id, $rating) : void
+    {
+        // nous récupérons l'id du film
+        $query1 = $this->_pdo->prepare('SELECT movies_id FROM movies WHERE movies_tmdb_id = :tmdb_id');
+        $query1->execute([
+            ':tmdb_id' => $tmdb_id,
+        ]);
+        $movie_id = $query1->fetch(PDO::FETCH_COLUMN);
+
+        // nous récupérons l'id de l'utilisateur
+        $query2 = $this->_pdo->prepare('SELECT users_id FROM users WHERE users_name = :users_name');
+        $query2->execute([
+            ':users_name' => $_SESSION['user']['username'],
+        ]);
+        $user_id = $query2->fetch(PDO::FETCH_COLUMN);
+
+        // nous mettons à jour la note
+        $query3 = $this->_pdo->prepare('UPDATE rates SET rates_rate = :rates_rate WHERE movies_id = :movies_id AND users_id = :users_id');
+        $query3->execute([
+            ':rates_rate' => $rating,
+            ':movies_id' => $movie_id,
+            ':users_id' => $user_id,
+        ]);
     }
 }

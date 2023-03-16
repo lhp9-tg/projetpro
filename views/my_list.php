@@ -31,7 +31,7 @@ foreach ($tmdb_movies as $tmdb_movie) {
         </div>
 
         <div class="movie_list_other_infos">
-            <form action="../controllers/my_list.php" method="get"></form>
+            <form action="../controllers/my_list.php" method="GET">
 
                 <div class="movie_viewing_date">
                     <label for="viewing_date" style="margin-bottom : 1rem">Date de visionnage</label>
@@ -53,6 +53,8 @@ foreach ($tmdb_movies as $tmdb_movie) {
                         ?>
                     </div>
                 </div>
+                
+                <input type="hidden" name="new_rating" class="new_rating">
             </form>
         </div>
     </div>

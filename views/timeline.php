@@ -1,5 +1,14 @@
 <?php
 require 'templates/header.php';
+
+$obj_tmdb = new TMDB('c5c6fbf4667f0cc8747fc1393fb89003');
+
+foreach ($tmdb_movies as $tmdb_movie) {
+    $json = $obj_tmdb->getMovieById($tmdb_movie);
+    $viewing_date = $obj_movies->getViewingDates($tmdb_movie);
+    $rating = $obj_movies->getRatings($tmdb_movie);
+}
+
 ?>
 
 <div class="container">
@@ -26,7 +35,7 @@ require 'templates/header.php';
 
                     </div>
                     <div class="flip-card-back">
-                        <h1>Back 1</h1>
+                        <h1>Back 5</h1>
                         <p>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore iusto, beatae repellendus exercitationem molestias hic modi sint non quaerat magnam deleniti tempora asperiores aliquam odio. Laborum laboriosam deserunt fugiat vitae.
                         </p>
@@ -49,7 +58,7 @@ require 'templates/header.php';
 
                     </div>
                     <div class="flip-card-back">
-                        <h1>Back 2</h1>
+                        <h1>Back 4</h1>
                         <p>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore iusto, beatae repellendus exercitationem molestias hic modi sint non quaerat magnam deleniti tempora asperiores aliquam odio. Laborum laboriosam deserunt fugiat vitae.
                         </p>
@@ -95,7 +104,7 @@ require 'templates/header.php';
 
                     </div>
                     <div class="flip-card-back">
-                        <h1>Back 4</h1>
+                        <h1>Back 2</h1>
                         <p>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore iusto, beatae repellendus exercitationem molestias hic modi sint non quaerat magnam deleniti tempora asperiores aliquam odio. Laborum laboriosam deserunt fugiat vitae.
                         </p>
@@ -118,7 +127,7 @@ require 'templates/header.php';
 
                     </div>
                     <div class="flip-card-back">
-                        <h1>Back 5</h1>
+                        <h1>Back 1</h1>
                         <p>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore iusto, beatae repellendus exercitationem molestias hic modi sint non quaerat magnam deleniti tempora asperiores aliquam odio. Laborum laboriosam deserunt fugiat vitae.
                         </p>

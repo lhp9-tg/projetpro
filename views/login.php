@@ -6,6 +6,15 @@ require 'templates/header.php';
 
 
     <?php
+    if (isset($_SESSION['user']) && !empty($_SESSION['user'])) { ?>
+
+        <div class="info">
+            <p>Bonjour <?= $_SESSION['user']['username'] ?></p>
+            <p>Vous êtes connecté</p>
+        </div>
+    <?php
+    }
+
     if (isset($disconnected)) { ?>
 
         <div class="info">
@@ -14,7 +23,7 @@ require 'templates/header.php';
     <?php
     }
 
-    if (!isset($disconnected)) { ?>
+    if (!isset($_SESSION['user']) && !isset($disconnected)) { ?>
 
         <form id="connexion" action="" method="POST" class="modern_form">
             <h2>Connexion</h2>

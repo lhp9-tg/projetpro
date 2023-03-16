@@ -3,13 +3,22 @@ require 'templates/header.php';
 ?>
 
 <div class="container">
-    <?php if ($showform) { ?>
+    <?php if (isset($_GET['signin']) && $_GET['signin'] === 'success') { ?>
+            
+        <div class="info">
+            <p> Bonjour <?= $_SESSION['user']['username'] ?>.</p><br>
+            <p>Vous êtes bien inscrit !</p>
+        </div>
+
+    <?php } 
+
+        else if (isset($showform) && $showform === true) { ?>
 
         <form action="../controllers/signin.php" method="POST" class="modern_form">
             <h2>Créer votre compte</h2>
             <div class='modern_input'>
                 <div class="modern_label">
-                    <input type="text" name="username" required>
+                    <input type="text" name="username" value="<?= isset($_POST['username']) ? $_POST['username'] : '' ?>" required>
                     <label>Entrer votre nom d'utilisateur</label>
                 </div>
                 <p class="error_modern_input"><?= isset($error['username']) ? $error['username'] : '' ?></p>
@@ -17,7 +26,7 @@ require 'templates/header.php';
 
             <div class='modern_input'>
                 <div class="modern_label">
-                    <input type="email" name="email" required>
+                    <input type="email" name="email" value="<?= isset($_POST['email']) ? $_POST['email'] : '' ?>" required>
                     <label>Entrer votre email</label>
                 </div>
                 <p class="error_modern_input"><?= isset($error['email']) ? $error['email'] : '' ?></p>
@@ -29,7 +38,7 @@ require 'templates/header.php';
 
             <div class='modern_input'>
                 <div class="modern_label">
-                    <input type="password" name="password" required>
+                    <input type="password" name="password" minlength="8" value="<?= isset($_POST['password']) ? $_POST['password'] : '' ?>" required>
                     <label>Entrer votre mot de passe</label>
                 </div>
                 <p class="error_modern_input"><?= isset($error['password']) ? $error['password'] : '' ?></p>
@@ -38,15 +47,15 @@ require 'templates/header.php';
             <div class='modern_input'>
                 <div class="select">
                     <label>Entrer votre année de naissance :</label>
-                    <select name="year" id="birthyear">
-                        <option value="">-- Année --</option>
+                    <select name="year" id="birthdate">
+                        <option value="<?= isset($_POST['year']) ? $_POST['year'] : '' ?>">-- Année --</option>
                         <?php
                         for ($year = date('Y'); $year >= date('Y') - 100; $year--) { ?>
                             <option value="<?= $year ?>" <?= (isset($_POST['year']) && ($_POST['year'] === $year)) ? "selected" : '' ?>> <?= $year ?></option>
                         <?php } ?>
                     </select>
                 </div>
-                <p class="error_select"><?= isset($error['birthyear']) ? $error['birthyear'] : '' ?></p>
+                <p class="error_select"><?= isset($error['birthdate']) ? $error['birthdate'] : '' ?></p>
             </div>
 
 
@@ -79,14 +88,7 @@ require 'templates/header.php';
             </div>
         </div>
 
-        <?php } else {
-        ?>
-            <div class="info">
-                <p> Bonjour <?= $_POST['username'] ?>.<br>
-                <p>Vous êtes bien inscrit !
-            </div>
-    <?php } ?>
-
+        <?php } ?>
 </div>
 
 <script src="../assets/js/modal_cgu.js"></script>

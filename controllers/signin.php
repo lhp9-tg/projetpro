@@ -1,17 +1,6 @@
 <?php
 
-session_start();
-
-$now = time();
-if (isset($_SESSION['discard_after']) && $now > $_SESSION['discard_after']) {
-    // this session has worn out its welcome; kill it and start a brand new one
-    session_unset();
-    session_destroy();
-    session_start();
-}
-
-// either new or old, it should live at most for another hour
-$_SESSION['discard_after'] = $now + 3600;
+include '../helpers/session.php';
 
 $page = 'signin';
 
@@ -23,7 +12,7 @@ require_once '../models/users.php';
 
 $regexname = '/^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ._\s-]+$/';
 $regexemail = '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/i';
-$regexpassword = '/^(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+!=])(?=.{8,}).*$/';
+$regexpassword = '/^(?=[A-Za-z0-9?@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[?@#$%^&+!=])(?=.{8,}).*$/';
 $regexdate = '/^[12][09][0-9]{2}$/';
 
 
@@ -63,26 +52,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    if (isset($_POST['password']) && isset($_POST['verification'])) {
+    if (isset($_POST['password'])) {
         if ($_POST['password'] === '') {
             $error['password'] = 'un mot de passe est obligatoire.';
         } 
         elseif (!preg_match($regexpassword, $_POST['password'])) {
             $error['password'] = 'Les conditions de sécurité ne sont pas validées';
         }
-        elseif (!preg_match($regexpassword, $_POST['verification'])) {
-            $error['password'] = 'Les conditions de sécurité ne sont pas validées';
-        }
-        elseif ($_POST['password'] !== $_POST['verification']) {
-            $error['password'] = 'Les 2 mots de passe ne sont pas identiques';
-        }
     }
 
     if ($_POST['year'] === '') {
-        $error['birthyear'] = 'Ce champ est obligatoire.';
+        $error['birthdate'] = 'Ce champ est obligatoire.';
     }
     elseif (!preg_match($regexdate, $_POST['year'])) {
-        $error['birthyear'] = 'La date saisie n\'est pas valide.';
+        $error['birthdate'] = 'La date saisie n\'est pas valide.';
     }
 
     if (!isset($_POST['cgu'])) {
@@ -94,19 +77,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($showform === false) {
-        $_SESSION['user'] = [
-            'username' => $_POST['username'],
-            'email' => $_POST['email'],
-            'password' => $_POST['password'],
-            'birthyear' => $_POST['year'],
-        ];
-
-        $obj_users->_name = $_POST['username'];
-        $obj_users->_email = $_POST['email'];
+        $obj_users->_name = htmlspecialchars($_POST['username']);
+        $obj_users->_email = htmlspecialchars($_POST['email']);
         $obj_users->_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $obj_users->_birthyear = $_POST['year'];
+        $obj_users->_birthdate = htmlspecialchars($_POST['year']);
 
-        $obj_users->addUser();
+        $obj_users->AddUser();
+
+        $comefrom = 'signin';
+        include '../helpers/init_session.php';
     }
 }
 

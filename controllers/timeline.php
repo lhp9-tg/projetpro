@@ -1,18 +1,21 @@
 <?php
 
-session_start();
-
-$now = time();
-if (isset($_SESSION['discard_after']) && $now > $_SESSION['discard_after']) {
-    // this session has worn out its welcome; kill it and start a brand new one
-    session_unset();
-    session_destroy();
-    session_start();
-}
-
-// either new or old, it should live at most for another hour
-$_SESSION['discard_after'] = $now + 3600;
+include '../helpers/session.php';
 
 $page = 'timeline';
+
+require_once '../config/env.php';
+require_once '../helpers/database.php';
+require_once '../models/tmdbv2.php';
+
+if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+    $usersname = $_SESSION['user']['username'];
+    $obj_movies = new Movies();
+    $tmdb_movies = $obj_movies->getMoviesByUsers($usersname);
+
+}
+else {
+    header('Location: /');
+}
 
 include '../views/timeline.php';

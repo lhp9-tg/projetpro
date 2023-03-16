@@ -1,21 +1,11 @@
 <?php
 
-session_start();
-
-$now = time();
-if (isset($_SESSION['discard_after']) && $now > $_SESSION['discard_after']) {
-    // this session has worn out its welcome; kill it and start a brand new one
-    session_unset();
-    session_destroy();
-    session_start();
-}
-
-// either new or old, it should live at most for another hour
-$_SESSION['discard_after'] = $now + 3600;
+include '../helpers/session.php';
 
 $page = 'login';
 
 if (isset($_GET['logout'])) {
+    session_unset();
     session_destroy();
     $disconnected = true;
 }
@@ -51,23 +41,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         $hash = $obj_users->CheckPassword($_POST['username']);
         
-        if (!password_verify($_POST['password'], $hash['users_password'])) {
+        if (!password_verify($_POST['password'], $hash)) {
 
         $errors['password'] = "Votre mot de passe est incorrect";
 
         }
         else {
 
-            $_SESSION['user'] = [
-                'username' => $_POST['username'],
-                'password' => $_POST['password'],
-            ];
-
-            header('Location: home.php');
-
+            $comefrom = 'login';
+            include('../helpers/init_session.php');
+           
         }
     }
 }
-
 
 include('../views/login.php');
