@@ -32,7 +32,7 @@ class TMDB {
 		return $data;
     }
 
-    public function getMovieById(int $id) : ?object
+    public function getMovieInfosByMovieId(int $id) : ?object
     {
         $token = $this->token;
         $url = "https://api.themoviedb.org/3/movie/{$id}?api_key={$this->apiKey}&language=fr-FR&adult=false";

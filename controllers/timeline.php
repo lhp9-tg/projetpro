@@ -7,15 +7,16 @@ $page = 'timeline';
 require_once '../config/env.php';
 require_once '../helpers/database.php';
 require_once '../models/tmdbv2.php';
+require_once '../models/movies.php';
 
 if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
-    $usersname = $_SESSION['user']['username'];
+
     $obj_movies = new Movies();
-    $tmdb_movies = $obj_movies->getMoviesByUsers($usersname);
+    $tmdb_movies = $obj_movies->getMovieIdsByUser();
 
 }
 else {
-    header('Location: /');
+    header('Location: ../controllers/home.php');
 }
 
 include '../views/timeline.php';

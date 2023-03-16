@@ -355,14 +355,13 @@ form .modern_input .error_checkbox {
   overflow-x: clip;
   overflow-y: hidden;
 
-  --value: -2100;
-  --width: calc(var(--value) * -1 * 1px);
-  --distance: calc(var(--value) * .67 * 1px);
-  --perspective: calc(var(--value) * -.33 * 1px);
-  --angle: calc(var(--value) / 75 * 1deg);
-  --zoom: 2.2;
-  --active-translate-modifier: .6;
-  --vertical-offset: -0px;
+  --value: -2000; /* Referme le rayon si s'approche de 0 */
+  --distance: calc(var(--value) * .60 * 1px); /* Zoom les side cards vers l'avant si s'approche de 0 */
+  --perspective: calc(var(--value) * -.33 * 1px); 
+  --angle: calc(var(--value) / 85 * 1deg); 
+  --zoom: 2.4; /* Zoom tout le carousel si s'approche de 0 */
+  --active-translate-modifier: .8; /* Zoom le card active vers l'avant si s'approche de 0 */
+  --vertical-offset: 0px; /* Décale les cards vers le haut si s'approche de 0 */
 }
 
 
@@ -401,7 +400,7 @@ form .modern_input .error_checkbox {
 }
 
 .cards_container .item:nth-of-type(3) {
-  width: 45vw;
+  width: calc(0.67*80vh);
   background-color: transparent;
   border: none;
   transform: rotateY(0deg) translateZ(calc(var(--distance) * var(--active-translate-modifier))) translateY(var(--vertical-offset));
@@ -449,6 +448,8 @@ form .modern_input .error_checkbox {
   border-radius: 15px;
   border: 1px solid black;
 
+  background-position: center;
+  background-size: cover;
   background-color: #ea9696;
   color: black;
 }

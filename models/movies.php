@@ -28,161 +28,137 @@ class Movies
         $this->_pdo = Database::connect();
     }
 
-    /**
-     * methode pour récupérer la liste des id TMDB des films d'un user
-     *
-     * @return int
-     */
-    public function getMoviesByUsers($username) : ?array
-    {
-        // nous récupérons l'id de l'utilisateur
-        $query1 = $this->_pdo->prepare('SELECT users_id FROM users WHERE users_name = :users_name');
-        $query1->execute([
-            ':users_name' => $username,
-        ]);
-        $users_id = $query1->fetch(PDO::FETCH_COLUMN);
-
-        // nous récupérons les id des films de l'utilisateur
-        $query2 = $this->_pdo->prepare('SELECT movies_id FROM users_VIEW_movies WHERE users_id = :users_id');
-        $query2->execute([
-            ':users_id' => $users_id,
-        ]);
-        $movies_id = $query2->fetchAll(PDO::FETCH_COLUMN);
-
-
-        foreach ($movies_id as $movie_id) {
-            $query3 = $this->_pdo->prepare('SELECT movies_tmdb_id FROM movies WHERE movies_id = :movies_id');
-            $query3->execute([
-                ':movies_id' => $movie_id,
-            ]);
-            $movies_tmdb_id[] = $query3->fetch(PDO::FETCH_COLUMN);
-        }
-        return $movies_tmdb_id;
-    }
 
     /**
-     * methode pour ajouter un film à la liste d'un user
+     * méthode pour ajouter un film à la liste d'un user
      *
-     * @return array
+     * @return void
      */
-    public function addMovie($username, $tmdb_id, $viewing_date, $rating) : void
+    public function addMovie($tmdb_id, $viewing_date, $rating) : void
     {
-        // nous récupérons l'id de l'utilisateur
-        $query1 = $this->_pdo->prepare('SELECT users_id FROM users WHERE users_name = :users_name');
-        $query1->execute([
-            ':users_name' => $username,
-        ]);
-        $user_id = $query1->fetch(PDO::FETCH_COLUMN);
     
-        // nous ajoutons le film à la table movies
-        $query2 = $this->_pdo->prepare('INSERT INTO movies (movies_tmdb_id) VALUES (:tmdb_id)');
-        $query2->execute([
-            ':tmdb_id' => $tmdb_id,
-        ]);
-
-        // nous recupérons l'id du film
-        $query3 = $this->_pdo->prepare('SELECT movies_id FROM movies WHERE movies_tmdb_id = :tmdb_id');
-        $query3->execute([
-            ':tmdb_id' => $tmdb_id,
-        ]);
-        $movie_id = $query3->fetch(PDO::FETCH_COLUMN);
-
-        $query4 = $this->_pdo->prepare('INSERT INTO users_VIEW_movies (users_id, movies_id) VALUES (:users_id, :movies_id)');
-        $query4->execute([
-            ':users_id' => $user_id,
-            ':movies_id' => $movie_id,
-        ]);
-
-        $query5 = $this->_pdo->prepare('INSERT INTO viewing_date (movies_id, users_id, viewing_date_date) VALUES (:movies_id, :users_id, :viewing_date)');
-        $query5->execute([
-            ':movies_id' => $movie_id,
-            ':users_id' => $user_id,
+        // nous ajoutons le film à la table viewing
+        $query = $this->_pdo->prepare('INSERT INTO viewing (viewing_date, viewing_tmdb_id, users_id) VALUES (:viewing_date, :tmdb_id, :users_id)');
+        $query->execute([
             ':viewing_date' => $viewing_date,
+            ':tmdb_id' => $tmdb_id,
+            ':users_id' => $_SESSION['user']['id'],
         ]);
 
-        $query6 = $this->_pdo->prepare('INSERT INTO rates (users_id, movies_id, rates_rate) VALUES (:users_id, :movies_id, :rates_rate)');
-        $query6->execute([
-            ':users_id' => $user_id,
-            ':movies_id' => $movie_id,
-            ':rates_rate' => $rating,
+        // nous ajoutons le film à la table rating
+        $query2 = $this->_pdo->prepare('INSERT INTO rating (rating_rates, rating_tmdb_id, users_id) VALUES (:rating, :tmdb_id, :users_id)');
+        $query2->execute([
+            ':rating' => $rating,
+            ':tmdb_id' => $tmdb_id,
+            ':users_id' => $_SESSION['user']['id'],
         ]);
+
     }
 
     /**
-     * methode pour ajouter un film à la liste d'un user
+     * méthode pour récupérer la liste des id TMDB des films d'un user
      *
      * @return array
      */
-    public function getViewingDates($tmdb_id) : ?array
+    public function getMovieIdsByUser() : array
     {
 
-        // nous récupérons l'id du film
-        $query1 = $this->_pdo->prepare('SELECT movies_id FROM movies WHERE movies_tmdb_id = :tmdb_id');
-        $query1->execute([
-            ':tmdb_id' => $tmdb_id,
+        $query = $this->_pdo->prepare('SELECT viewing_tmdb_id FROM viewing WHERE users_id = :users_id');
+        $query->execute([
+            ':users_id' => $_SESSION['user']['id'],
         ]);
-        $movie_id = $query1->fetch(PDO::FETCH_COLUMN);
+        $tmdb_id = $query->fetchAll(PDO::FETCH_COLUMN);
 
-        // nous récupérons la date de visionnage
-        $query2 = $this->_pdo->prepare('SELECT viewing_date_date FROM viewing_date WHERE movies_id = :movies_id');
-        $query2->execute([
-            ':movies_id' => $movie_id,
-        ]);
-        return $query2->fetch(PDO::FETCH_ASSOC);
-    
+        return $tmdb_id;
     }
 
-        /**
-     * 
+    /**
+     * méthode pour récupérer la date de visionnage d'un film pour un user donné
      *
      * @return array
      */
-    public function getRatings($tmdb_id) : ?array
+    public function getViewingDates($tmdb_id) : array
     {
 
-        // nous récupérons l'id du film
-        $query1 = $this->_pdo->prepare('SELECT movies_id FROM movies WHERE movies_tmdb_id = :tmdb_id');
-        $query1->execute([
+        $query = $this->_pdo->prepare('SELECT viewing_date FROM viewing WHERE viewing_tmdb_id = :tmdb_id AND users_id = :users_id');
+        $query->execute([
             ':tmdb_id' => $tmdb_id,
+            ':users_id' => $_SESSION['user']['id'],
         ]);
-        $movie_id = $query1->fetch(PDO::FETCH_COLUMN);
-
-        // nous récupérons la note
-        $query2 = $this->_pdo->prepare('SELECT rates_rate FROM rates WHERE movies_id = :movies_id');
-        $query2->execute([
-            ':movies_id' => $movie_id,
-        ]);
-        return $query2->fetch(PDO::FETCH_ASSOC);
+        return $query->fetch(PDO::FETCH_ASSOC);
     
     }
 
     /**
-     * Mise à jour du rating d'un film
+     * Mise à jour de la date de visionnage du film pour un user donné
+     *
+     * @return void
+     */
+    public function updateViewingDates($tmdb_id, $viewing_date) : void
+    {
+
+        // nous mettons à jour la note
+        $query = $this->_pdo->prepare('UPDATE rating SET viewing_date = :viewing_date WHERE viewing_tmdb_id = :tmdb_id AND users_id = :users_id');
+        $query->execute([
+            ':viewing_date' => $viewing_date,
+            ':tmdb_id' => $tmdb_id,
+            ':users_id' => $_SESSION['user']['id'],
+        ]);
+    }
+
+    /**
+     * méthode pour récupérer la note d'un film pour un user donné
      *
      * @return array
+     */
+    public function getRatings($tmdb_id) : array
+    {
+
+        $query = $this->_pdo->prepare('SELECT rating_rates FROM rating WHERE rating_tmdb_id = :tmdb_id AND users_id = :users_id');
+        $query->execute([
+            ':tmdb_id' => $tmdb_id,
+            ':users_id' => $_SESSION['user']['id'],
+        ]);
+        return $query->fetch(PDO::FETCH_ASSOC);
+    
+    }
+
+    /**
+     * Mise à jour du rating d'un film par un user donné
+     *
+     * @return void
      */
     public function updateRating($tmdb_id, $rating) : void
     {
-        // nous récupérons l'id du film
-        $query1 = $this->_pdo->prepare('SELECT movies_id FROM movies WHERE movies_tmdb_id = :tmdb_id');
-        $query1->execute([
-            ':tmdb_id' => $tmdb_id,
-        ]);
-        $movie_id = $query1->fetch(PDO::FETCH_COLUMN);
-
-        // nous récupérons l'id de l'utilisateur
-        $query2 = $this->_pdo->prepare('SELECT users_id FROM users WHERE users_name = :users_name');
-        $query2->execute([
-            ':users_name' => $_SESSION['user']['username'],
-        ]);
-        $user_id = $query2->fetch(PDO::FETCH_COLUMN);
 
         // nous mettons à jour la note
-        $query3 = $this->_pdo->prepare('UPDATE rates SET rates_rate = :rates_rate WHERE movies_id = :movies_id AND users_id = :users_id');
-        $query3->execute([
-            ':rates_rate' => $rating,
-            ':movies_id' => $movie_id,
+        $query = $this->_pdo->prepare('UPDATE rating SET rating_rates = :rating_rates WHERE rating_tmdb_id = :tmdb_id AND users_id = :users_id');
+        $query->execute([
+            ':rating_rates' => $rating,
+            ':tmdb_id' => $tmdb_id,
+            ':users_id' => $_SESSION['user']['id'],
+        ]);
+    }
+
+    /**
+     * méthode pour vérifier si au moins un film est présent dans la liste d'un user 
+     *
+     * @return bool
+     */
+
+    public function checkIfMovieExists($user_id) : bool
+    {
+
+        $query = $this->_pdo->prepare('SELECT * FROM viewing WHERE users_id = :users_id');
+        $query->execute([
             ':users_id' => $user_id,
         ]);
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

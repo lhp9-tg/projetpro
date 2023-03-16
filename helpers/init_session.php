@@ -3,6 +3,10 @@
 $id = $obj_users->GetUserId($_POST['username']);
 $user_infos = $obj_users->GetUserInfo($id);
 
+require '../models/movies.php';
+$obj_movies = new Movies();
+$retrospective_active = $obj_movies->checkIfMovieExists($id);
+
 $_SESSION['user'] = [
 
     'id' => $id,
@@ -10,6 +14,7 @@ $_SESSION['user'] = [
     'password' => $user_infos['users_password'],
     'birthdate' => $user_infos['users_birthdate'],
     'email' => $user_infos['users_email'],
+    'retrospective_active' => $retrospective_active,
 ];
 
 if ($comefrom == 'login') {
