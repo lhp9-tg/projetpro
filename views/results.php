@@ -62,7 +62,7 @@ require 'templates/header.php';
         <?php
         } else { ?>
             <div class="info">
-                <p>Désolé, nous n'avons pas trouvé de film correspondant au titre <?= $movies->title ?></p>
+                <p>Désolé, nous n'avons pas trouvé de film correspondant au titre '<em><?= $_POST['search'] ?></em>'</p>
             </div>
         <?php
         }

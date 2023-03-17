@@ -10,17 +10,26 @@ require_once '../models/users.php';
 require_once '../models/movies.php';
 require_once '../models/tmdbv2.php';
 
-var_dump($_SESSION);
-
 $obj_users = new Users();
 
 if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
     $obj_movies = new Movies();
     if ((isset($_GET['id']) && !empty($_GET['id'])) && (isset($_GET['rating']) && !empty($_GET['rating']))) {
-        $movie_id = htmlspecialchars($_GET['id']);
+        $tmdb_id = htmlspecialchars($_GET['id']);
         $rating = htmlspecialchars($_GET['rating']);
         $viewing_date = htmlspecialchars(date('Y-m-d'));
-        $obj_movies->addMovie($movie_id, $viewing_date, $rating);
+
+        if ($obj_movies->checkMovieByUser($tmdb_id)) {
+            header('Location: /controllers/my_list.php'); // Verifie si le film existe déjà dans la base de données de l'utilisateur connecté, si oui on redirige vers la page my_list.php sans les parametres GET d'url
+            
+        }
+        else {
+            $obj_movies->addMovie($tmdb_id, $viewing_date, $rating);
+        }
+
+        if ($_SESSION['user']['retrospective_active'] === false) {
+            $_SESSION['user']['retrospective_active'] = true;
+        }
 
     }
     $tmdb_movies = $obj_movies->getMovieIdsByUser();

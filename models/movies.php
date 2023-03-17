@@ -28,7 +28,6 @@ class Movies
         $this->_pdo = Database::connect();
     }
 
-
     /**
      * méthode pour ajouter un film à la liste d'un user
      *
@@ -53,6 +52,28 @@ class Movies
             ':users_id' => $_SESSION['user']['id'],
         ]);
 
+    }
+
+    /**
+     * méthode pour vérifier si un film est déjà dans la liste d'un user
+     *
+     * @return bool
+     */
+    public function checkMovieByUser($tmdb_id) : bool
+    {
+        $query = $this->_pdo->prepare('SELECT * FROM viewing WHERE viewing_tmdb_id = :tmdb_id AND users_id = :users_id');
+        $query->execute([
+            ':tmdb_id' => $tmdb_id,
+            ':users_id' => $_SESSION['user']['id'],
+        ]);
+        $count = $query->rowCount();
+
+        if ($count > 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     /**

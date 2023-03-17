@@ -7,6 +7,7 @@ require_once '../helpers/database.php';
 require_once '../models/movies.php';
 
 var_dump($_SESSION);
+var_dump($_GET);
 
 
 if (isset($_GET['rating']) && isset($_GET['tmdb_id'])) {
@@ -16,14 +17,11 @@ if (isset($_GET['rating']) && isset($_GET['tmdb_id'])) {
     if ($rating >= 0 && $rating <= 5) {
         $obj_movie = new Movies();
         $obj_movie-> updateRating($tmdb_id, $rating);
+        echo 'success';
     }
 }
-    
-        
-
-
-
 
 
 
 ?>
+

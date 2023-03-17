@@ -46,9 +46,9 @@ foreach ($tmdb_movies as $tmdb_movie) {
                         <?php
                         for ($i = 1; $i <= 5; $i++) {
                             if ($i <= $rating['rating_rates']) {
-                                echo '<i class="fa-solid fa-star" alt="étoile' . $i . '"></i>';
+                                echo '<i class="fa-solid fa-star gold" alt="étoile' . $i . '"></i>';
                             } else {
-                                echo '<i class="fa-regular fa-star" alt="étoile' . $i . '"></i>';
+                                echo '<i class="fa-solid fa-star" alt="étoile' . $i . '"></i>';
                             }
                         }
                         ?>
