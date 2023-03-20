@@ -77,6 +77,28 @@ class Movies
     }
 
     /**
+     * méthode pour vérifier si AU MOINS un film est présent dans la liste d'un user 
+     *
+     * @return bool
+     */
+
+     public function checkIfMovieExists($user_id) : bool
+     {
+ 
+         $query = $this->_pdo->prepare('SELECT * FROM viewing WHERE users_id = :users_id');
+         $query->execute([
+             ':users_id' => $user_id,
+         ]);
+         $result = $query->fetch(PDO::FETCH_ASSOC);
+ 
+         if ($result) {
+             return true;
+         } else {
+             return false;
+         }
+     }
+
+    /**
      * méthode pour récupérer la liste des id TMDB des films d'un user
      *
      * @return array
@@ -115,11 +137,10 @@ class Movies
      *
      * @return void
      */
-    public function updateViewingDates($tmdb_id, $viewing_date) : void
+    public function updateViewingDate($tmdb_id, $viewing_date) : void
     {
 
-        // nous mettons à jour la note
-        $query = $this->_pdo->prepare('UPDATE rating SET viewing_date = :viewing_date WHERE viewing_tmdb_id = :tmdb_id AND users_id = :users_id');
+        $query = $this->_pdo->prepare('UPDATE viewing SET viewing_date = :viewing_date WHERE viewing_tmdb_id = :tmdb_id AND users_id = :users_id');
         $query->execute([
             ':viewing_date' => $viewing_date,
             ':tmdb_id' => $tmdb_id,
@@ -152,7 +173,6 @@ class Movies
     public function updateRating($tmdb_id, $rating) : void
     {
 
-        // nous mettons à jour la note
         $query = $this->_pdo->prepare('UPDATE rating SET rating_rates = :rating_rates WHERE rating_tmdb_id = :tmdb_id AND users_id = :users_id');
         $query->execute([
             ':rating_rates' => $rating,
@@ -162,24 +182,16 @@ class Movies
     }
 
     /**
-     * méthode pour vérifier si au moins un film est présent dans la liste d'un user 
+     * méthode pour supprimer un film de la liste d'un user
      *
-     * @return bool
+     * @return void
      */
-
-    public function checkIfMovieExists($user_id) : bool
+    public function deleteMovie($tmdb_id) : void
     {
-
-        $query = $this->_pdo->prepare('SELECT * FROM viewing WHERE users_id = :users_id');
+        $query = $this->_pdo->prepare('DELETE FROM viewing WHERE viewing_tmdb_id = :tmdb_id AND users_id = :users_id');
         $query->execute([
-            ':users_id' => $user_id,
+            ':tmdb_id' => $tmdb_id,
+            ':users_id' => $_SESSION['user']['id'],
         ]);
-        $result = $query->fetch(PDO::FETCH_ASSOC);
-
-        if ($result) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }

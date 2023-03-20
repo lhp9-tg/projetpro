@@ -36,7 +36,7 @@ foreach ($tmdb_movies as $tmdb_movie) {
 
                 <div class="movie_viewing_date">
                     <label for="viewing_date" style="margin-bottom : 1rem">Date de visionnage</label>
-                    <input type="date" id="viewing_date " name="viewing_date" value="<?= $viewing_date['viewing_date'] ?>" min="1900-01-01" max="<?= date('Y-m-d', strtotime('+5 years')) ?>">
+                    <input type="date" id="viewing_date " name="viewing_date" value="<?= $viewing_date['viewing_date'] ?>" min="1900-01-01" max="<?= date('Y-m-d') ?>" onchange="updateDate(event);">
                 </div>
 
 
@@ -54,13 +54,23 @@ foreach ($tmdb_movies as $tmdb_movie) {
                         ?>
                     </div>
                 </div>
+
+                <div class="movie_list_delete">
+                    <button type="submit" name="delete" id="delete" value="<?= $movie_infos->id ?>" class="modern_button_red" style="margin-bottom : 0">Supprimer</button>
+                </div>
                 
-                <input type="hidden" name="new_rating" class="new_rating">
             </form>
         </div>
     </div>
 
-
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <?php
+            require '../includes/cgu.html';
+            ?>
+        </div>
+    </div>
 
 <?php
 }

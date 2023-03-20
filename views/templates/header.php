@@ -29,5 +29,5 @@
     </header>
     <main>
             <?php if (isset($_SESSION['user'])) { ?>
-                    <p style="position : absolute; left : 10px;">Bonjour <?= $_SESSION['user']['username'] ?></p>
+                    <p style="position : absolute; right : 30px;">Bonjour <?= $_SESSION['user']['username'] ?></p>
             <?php } ?>

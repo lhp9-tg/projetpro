@@ -46,6 +46,7 @@ h2 {
 
 /* Les DIV centées style modal d'information */
 
+.error,
 .info {
   display: flex;
   flex-direction: column;
@@ -86,6 +87,29 @@ h2 {
 
 .modern_button:hover {
   background-color: #1b66ca;
+  color: white;
+}
+
+.modern_button_red {
+  position: relative;
+  margin: 1rem 0;
+  width: auto;
+  height: 2.3em;
+  border: #c72525 2px solid;
+  border-radius: 5px;
+  font-weight: bolder;
+  color: #c72525;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1em;
+  align-self: center;
+  transition: background-color .5s ease;
+  transition: color .5s ease;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.modern_button_red:hover {
+  background-color: #c72525;
   color: white;
 }
 

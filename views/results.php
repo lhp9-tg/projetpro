@@ -61,20 +61,20 @@ require 'templates/header.php';
             </div>
         <?php
         } else { ?>
-            <div class="info">
+            <div class="error">
                 <p>Désolé, nous n'avons pas trouvé de film correspondant au titre '<em><?= $_POST['search'] ?></em>'</p>
             </div>
         <?php
         }
     } else { ?>
-        <div class="info">
+        <div class="error">
             <p>Désolé, une erreur est survenue et la recherche n'a pas pu aboutir.</p>
         </div>
     <?php
     }
 ?>
 
-<script src="../assets/js/modal_results.js"></script>
+<script src="../assets/js/results.js"></script>
 <script src="../assets/js/info.js"></script>
 
 <?php

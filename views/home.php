@@ -20,17 +20,25 @@ require 'templates/header.php';
     <p>27/02/2023 : Mise en place de la partie liste de films de l'utilisateur</p>
     <p>14/03/2023 : Base de données retravaillée, affichage de la date de visionnage et de la note, mise en place du fichier PHP pour l'AJAX</p>
     <p>16/03/2023 : Correction des erreurs suite à la mise en place de la nouvelle BDD, renforcement de la sécurité, mise à jour des méthodes pour les objets 'Users' & 'Movies', tests algo & design pour le carousel</p>
+    <p>17/03/2023 : Gestion des doublons de film dans la liste. Affichage et modification de la date de visionage et de la note en AJAX</p>
 
     <h2>A venir</h2>
     <ul class="soon">
-        <li>Affichage et modification de la date de visionnage</li>
-        <li>Affichage et modification de la note</li>
-        <li>Tri des films par date de visionnage</li>
         <li>Suppression d'un film dans la liste de l'utilisateur</li>
+        <li>Update et suppression d'un user
         <li>Affichage en carousel</li>
-        <li>Mise en place d'un tuto sur la page d'accueil</li>
-        <li>Mise en place du partage entre utilisateurs</li>
+        <li>Mise en place de la timeline</li>
         <li>Mise en place des favoris</li>
+        <li>Mise en place du partage entre utilisateurs</li>
+        <li>Mise en place du design du site</li>
+        <br>
+
+        <li>RELEASE 1.0</li>
+        <br>
+
+        <li>Tri des films par date de visionnage</li>
+        <li>Tri des films par note</li>
+        <li>Mise en place d'un tuto sur la page d'accueil</li>
         <li>Mise en place de la partie "A voir"</li>
         <li>Ajout du casting des films, de la durée, le genre etc...</li>
         <li>Tri par acteurs, realisateurs, genre, durée...</li>

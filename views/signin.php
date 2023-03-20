@@ -91,7 +91,7 @@ require 'templates/header.php';
         <?php } ?>
 </div>
 
-<script src="../assets/js/modal_cgu.js"></script>
+<script src="../assets/js/cgu.js"></script>
 <script src="../assets/js/info.js"></script>
 
 <?php
