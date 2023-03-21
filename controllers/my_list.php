@@ -33,13 +33,17 @@ if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
 
     }
 
+
+
     $tmdb_movies = $obj_movies->getMovieIdsByUser();
 
     if (isset($_GET['delete']) && !empty($_GET['delete'])) {
         $tmdb_id = $_GET['delete'];
+        $obj_movies->deleteRating($tmdb_id);
         $obj_movies->deleteMovie($tmdb_id);
 
         if (!$obj_movies->checkIfMovieExists($_SESSION['user']['id'])) {
+
             $_SESSION['user']['retrospective_active'] = false;
             header('Location: /controllers/home.php');
         }

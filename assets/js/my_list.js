@@ -60,22 +60,22 @@ function windowOnClick(event) {
     }
 }
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault()
+// form.addEventListener("submit", (e) => {
+//     e.preventDefault()
 
-    del.addEventListener("click", toggleModal)
-    closeButton.addEventListener("click", toggleModal)
-    window.addEventListener("click", windowOnClick)
+//     del.addEventListener("click", toggleModal)
+//     closeButton.addEventListener("click", toggleModal)
+//     window.addEventListener("click", windowOnClick)
 
-    // Fermeture de la modale avec la touche "Echap"
-    document.addEventListener('keydown', function (event) {
-        if (event.key === "Escape") {
-            toggleModal()
-        }
-    })
+//     // Fermeture de la modale avec la touche "Echap"
+//     document.addEventListener('keydown', function (event) {
+//         if (event.key === "Escape") {
+//             toggleModal()
+//         }
+//     })
 
-    understood.addEventListener("click", toggleModal)
+//     understood.addEventListener("click", toggleModal)
 
-})
+// })
 
 

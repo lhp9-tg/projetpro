@@ -12,7 +12,7 @@ require_once '../models/movies.php';
 if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
 
     $obj_movies = new Movies();
-    $tmdb_movies = $obj_movies->getMovieIdsByUser();
+    $movies = $obj_movies->GetMoviesViewAndRatesByUser();
 
 }
 else {

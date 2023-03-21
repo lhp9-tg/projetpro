@@ -116,6 +116,23 @@ class Movies
     }
 
     /**
+     * méthode pour récupérer un tableau avec toutes les dates de visualisation et le rating des films d'un user du plus récent au plus ancien
+     *
+     * @return array
+     */
+    public function GetMoviesViewAndRatesByUser() : array
+    {
+
+        $query = $this->_pdo->prepare('SELECT viewing_date, rating_rates, viewing_tmdb_id, viewing.users_id  FROM the_retrospective.viewing INNER JOIN rating ON viewing.viewing_tmdb_id = rating.rating_tmdb_id WHERE viewing.users_id = :users_id ORDER BY viewing_date DESC');   
+        $query->execute([
+            ':users_id' => $_SESSION['user']['id'],
+        ]);
+        $tmdb_all = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        return $tmdb_all;
+    }
+
+    /**
      * méthode pour récupérer la date de visionnage d'un film pour un user donné
      *
      * @return array
@@ -182,14 +199,30 @@ class Movies
     }
 
     /**
+     * méthode pour supprimer le rating d'un film pour un user donné
+     *
+     * @return void
+     */
+    public function deleteRating($tmdb_id) : void
+    {
+    $query = $this->_pdo->prepare('DELETE FROM rating WHERE rating_tmdb_id = :tmdb_id AND users_id = :users_id');
+    $query->execute([
+        ':tmdb_id' => $tmdb_id,
+        ':users_id' => $_SESSION['user']['id'],
+    ]);
+    }
+
+
+
+    /**
      * méthode pour supprimer un film de la liste d'un user
      *
      * @return void
      */
     public function deleteMovie($tmdb_id) : void
     {
-        $query = $this->_pdo->prepare('DELETE FROM viewing WHERE viewing_tmdb_id = :tmdb_id AND users_id = :users_id');
-        $query->execute([
+        $query1 = $this->_pdo->prepare('DELETE FROM viewing WHERE viewing_tmdb_id = :tmdb_id AND users_id = :users_id');
+        $query1->execute([
             ':tmdb_id' => $tmdb_id,
             ':users_id' => $_SESSION['user']['id'],
         ]);

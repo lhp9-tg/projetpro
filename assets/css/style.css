@@ -421,11 +421,11 @@ form .modern_input .error_checkbox {
 }
 
 .cards_container .item:nth-of-type(1) {
-  transform: rotateY(calc(var(--angle) * 2)) translateZ(var(--distance)) translateY(var(--vertical-offset));
+  transform: rotateY(calc(var(--angle) * -2)) translateZ(var(--distance)) translateY(var(--vertical-offset));
 }
 
 .cards_container .item:nth-of-type(2) {
-  transform: rotateY(calc(var(--angle) * 1)) translateZ(var(--distance)) translateY(var(--vertical-offset));
+  transform: rotateY(calc(var(--angle) * -1)) translateZ(var(--distance)) translateY(var(--vertical-offset));
 }
 
 .cards_container .item:nth-of-type(3) {
@@ -436,11 +436,11 @@ form .modern_input .error_checkbox {
 }
 
 .cards_container .item:nth-of-type(4) {
-  transform: rotateY(calc(var(--angle) * -1)) translateZ(var(--distance)) translateY(var(--vertical-offset));
+  transform: rotateY(calc(var(--angle) * 1)) translateZ(var(--distance)) translateY(var(--vertical-offset));
 }
 
 .cards_container .item:nth-of-type(5) {
-  transform: rotateY(calc(var(--angle) * -2)) translateZ(var(--distance)) translateY(var(--vertical-offset));
+  transform: rotateY(calc(var(--angle) * 2)) translateZ(var(--distance)) translateY(var(--vertical-offset));
 }
 
 

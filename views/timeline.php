@@ -2,12 +2,15 @@
 require 'templates/header.php';
 
 $obj_tmdb = new TMDB('c5c6fbf4667f0cc8747fc1393fb89003');
-foreach ($tmdb_movies as $tmdb_movie) {
-    intval($tmdb_movie);
-    $movie_infos = $obj_tmdb->getMovieInfosByMovieId($tmdb_movie);
-    $viewing_date = $obj_movies->getViewingDates($tmdb_movie);
-    $rating = $obj_movies->getRatings($tmdb_movie);
-}
+// foreach ($tmdb_movies as $tmdb_movie) {
+//     intval($tmdb_movie);
+//     $movie_infos = $obj_tmdb->getMovieInfosByMovieId($tmdb_movie);
+//     $viewing_date = $obj_movies->getViewingDates($tmdb_movie);
+//     $rating = $obj_movies->getRatings($tmdb_movie);
+// }
+
+$movies_to_js = json_encode($movies);
+
 ?>
 
 <div class="container">
@@ -18,23 +21,69 @@ foreach ($tmdb_movies as $tmdb_movie) {
 
         <div class="cards_container">
 
-        <?php
-        for ($i = 0; $i < 5; $i++) { ?>
-            <div class="item">
-                <div class="flip-card">
-                    <div class="flip-card-front" style="background-image:url('https://image.tmdb.org/t/p/w500<?= $movie_infos->poster_path ?>')">
-                    </div>
+            <?php
+            if (count($movies) <= 5) {
+                $i = 1;
+                $max = 5;
 
-                    <div class="flip-card-back">
-                        <h1><?= $movie_infos->title ?></h1>
-                        <p>
-                            <?= $movie_infos->overview ?>
-                        </p>
-                    </div>
-                </div>
-            </div>
+                while ($i <= $max) {
 
-            <?php } ?>
+                    foreach ($movies as $movie) {
+                        if ($i > $max) {
+                            break;
+                        } ?>
+
+                        <div class="item">
+                            <div class="flip-card">
+                                <div class="flip-card-front">
+                                    <div class="flip-card-front-img">
+                                        <img src="" alt="">
+                                    </div>
+                                    <div class="main-card-content">
+                                        <h1 class="title"><?= $movie['viewing_tmdb_id'] ?></h1>
+                                    </div>
+
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>Back 4</h1>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore iusto, beatae repellendus exercitationem molestias hic modi sint non quaerat magnam deleniti tempora asperiores aliquam odio. Laborum laboriosam deserunt fugiat vitae.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    <?php
+                        $i++;
+                    }
+                }
+            } else if (count($movies) > 5) {
+                $movies = array_slice($movies, 0, 5);
+                foreach ($movies as $movie) {
+                    ?>
+                        <div class="item case2" data-tmdb_id="<?= $movie['viewing_tmdb_id'] ?>">
+                            <div class="flip-card">
+                                <div class="flip-card-front">
+                                    <div class="flip-card-front-img">
+                                        <img src="" alt="">
+                                    </div>
+                                    <div class="main-card-content">
+                                        <h1 class="title"><?= $movie['viewing_tmdb_id'] ?></h1>
+                                    </div>
+
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>Back 4</h1>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore iusto, beatae repellendus exercitationem molestias hic modi sint non quaerat magnam deleniti tempora asperiores aliquam odio. Laborum laboriosam deserunt fugiat vitae.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                }
+            }
+            ?>
 
         </div>
     </div>
@@ -56,6 +105,9 @@ foreach ($tmdb_movies as $tmdb_movie) {
     </div>
 </footer>
 
+<script>
+    const movies = <?= $movies_to_js ?>;
+</script>
 <script src="../assets/js/carousel.js"></script>
 </body>
 
