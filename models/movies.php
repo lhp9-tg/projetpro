@@ -106,7 +106,7 @@ class Movies
     public function getMovieIdsByUser() : array
     {
 
-        $query = $this->_pdo->prepare('SELECT viewing_tmdb_id FROM viewing WHERE users_id = :users_id');
+        $query = $this->_pdo->prepare('SELECT viewing_tmdb_id FROM viewing WHERE users_id = :users_id ORDER BY viewing_date DESC');
         $query->execute([
             ':users_id' => $_SESSION['user']['id'],
         ]);

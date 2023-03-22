@@ -21,21 +21,15 @@ if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
 
         if ($obj_movies->checkMovieByUser($tmdb_id)) {
             header('Location: /controllers/my_list.php'); // Verifie si le film existe déjà dans la base de données de l'utilisateur connecté, si oui on redirige vers la page my_list.php sans les parametres GET d'url
-            
-        }
-        else {
+
+        } else {
             $obj_movies->addMovie($tmdb_id, $viewing_date, $rating);
         }
 
         if ($_SESSION['user']['retrospective_active'] === false) {
             $_SESSION['user']['retrospective_active'] = true;
         }
-
     }
-
-
-
-    $tmdb_movies = $obj_movies->getMovieIdsByUser();
 
     if (isset($_GET['delete']) && !empty($_GET['delete'])) {
         $tmdb_id = $_GET['delete'];
@@ -46,13 +40,11 @@ if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
 
             $_SESSION['user']['retrospective_active'] = false;
             header('Location: /controllers/home.php');
-        }
-        else {
+        } else {
             header('Location: /controllers/my_list.php');
         }
     }
-}
-else {
+} else {
     header('Location: /');
 }
 

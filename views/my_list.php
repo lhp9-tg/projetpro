@@ -6,7 +6,9 @@ require 'templates/header.php';
 
 <?php
 
+$tmdb_movies = $obj_movies->getMovieIdsByUser();
 $obj_tmdb = new TMDB('c5c6fbf4667f0cc8747fc1393fb89003');
+
 foreach ($tmdb_movies as $tmdb_movie) {
     intval($tmdb_movie);
     $movie_infos = $obj_tmdb->getMovieInfosByMovieId($tmdb_movie);
