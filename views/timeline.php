@@ -4,7 +4,6 @@ require 'templates/header.php';
 $obj_tmdb = new TMDB('c5c6fbf4667f0cc8747fc1393fb89003');
 // foreach ($tmdb_movies as $tmdb_movie) {
 //     intval($tmdb_movie);
-//     $movie_infos = $obj_tmdb->getMovieInfosByMovieId($tmdb_movie);
 //     $viewing_date = $obj_movies->getViewingDates($tmdb_movie);
 //     $rating = $obj_movies->getRatings($tmdb_movie);
 // }
@@ -35,14 +34,7 @@ $movies_to_js = json_encode($movies);
 
                         <div class="item">
                             <div class="flip-card">
-                                <div class="flip-card-front">
-                                    <div class="flip-card-front-img">
-                                        <img src="" alt="">
-                                    </div>
-                                    <div class="main-card-content">
-                                        <h1 class="title"><?= $movie['viewing_tmdb_id'] ?></h1>
-                                    </div>
-
+                                <div class="flip-card-front" style="background-image: url('<?= (isset($movie_infos)) ? 'https://image.tmdb.org/t/p/w500'.$movie_infos->poster_path : '../assets/img/no_image_carousel' ?>'); background-size: cover; background-position: center;">
                                 </div>
                                 <div class="flip-card-back">
                                     <h1>Back 4</h1>
@@ -60,27 +52,22 @@ $movies_to_js = json_encode($movies);
             } else if (count($movies) > 5) {
                 $movies = array_slice($movies, 0, 5);
                 foreach ($movies as $movie) {
-                    ?>
-                        <div class="item case2" data-tmdb_id="<?= $movie['viewing_tmdb_id'] ?>">
-                            <div class="flip-card">
-                                <div class="flip-card-front">
-                                    <div class="flip-card-front-img">
-                                        <img src="" alt="">
-                                    </div>
-                                    <div class="main-card-content">
-                                        <h1 class="title"><?= $movie['viewing_tmdb_id'] ?></h1>
-                                    </div>
+                    $movie_infos = $obj_tmdb->getMovieInfosByMovieId(intval($movie['viewing_tmdb_id']));
 
-                                </div>
-                                <div class="flip-card-back">
-                                    <h1>Back 4</h1>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore iusto, beatae repellendus exercitationem molestias hic modi sint non quaerat magnam deleniti tempora asperiores aliquam odio. Laborum laboriosam deserunt fugiat vitae.
-                                    </p>
-                                </div>
+                    ?>
+                    <div class="item case2" data-tmdb_id="<?= $movie['viewing_tmdb_id'] ?>">
+                        <div class="flip-card">
+                            <div class="flip-card-front" style="background-image: url('<?= (isset($movie_infos)) ? 'https://image.tmdb.org/t/p/w500'.$movie_infos->poster_path : '../assets/img/no_image_carousel' ?>'); background-size: cover; background-position: center;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Back 4</h1>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore iusto, beatae repellendus exercitationem molestias hic modi sint non quaerat magnam deleniti tempora asperiores aliquam odio. Laborum laboriosam deserunt fugiat vitae.
+                                </p>
                             </div>
                         </div>
-                    <?php
+                    </div>
+            <?php
                 }
             }
             ?>

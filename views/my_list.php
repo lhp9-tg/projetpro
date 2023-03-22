@@ -32,43 +32,43 @@ foreach ($tmdb_movies as $tmdb_movie) {
         </div>
 
         <div class="movie_list_other_infos">
-            <form action="../controllers/my_list.php" method="GET">
 
-                <div class="movie_viewing_date">
-                    <label for="viewing_date" style="margin-bottom : 1rem">Date de visionnage</label>
-                    <input type="date" id="viewing_date " name="viewing_date" value="<?= $viewing_date['viewing_date'] ?>" min="1900-01-01" max="<?= date('Y-m-d') ?>" onchange="updateDate(event);">
-                </div>
+            <div class="movie_viewing_date">
+                <label for="viewing_date" style="margin-bottom : 1rem">Date de visionnage</label>
+                <input type="date" id="viewing_date " name="viewing_date" value="<?= $viewing_date['viewing_date'] ?>" min="1900-01-01" max="<?= date('Y-m-d') ?>" onchange="updateDate(event);">
+            </div>
 
-
-                <div class="movie_list_stars">
-                    <p class='ask_rating'>Votre note :</p>
-                    <div class="stars">
-                        <?php
-                        for ($i = 1; $i <= 5; $i++) {
-                            if ($i <= $rating['rating_rates']) {
-                                echo '<i class="fa-solid fa-star gold" alt="étoile' . $i . '"></i>';
-                            } else {
-                                echo '<i class="fa-solid fa-star" alt="étoile' . $i . '"></i>';
-                            }
+            <div class="movie_list_stars">
+                <p class='ask_rating' style="margin-top : 0">Votre note :</p>
+                <div class="stars">
+                    <?php
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($i <= $rating['rating_rates']) {
+                            echo '<i class="fa-solid fa-star gold" alt="étoile' . $i . '"></i>';
+                        } else {
+                            echo '<i class="fa-solid fa-star" alt="étoile' . $i . '"></i>';
                         }
-                        ?>
-                    </div>
+                    }
+                    ?>
                 </div>
-
-                <div class="movie_list_delete">
-                    <button type="submit" name="delete" id="delete" value="<?= $movie_infos->id ?>" class="modern_button_red" style="margin-bottom : 0">Supprimer</button>
-                </div>
-                
-            </form>
+            </div>
+            <div class="col_center">
+                <button class="modern_button_red" style="margin-bottom : 0">Supprimer</button>
+            </div>
         </div>
     </div>
 
     <div class="modal">
-        <div class="modal-content">
+        <div class="modal-content-delete">
             <span class="close-button">&times;</span>
-            <?php
-            require '../includes/cgu.html';
-            ?>
+            <h2 style='text-align : center; margin : 0 '>Suppression</h2>
+            <p style='text-align : center'>Êtes-vous sûr de vouloir supprimer ce film de votre liste ?</p>
+            <div class="modal_delete">
+                <button type="button" onclick="toggleModal()" class="btn_cancel">Annuler</button>
+                <form action="../controllers/my_list.php" method="GET">
+                    <button type="submit" name="delete" class="btn_delete" value="<?= $movie_infos->id ?>">Supprimer</button>
+                </form>
+            </div>
         </div>
     </div>
 

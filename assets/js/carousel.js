@@ -44,8 +44,7 @@ document.querySelector('.next-arrow').addEventListener('click', (e) => {
 let increment = 0
 api_key = 'c5c6fbf4667f0cc8747fc1393fb89003'
 
-console.log(movies)
-
+// Avancer dans le carousel de film ------------------------------------------------------------
 
 document.querySelector('.next-arrow').addEventListener('click', (e) => {
 
@@ -53,7 +52,6 @@ document.querySelector('.next-arrow').addEventListener('click', (e) => {
     let index = increment
 
     let result = [];
-    console.log(index)
 
     for (let i = 0; i < 5; i++) {
 
@@ -61,20 +59,24 @@ document.querySelector('.next-arrow').addEventListener('click', (e) => {
         index = (index + 1) % movies.length; // Avancer l'index, en revenant à 0 après la dernière valeur
     }
 
-    console.log(result)
-
     const container = document.querySelector('.cards_container')
     const front = container.lastElementChild.firstElementChild.firstElementChild
     
     id = result[4].viewing_tmdb_id
+
+    // Appel de l'API en Javasript pour récupérer le titre du film
+
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&language=fr-FR&adult=false`)
         .then(response => response.json())
         .then((data) => {
             let movie = data
-            front.children[1].firstElementChild.textContent = movie.title
+            container.lastElementChild.dataset.tmdb_id = movie.id
+            front.style = `background-image: url("https://image.tmdb.org/t/p/w500${movie.poster_path}"); background-size: cover; background-position: center;`
         })
 
 })
+
+// Revenir dans le carousel de film ------------------------------------------------------------
 
 document.querySelector('.prev-arrow').addEventListener('click', (e) => {
 
@@ -85,7 +87,6 @@ document.querySelector('.prev-arrow').addEventListener('click', (e) => {
     let index = increment
 
     let result = [];
-    console.log(index)
 
     for (let i = 0; i < 5; i++) {
 
@@ -93,22 +94,21 @@ document.querySelector('.prev-arrow').addEventListener('click', (e) => {
         index = (index + 1) % movies.length; // Avancer l'index, en revenant à 0 après la dernière valeur
     }
 
-    console.log(result)
-
     const container = document.querySelector('.cards_container')
-    const front = container.lastElementChild.firstElementChild.firstElementChild
+    const front = container.firstElementChild.firstElementChild.firstElementChild
 
     id = result[0].viewing_tmdb_id
+
+    // Appel de l'API en Javasript pour récupérer le titre du film
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&language=fr-FR&adult=false`)
         .then(response => response.json())
         .then((data) => {
             let movie = data
-            front.children[1].firstElementChild.textContent = movie.title
+            container.firstElementChild.dataset.tmdb_id = movie.id
+            front.style = `background-image: url("https://image.tmdb.org/t/p/w500${movie.poster_path}"); background-size: cover; background-position: center;`
         })
 })
 
-
-// Appel API pour récupérer les films TMDB ----------------------------------------------------
 
 
 

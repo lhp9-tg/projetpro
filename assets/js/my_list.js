@@ -44,11 +44,12 @@ function updateDate(element) {
 
 // La modale maison (pas de librairie)
 
+const btnDelete = document.querySelector(".modern_button_red")
 const form = document.querySelector("form")
 const modal = document.querySelector(".modal")
-const del = document.querySelector(".delete")
 const closeButton = document.querySelector(".close-button")
-const understood = document.querySelector(".modern_button")
+const GoDelete = document.querySelector(".btn_delete")
+
 
 function toggleModal() {
     modal.classList.toggle("show-modal")
@@ -60,22 +61,18 @@ function windowOnClick(event) {
     }
 }
 
-// form.addEventListener("submit", (e) => {
-//     e.preventDefault()
+btnDelete.addEventListener("click", () => {
+    toggleModal()
 
-//     del.addEventListener("click", toggleModal)
-//     closeButton.addEventListener("click", toggleModal)
-//     window.addEventListener("click", windowOnClick)
+    closeButton.addEventListener("click", toggleModal)
+    window.addEventListener("click", windowOnClick)
 
-//     // Fermeture de la modale avec la touche "Echap"
-//     document.addEventListener('keydown', function (event) {
-//         if (event.key === "Escape") {
-//             toggleModal()
-//         }
-//     })
-
-//     understood.addEventListener("click", toggleModal)
-
-// })
+    // Fermeture de la modale avec la touche "Echap"
+    document.addEventListener('keydown', function (event) {
+        if (event.key === "Escape") {
+            toggleModal()
+        }
+    })
+})
 
 
