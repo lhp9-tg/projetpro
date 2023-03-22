@@ -60,7 +60,11 @@ foreach ($tmdb_movies as $tmdb_movie) {
         </div>
     </div>
 
-    <div class="modal">
+<?php
+}
+?>
+
+<div class="modal">
         <div class="modal-content-delete">
             <span class="close-button">&times;</span>
             <h2 style='text-align : center; margin : 0 '>Suppression</h2>
@@ -68,15 +72,12 @@ foreach ($tmdb_movies as $tmdb_movie) {
             <div class="modal_delete">
                 <button type="button" onclick="toggleModal()" class="btn_cancel">Annuler</button>
                 <form action="../controllers/my_list.php" method="GET">
-                    <button type="submit" name="delete" class="btn_delete" value="<?= $movie_infos->id ?>">Supprimer</button>
+                    <button type="submit" name="delete" class="btn_delete" value="">Supprimer</button>
                 </form>
             </div>
         </div>
     </div>
 
-<?php
-}
-?>
 
 <script src="../assets/js/my_list.js"></script>
 

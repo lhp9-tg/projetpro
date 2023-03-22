@@ -30,16 +30,18 @@ $movies_to_js = json_encode($movies);
                     foreach ($movies as $movie) {
                         if ($i > $max) {
                             break;
-                        } ?>
+                        } 
+                        $movie_infos = $obj_tmdb->getMovieInfosByMovieId(intval($movie['viewing_tmdb_id']));
+                        ?>
 
                         <div class="item">
                             <div class="flip-card">
                                 <div class="flip-card-front" style="background-image: url('<?= (isset($movie_infos)) ? 'https://image.tmdb.org/t/p/w500'.$movie_infos->poster_path : '../assets/img/no_image_carousel' ?>'); background-size: cover; background-position: center;">
                                 </div>
                                 <div class="flip-card-back">
-                                    <h1>Back 4</h1>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore iusto, beatae repellendus exercitationem molestias hic modi sint non quaerat magnam deleniti tempora asperiores aliquam odio. Laborum laboriosam deserunt fugiat vitae.
+                                    <h1><?= $movie_infos->title ?></h1>
+                                    <p style="margin : 0 15px">
+                                    <?= $movie_infos->overview ?>
                                     </p>
                                 </div>
                             </div>
@@ -60,9 +62,9 @@ $movies_to_js = json_encode($movies);
                             <div class="flip-card-front" style="background-image: url('<?= (isset($movie_infos)) ? 'https://image.tmdb.org/t/p/w500'.$movie_infos->poster_path : '../assets/img/no_image_carousel' ?>'); background-size: cover; background-position: center;">
                             </div>
                             <div class="flip-card-back">
-                                <h1>Back 4</h1>
+                                <h1><?= $movie_infos->title ?></h1>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore iusto, beatae repellendus exercitationem molestias hic modi sint non quaerat magnam deleniti tempora asperiores aliquam odio. Laborum laboriosam deserunt fugiat vitae.
+                                <?= $movie_infos->overview ?>
                                 </p>
                             </div>
                         </div>
@@ -99,26 +101,3 @@ $movies_to_js = json_encode($movies);
 </body>
 
 </html>
-
-<!-- <div class="item">
-    <div class="flip-card">
-        <div class="flip-card-front">
-            <div class="flip-card-front-img">
-                <img src="" alt="">
-            </div>
-            <div class="main-card-content">
-                <h1 class="title">Front 4</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore iusto, beatae repellendus exercitationem molestias hic modi sint non quaerat magnam deleniti tempora asperiores aliquam odio. Laborum laboriosam deserunt fugiat vitae.
-                </p>
-            </div>
-
-        </div>
-        <div class="flip-card-back">
-            <h1>Back 4</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore iusto, beatae repellendus exercitationem molestias hic modi sint non quaerat magnam deleniti tempora asperiores aliquam odio. Laborum laboriosam deserunt fugiat vitae.
-            </p>
-        </div>
-    </div>
-</div> -->

@@ -476,9 +476,9 @@ form .modern_input .error_checkbox {
   transform-style: preserve-3d;
 }
 
-.item:nth-of-type(3):hover .flip-card {
-  transform: rotateY(180deg);
-}
+.item:nth-of-type(3):hover .flip-card { 
+  /* transform: rotateY(180deg); */
+} 
 
 .flip-card-front,
 .flip-card-back {
@@ -498,6 +498,7 @@ form .modern_input .error_checkbox {
   background-color: #ea9696;
   color: black;
 }
+
 
 .flip-card-back {
   border-radius: 15px;

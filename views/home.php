@@ -11,6 +11,8 @@ require 'templates/header.php';
 
 <div>
     <h2>Journal des modifications</h2>
+    <br>
+
     <p>21/02/2023 : Mise en place de la partie inscription</p>
     <p>22/02/2023 : Mise en place de la partie connexion et session</p>
     <p>22/02/2023 : Branchement API "The Movie DataBase" avec tunnel SSL (library cURL) et OAuth par token </p>
@@ -23,23 +25,27 @@ require 'templates/header.php';
     <p>17/03/2023 : Gestion des doublons de film dans la liste. Affichage et modification de la date de visionage et de la note en AJAX</p>
     <p>20/03/2023 : Logique PHP du carousel (dans le cas où le nombre de film est < à 5)</p>
     <p>21/03/2023 : Logique JS du carousel (dans le cas où le nombre de film est > à 5)</p>
+    <p>22/03/2023 : Suppression d'un film dans la liste de l'utilisateur, tri de l'affichage des resultats du moteur de recherche par popularité, tri de l'affichage des films de la liste par date</p>
+    <br>
 
     <h2>A venir</h2>
     <ul class="soon">
-        <li>Suppression d'un film dans la liste de l'utilisateur</li>
+        <br>
+
+        <li>Affichage en carousel</li>
+        <li>Mise en place de la timeline</li>
         <li>Mise en place du Captcha</li>
         <li>Récupération de mot de passe</li>
         <li>Update et suppression d'un user</li>
-        <li>Affichage en carousel</li>
-        <li>Mise en place de la timeline</li>
-        <li>Mise en place des favoris</li>
-        <li>Mise en place du partage entre utilisateurs</li>
         <li>Mise en place du design du site</li>
         <br>
 
         <li>RELEASE 1.0</li>
         <br>
 
+        <li>Mise en place du block "Nouveauté" ou "Populaire" en dessous de la barre de recherche</li>
+        <li>Mise en place du partage entre utilisateurs</li>
+        <li>Mise en place des favoris</li>
         <li>Tri des films par date de visionnage</li>
         <li>Tri des films par note</li>
         <li>Mise en place d'un tuto sur la page d'accueil</li>

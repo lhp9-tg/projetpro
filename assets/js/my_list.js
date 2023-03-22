@@ -19,9 +19,9 @@ stars.forEach((star, index) => {
         });
 
         const url = `../helpers/ajax.php?tmdb_id=${film_id}&rating=${rating}`
-        
+
         fetch(url)
-        .then(responce => console.log(responce))
+            .then(responce => console.log(responce))
 
         let new_rating = document.querySelector(`.movie_list[data-id="${film_id}"] .new_rating`)
         new_rating.value = rating
@@ -39,17 +39,16 @@ function updateDate(element) {
     console.log(url)
 
     fetch(url)
-    .then(responce => console.log(responce))
+        .then(responce => console.log(responce))
 }
 
 // La modale maison (pas de librairie)
 
-const btnDelete = document.querySelector(".modern_button_red")
+const buttonsDeleteAll = document.querySelectorAll(".modern_button_red")
 const form = document.querySelector("form")
 const modal = document.querySelector(".modal")
 const closeButton = document.querySelector(".close-button")
-const GoDelete = document.querySelector(".btn_delete")
-
+const btn_delete = document.querySelector(".btn_delete")
 
 function toggleModal() {
     modal.classList.toggle("show-modal")
@@ -61,18 +60,26 @@ function windowOnClick(event) {
     }
 }
 
-btnDelete.addEventListener("click", () => {
-    toggleModal()
+buttonsDeleteAll.forEach(btnDelete => {
+    btnDelete.addEventListener("click", (event) => {
+        toggleModal()
+        console.log(event.target)
+        let film_id = event.target.parentElement.parentElement.parentElement.dataset.id
+        btn_delete.value = film_id
 
-    closeButton.addEventListener("click", toggleModal)
-    window.addEventListener("click", windowOnClick)
 
-    // Fermeture de la modale avec la touche "Echap"
-    document.addEventListener('keydown', function (event) {
-        if (event.key === "Escape") {
-            toggleModal()
-        }
+        closeButton.addEventListener("click", toggleModal)
+        window.addEventListener("click", windowOnClick)
+
+        // Fermeture de la modale avec la touche "Echap"
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape") {
+                toggleModal()
+            }
+        })
     })
 })
+
+
 
 

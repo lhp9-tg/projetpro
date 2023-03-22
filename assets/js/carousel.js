@@ -109,10 +109,18 @@ document.querySelector('.prev-arrow').addEventListener('click', (e) => {
         })
 })
 
+// Le flip de la carte -------------------------------------------------------------
 
+// Sélectionnez l'élément sur lequel vous voulez ajouter l'effet de clic
+const item = document.querySelector('.item:nth-of-type(3)');
+let rotation = 0;
 
+// Ajoutez un événement de clic à l'élément
+item.addEventListener('click', function() {
+    rotation += 180;
+    this.querySelector('.flip-card').style.transform = `rotateY(${rotation}deg)`;
+  });
 
-        
 
 
 
