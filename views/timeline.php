@@ -30,18 +30,18 @@ $movies_to_js = json_encode($movies);
                     foreach ($movies as $movie) {
                         if ($i > $max) {
                             break;
-                        } 
+                        }
                         $movie_infos = $obj_tmdb->getMovieInfosByMovieId(intval($movie['viewing_tmdb_id']));
-                        ?>
+            ?>
 
-                        <div class="item">
+                        <div class="item" data-tmdb_id="<?= $movie_infos->id ?>">
                             <div class="flip-card">
-                                <div class="flip-card-front" style="background-image: url('<?= (isset($movie_infos)) ? 'https://image.tmdb.org/t/p/w500'.$movie_infos->poster_path : '../assets/img/no_image_carousel' ?>'); background-size: cover; background-position: center;">
+                                <div class="flip-card-front" style="background-image: url('<?= (isset($movie_infos)) ? 'https://image.tmdb.org/t/p/w500' . $movie_infos->poster_path : '../assets/img/no_image_carousel' ?>'); background-size: cover; background-position: center;">
                                 </div>
                                 <div class="flip-card-back">
                                     <h1><?= $movie_infos->title ?></h1>
                                     <p style="margin : 0 15px">
-                                    <?= $movie_infos->overview ?>
+                                        <?= $movie_infos->overview ?>
                                     </p>
                                 </div>
                             </div>
@@ -59,12 +59,17 @@ $movies_to_js = json_encode($movies);
                     ?>
                     <div class="item case2" data-tmdb_id="<?= $movie['viewing_tmdb_id'] ?>">
                         <div class="flip-card">
-                            <div class="flip-card-front" style="background-image: url('<?= (isset($movie_infos)) ? 'https://image.tmdb.org/t/p/w500'.$movie_infos->poster_path : '../assets/img/no_image_carousel' ?>'); background-size: cover; background-position: center;">
+                            <div class="flip-card-front" style="background-image: url('<?= (isset($movie_infos)) ? 'https://image.tmdb.org/t/p/w500' . $movie_infos->poster_path : '../assets/img/no_image_carousel' ?>'); background-size: cover; background-position: center;">
+                                <div class="curl_container">
+                                    <div>
+                                        <div class="curl"></div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="flip-card-back">
                                 <h1><?= $movie_infos->title ?></h1>
                                 <p>
-                                <?= $movie_infos->overview ?>
+                                    <?= $movie_infos->overview ?>
                                 </p>
                             </div>
                         </div>

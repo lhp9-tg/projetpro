@@ -25,16 +25,46 @@ function removeDot() {
 addDot()
 removeDot()
 
+const cards_container = document.querySelector('.cards_container');
+
+// Le flip de la carte -------------------------------------------------------------
+
+// Sélectionnez l'élément sur lequel vous voulez ajouter l'effet de clic
+
+let cardFlipped = false;
+
+function flipCard(element) {
+    cardFlipped = !cardFlipped
+    let rotation = cardFlipped ? 180 : 0
+    element.querySelector('.flip-card').style.transform = `rotateY(${rotation}deg)`
+}
+
+let item = cards_container.children[2]
+
+let flipCallback = function () {
+    flipCard(item)
+}
+
+function enableFlip() {
+    item.addEventListener('click', flipCallback)
+}
+
+function disableFlip() {
+    item.removeEventListener('click', flipCallback)
+}
+
+window.onload = enableFlip()
+
 
 //Defilement des cards ------------------------------------------------------------------------
 
-const cards_container = document.querySelector('.cards_container');
-
 document.querySelector('.prev-arrow').addEventListener('click', (e) => {
+    disableFlip()
     cards_container.prepend(cards_container.querySelector('.item:last-of-type'));
 });
 
 document.querySelector('.next-arrow').addEventListener('click', (e) => {
+    disableFlip()
     cards_container.append(cards_container.querySelector('.item:first-of-type'));
 });
 
@@ -47,6 +77,9 @@ api_key = 'c5c6fbf4667f0cc8747fc1393fb89003'
 // Avancer dans le carousel de film ------------------------------------------------------------
 
 document.querySelector('.next-arrow').addEventListener('click', (e) => {
+
+    let previous_item = cards_container.children[2]
+    previous_item.pointerEvent = 'none'
 
     increment++
     let index = increment
@@ -61,7 +94,7 @@ document.querySelector('.next-arrow').addEventListener('click', (e) => {
 
     const container = document.querySelector('.cards_container')
     const front = container.lastElementChild.firstElementChild.firstElementChild
-    
+
     id = result[4].viewing_tmdb_id
 
     // Appel de l'API en Javasript pour récupérer le titre du film
@@ -74,11 +107,21 @@ document.querySelector('.next-arrow').addEventListener('click', (e) => {
             front.style = `background-image: url("https://image.tmdb.org/t/p/w500${movie.poster_path}"); background-size: cover; background-position: center;`
         })
 
+    item = cards_container.children[2]
+
+    function enableFlip() {
+        item.addEventListener('click', flipCallback)
+    }
+
+    enableFlip()
 })
 
 // Revenir dans le carousel de film ------------------------------------------------------------
 
 document.querySelector('.prev-arrow').addEventListener('click', (e) => {
+
+    let previous_item = cards_container.children[2]
+    previous_item.pointerEvent = 'none'
 
     increment--
     if (increment < 0) {
@@ -107,19 +150,18 @@ document.querySelector('.prev-arrow').addEventListener('click', (e) => {
             container.firstElementChild.dataset.tmdb_id = movie.id
             front.style = `background-image: url("https://image.tmdb.org/t/p/w500${movie.poster_path}"); background-size: cover; background-position: center;`
         })
+
+    item = cards_container.children[2]
+
+    function enableFlip() {
+        item.addEventListener('click', flipCallback)
+    }
+
+    enableFlip()
 })
 
-// Le flip de la carte -------------------------------------------------------------
 
-// Sélectionnez l'élément sur lequel vous voulez ajouter l'effet de clic
-const item = document.querySelector('.item:nth-of-type(3)');
-let rotation = 0;
 
-// Ajoutez un événement de clic à l'élément
-item.addEventListener('click', function() {
-    rotation += 180;
-    this.querySelector('.flip-card').style.transform = `rotateY(${rotation}deg)`;
-  });
 
 
 
