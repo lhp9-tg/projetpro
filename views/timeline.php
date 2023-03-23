@@ -37,6 +37,11 @@ $movies_to_js = json_encode($movies);
                         <div class="item" data-tmdb_id="<?= $movie_infos->id ?>">
                             <div class="flip-card">
                                 <div class="flip-card-front" style="background-image: url('<?= (isset($movie_infos)) ? 'https://image.tmdb.org/t/p/w500' . $movie_infos->poster_path : '../assets/img/no_image_carousel' ?>'); background-size: cover; background-position: center;">
+                                    <div class="curl_container">
+                                        <div>
+                                            <div class="curl"></div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="flip-card-back">
                                     <h1><?= $movie_infos->title ?></h1>
