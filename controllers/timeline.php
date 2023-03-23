@@ -13,6 +13,7 @@ if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
 
     $obj_movies = new Movies();
     $movies = $obj_movies->GetMoviesViewAndRatesByUser();
+    $movies = array_reverse($movies);
 
 }
 else {

@@ -160,6 +160,18 @@ document.querySelector('.prev-arrow').addEventListener('click', (e) => {
     enableFlip()
 })
 
+// On simule 3 clics pour que le carousel soit centré sur la première carte
+
+document.querySelector('.prev-arrow').click()
+document.querySelector('.prev-arrow').click()
+document.querySelector('.prev-arrow').click()
+
+
+
+
+
+
+
 
 
 

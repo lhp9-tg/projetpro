@@ -6,7 +6,8 @@ stars.forEach((star, index) => {
     star.addEventListener("click", (e) => {
         let rating = index % 5 + 1;
 
-        let film_id = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.dataset.id
+        let film_id = e.target.parentElement.parentElement.parentElement.parentElement.dataset.id
+        console.log(film_id)
 
         let film_stars = document.querySelectorAll(`.movie_list[data-id="${film_id}"] .fa-star`)
 
@@ -31,9 +32,9 @@ stars.forEach((star, index) => {
 // Changement de la date 
 
 function updateDate(element) {
-    console.log(element.target.parentElement.parentElement.parentElement.parentElement.dataset.id)
+
     let date = element.target.value
-    let film_id = element.target.parentElement.parentElement.parentElement.parentElement.dataset.id
+    let film_id = element.target.parentElement.parentElement.parentElement.dataset.id
 
     const url = `../helpers/ajax.php?tmdb_id=${film_id}&viewing_date=${date}`
     console.log(url)
