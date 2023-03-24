@@ -24,6 +24,13 @@ if (isset($_GET['rating']) && isset($_GET['tmdb_id'])) {
 if (isset($_GET['viewing_date']) && isset($_GET['tmdb_id'])) {
     $tmdb_id = intval($_GET['tmdb_id']);
     $viewing_date = $_GET['viewing_date'];
+    if ($viewing_date === date('y-m-d', time())) {
+        $viewing_date = time();
+    }
+    else {
+        $viewing_date = strtotime($viewing_date);
+    }
+
 
     if (date('Y-m-d') >= $viewing_date) {
         $obj_movie = new Movies();

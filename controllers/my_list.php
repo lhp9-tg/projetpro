@@ -17,7 +17,7 @@ if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
     if ((isset($_GET['id']) && !empty($_GET['id'])) && (isset($_GET['rating']) && !empty($_GET['rating']))) {
         $tmdb_id = htmlspecialchars($_GET['id']);
         $rating = htmlspecialchars($_GET['rating']);
-        $viewing_date = htmlspecialchars(date('Y-m-d'));
+        $viewing_date = time();
 
         if ($obj_movies->checkMovieByUser($tmdb_id)) {
             header('Location: /controllers/my_list.php'); // Verifie si le film existe déjà dans la base de données de l'utilisateur connecté, si oui on redirige vers la page my_list.php sans les parametres GET d'url

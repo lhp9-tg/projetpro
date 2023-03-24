@@ -34,9 +34,11 @@ const cards_container = document.querySelector('.cards_container');
 let cardFlipped = false;
 
 function flipCard(element) {
-    cardFlipped = !cardFlipped
-    let rotation = cardFlipped ? 180 : 0
-    element.querySelector('.flip-card').style.transform = `rotateY(${rotation}deg)`
+    let card = element.querySelector('.flip-card')
+    let rotation = card.dataset.rotation || 0
+    rotation = parseInt(rotation) + 180
+    card.style.transform = `rotateY(${rotation}deg)`
+    card.dataset.rotation = rotation
 }
 
 let item = cards_container.children[2]

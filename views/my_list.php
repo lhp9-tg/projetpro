@@ -37,7 +37,7 @@ foreach ($tmdb_movies as $tmdb_movie) {
 
             <div class="movie_viewing_date">
                 <label for="viewing_date" style="margin-bottom : 1rem">Date de visionnage</label>
-                <input type="date" id="viewing_date " name="viewing_date" value="<?= $viewing_date['viewing_date'] ?>" min="1900-01-01" max="<?= date('Y-m-d') ?>" onchange="updateDate(event);">
+                <input type="date" id="viewing_date " name="viewing_date" value="<?= date('Y-m-d', $viewing_date['viewing_date']) ?>" min="1900-01-01" max="<?= date('Y-m-d') ?>" onchange="updateDate(event);">
             </div>
 
             <div class="movie_list_stars">
