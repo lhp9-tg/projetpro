@@ -31,7 +31,7 @@ const cards_container = document.querySelector('.cards_container');
 
 // Sélectionnez l'élément sur lequel vous voulez ajouter l'effet de clic
 
-let cardFlipped = false;
+
 
 function flipCard(element) {
     let card = element.querySelector('.flip-card')
@@ -48,6 +48,7 @@ let flipCallback = function () {
 }
 
 function enableFlip() {
+
     item.addEventListener('click', flipCallback)
 }
 
@@ -79,6 +80,11 @@ api_key = 'c5c6fbf4667f0cc8747fc1393fb89003'
 // Avancer dans le carousel de film ------------------------------------------------------------
 
 document.querySelector('.next-arrow').addEventListener('click', (e) => {
+
+    let close_card = cards_container.children[1].firstElementChild
+    if (close_card.dataset.rotation % 360 != 0 ) {
+        close_card.style.transform = `rotateY(${close_card.dataset.rotation - 180}deg)`
+    }
 
     let previous_item = cards_container.children[2]
     previous_item.pointerEvent = 'none'
@@ -121,6 +127,11 @@ document.querySelector('.next-arrow').addEventListener('click', (e) => {
 // Revenir dans le carousel de film ------------------------------------------------------------
 
 document.querySelector('.prev-arrow').addEventListener('click', (e) => {
+
+    let close_card = cards_container.children[3].firstElementChild
+    if (close_card.dataset.rotation % 360 != 0 ) {
+        close_card.style.transform = `rotateY(${close_card.dataset.rotation - 180}deg)`
+    }
 
     let previous_item = cards_container.children[2]
     previous_item.pointerEvent = 'none'
