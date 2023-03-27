@@ -123,7 +123,7 @@ class Movies
     public function GetMoviesViewAndRatesByUser() : array
     {
 
-        $query = $this->_pdo->prepare('SELECT viewing_date, rating_rates, viewing_tmdb_id, viewing.users_id  FROM the_retrospective.viewing INNER JOIN rating ON viewing.viewing_tmdb_id = rating.rating_tmdb_id WHERE viewing.users_id = :users_id ORDER BY viewing_date DESC');   
+        $query = $this->_pdo->prepare('SELECT viewing_date, rating_rates, viewing_tmdb_id FROM viewing NATURAL JOIN rating WHERE viewing.viewing_tmdb_id = rating.rating_tmdb_id  AND users_id = :users_id ORDER BY viewing_date DESC');   
         $query->execute([
             ':users_id' => $_SESSION['user']['id'],
         ]);

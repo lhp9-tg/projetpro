@@ -27,7 +27,6 @@ require 'templates/header.php';
     <p>21/03/2023 : Logique JS du carousel (dans le cas où le nombre de film est > à 5)</p>
     <p>22/03/2023 : Suppression d'un film dans la liste de l'utilisateur, tri de l'affichage des resultats du moteur de recherche par popularité, tri de l'affichage des films de la liste par date</p>
     <p>23/03/2023 : Résolution du problème d'affichage du flip des cards du carousel + mise en place d'un effet de "peel" sur la card principal du carousel</p>
-
     <br>
 
     <h2>A venir</h2>
@@ -40,6 +39,7 @@ require 'templates/header.php';
         <li>Récupération de mot de passe</li>
         <li>Update et suppression d'un user</li>
         <li>Mise en place du design du site</li>
+        <li>Responsive design</li>
         <br>
 
         <li>RELEASE 1.0</li>

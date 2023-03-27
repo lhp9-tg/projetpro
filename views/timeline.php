@@ -20,6 +20,8 @@ $movies_to_js = json_encode($movies);
 
         <div class="cards_container">
 
+        
+
             <?php
             if (count($movies) <= 5) {
                 $i = 1;
@@ -92,16 +94,16 @@ $movies_to_js = json_encode($movies);
 <footer>
     <div class="timeline">
         <div class="years">
-            <div class="dots"></div>
-            <div class="dots"></div>
+            <div class="dots"></div> 
+            <div class="dots"></div> 
             <div class="dots"></div>
         </div>
     </div>
 
-    <div>
+    <!-- <div>
         <button type="button" class="addDot">Add dot</button>
         <button type="button" class="removeDot">Remove dot</button>
-    </div>
+    </div> -->
 </footer>
 
 <script>

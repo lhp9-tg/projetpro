@@ -1,29 +1,29 @@
-function addDot() {
+// function addDot() {
 
-    const addbutton = document.querySelector('.addDot')
-    const years = document.querySelector('.years')
+//     const addbutton = document.querySelector('.addDot')
+//     const years = document.querySelector('.years')
 
-    addbutton.addEventListener('click', () => {
-        let dot = document.createElement('div')
-        dot.className = 'dots'
-        dot = years.appendChild(dot)
+//     addbutton.addEventListener('click', () => {
+//         let dot = document.createElement('div')
+//         dot.className = 'dots'
+//         dot = years.appendChild(dot)
 
-    })
-}
+//     })
+// }
 
-function removeDot() {
-    const removeButton = document.querySelector('.removeDot')
-    const years = document.querySelector('.years')
+// function removeDot() {
+//     const removeButton = document.querySelector('.removeDot')
+//     const years = document.querySelector('.years')
 
-    removeButton.addEventListener('click', () => {
-        if (years.children.length > 1) {
-            years.children[1].remove()
-        }
-    })
-}
+//     removeButton.addEventListener('click', () => {
+//         if (years.children.length > 3) {
+//             years.children[1].remove()
+//         }
+//     })
+// }
 
-addDot()
-removeDot()
+// addDot()
+// removeDot()
 
 const cards_container = document.querySelector('.cards_container');
 
@@ -175,9 +175,9 @@ document.querySelector('.prev-arrow').addEventListener('click', (e) => {
 
 // On simule 3 clics pour que le carousel soit centré sur la première carte
 
-document.querySelector('.prev-arrow').click()
-document.querySelector('.prev-arrow').click()
-document.querySelector('.prev-arrow').click()
+// document.querySelector('.prev-arrow').click()
+// document.querySelector('.prev-arrow').click()
+// document.querySelector('.prev-arrow').click()
 
 
 
