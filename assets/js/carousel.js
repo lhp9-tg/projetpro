@@ -44,7 +44,7 @@ document.querySelector('.next-arrow').addEventListener('click', (e) => {
 });
 
 
-// Génération des cards pour le défilement ----------------------------------------------------
+// Les variables utiles  ----------------------------------------------------
 
 let increment = 0
 api_key = 'c5c6fbf4667f0cc8747fc1393fb89003'
@@ -53,14 +53,16 @@ api_key = 'c5c6fbf4667f0cc8747fc1393fb89003'
 
 document.querySelector('.next-arrow').addEventListener('click', (e) => {
 
+    // Fermer la carte si elle est ouverte
     let close_card = cards_container.children[1].firstElementChild
     if (close_card.dataset.rotation % 360 != 0) {
         close_card.style.transform = `rotateY(${close_card.dataset.rotation - 180}deg)`
         if (close_card.dataset.rotation >= 0) {
-        close_card.dataset.rotation = close_card.dataset.rotation - 180
+            close_card.dataset.rotation = close_card.dataset.rotation - 180
         }
     }
 
+    // Désactiver le clic sur la carte précédente
     let previous_item = cards_container.children[2]
     previous_item.pointerEvent = 'none'
 
@@ -75,19 +77,34 @@ document.querySelector('.next-arrow').addEventListener('click', (e) => {
         index = (index + 1) % movies.length; // Avancer l'index, en revenant à 0 après la dernière valeur
     }
 
+    // Récupérer les éléments de la carte
     const container = document.querySelector('.cards_container')
     const front = container.lastElementChild.firstElementChild.firstElementChild
+    const back = container.lastElementChild.firstElementChild.lastElementChild
+    const stars = document.querySelectorAll(".fa-solid")
 
-    id = result[4].viewing_tmdb_id
+    let id = result[4].viewing_tmdb_id
 
-    // Appel de l'API en Javasript pour récupérer le titre du film
+    // Appel de l'API en Javasript pour récupérer le poster du film
 
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&language=fr-FR&adult=false`)
         .then(response => response.json())
         .then((data) => {
-            let movie = data
-            container.lastElementChild.dataset.tmdb_id = movie.id
-            front.style = `background-image: url("https://image.tmdb.org/t/p/w500${movie.poster_path}"); background-size: cover; background-position: center;`
+            let movie_api_data = data
+            container.lastElementChild.dataset.tmdb_id = movie_api_data.id
+            front.style = `background-image: url("https://image.tmdb.org/t/p/w500${movie_api_data.poster_path}"); background-size: cover; background-position: center;`
+
+            back.firstElementChild.innerHTML = movie_api_data.title
+            back.children[1].innerHTML = movie_api_data.overview
+            back.children[2].innerHTML = movie_api_data.release_date
+            movies.forEach(movie => {
+                if (movie.viewing_tmdb_id == id) {
+                    rate = movie.rating_rates
+                    for (let i = 0; i < rate; i++) {
+                        stars[i].classList.add('gold')
+                    }
+                }
+            })
         })
 
     item = cards_container.children[2]
@@ -107,7 +124,7 @@ document.querySelector('.prev-arrow').addEventListener('click', (e) => {
     if (close_card.dataset.rotation % 360 != 0) {
         close_card.style.transform = `rotateY(${close_card.dataset.rotation - 180}deg)`
         if (close_card.dataset.rotation >= 0) {
-        close_card.dataset.rotation = close_card.dataset.rotation - 180
+            close_card.dataset.rotation = close_card.dataset.rotation - 180
         }
     }
 

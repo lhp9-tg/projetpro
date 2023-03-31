@@ -2,12 +2,13 @@
 
 include '../helpers/session.php';
 
-$page = 'timeline';
+$page = 'carousel';
 
 require_once '../config/env.php';
 require_once '../helpers/database.php';
 require_once '../models/tmdbv2.php';
 require_once '../models/movies.php';
+require_once '../helpers/minify.php';
 
 if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
 
@@ -30,4 +31,4 @@ if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
     header('Location: ../controllers/home.php');
 }
 
-include '../views/timeline.php';
+include '../views/carousel.php';

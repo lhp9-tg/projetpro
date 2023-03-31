@@ -28,17 +28,18 @@ require 'templates/header.php';
     <p>23/03/2023 : Résolution du problème d'affichage du flip des cards du carousel + mise en place d'un effet de "peel" sur la card principal du carousel</p>
     <p>27/03/2023 : Tests timeline, Affichage de la date sur le carousel</p>
     <p>31/03/2023 : Changement des couleurs du design, Mise en place de la timeline dans la page "Ma liste"</p>
+    <p>01/04/2023 : Mise en place du design du site</p>
     <br>
 
     <h2>A venir</h2>
     <ul class="soon">
         <br>
 
-        <li>Backcard à styliser</li>
-        <li>Mise en place du design du site</li>
+        <li>Fonction JS minify & date pour la back-card</li>
+        <li>Changer la police des titres</li>
         <li>Responsive design</li>
-        <br>
 
+        <br>
         <li>RELEASE 1.0</li>
         <br>
 
@@ -46,17 +47,57 @@ require 'templates/header.php';
         <li>Mise en place de l'Espace utilisateur</li>
         <li>Récupération de mot de passe</li>
         <li>Update et suppression d'un user</li>
-        <li>Mise en place du block "Nouveauté" ou "Populaire" en dessous de la barre de recherche</li>
+
+        <br>
+        <li>RELEASE 1.1</li>
+        <br>
+
         <li>Mise en place du partage entre utilisateurs</li>
         <li>Mise en place des favoris</li>
+        <li>Mise en place de la partie "A voir"</li>
+
+        <br>
+        <li>RELEASE 1.2</li>
+        <br>
+
+        <li>Mise en place du block "Nouveauté" ou "Populaire" en dessous de la barre de recherche</li>
+        <li>Ajout du casting des films, de la durée, le genre etc...</li>
+
+        <br>
+        <li>RELEASE 1.3</li>
+        <br>
+
         <li>Tri des films par date de visionnage</li>
         <li>Tri des films par note</li>
-        <li>Mise en place d'un tuto sur la page d'accueil</li>
-        <li>Mise en place de la partie "A voir"</li>
-        <li>Ajout du casting des films, de la durée, le genre etc...</li>
         <li>Tri par acteurs, realisateurs, genre, durée...</li>
+
+        <br>
+        <li>RELEASE 1.4</li>
+        <br>
+
         <li>Recherche par acteur, réalisateur, genre etc...</li>
         <li>Recherche par année</li>
+
+        <br>
+        <li>RELEASE 1.5</li>
+        <br>
+
+        <li>Ajout des series</li>
+        <li>Recherche par saison</li>
+        <li>Recherche par episode</li>
+
+        <br>
+        <li>RELEASE 1.6</li>
+        <br>
+
+        <li>Ajout des jeux vidéos</li>
+        <li>Recherche par plateforme</li>
+        <li>Recherche par genre</li>
+
+        <br>
+        <li>RELEASE 1.7</li>
+        <br>
+
     </ul>
 </div>
 

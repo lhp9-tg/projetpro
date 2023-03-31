@@ -31,7 +31,7 @@ stars.forEach((star, index) => {
 
 // Changement de la date 
 
-function updateDate(element) {
+async function updateDate(element) {
 
     let date = element.target.value
     let film_id = element.target.parentElement.parentElement.parentElement.dataset.id
@@ -39,10 +39,15 @@ function updateDate(element) {
     const url = `../helpers/ajax.php?tmdb_id=${film_id}&viewing_date=${date}`
     console.log(url)
 
-    fetch(url)
-        .then(response => console.log(response))
-        .then(window.location.reload())
+    try {
+        let response = await fetch(url);
+        console.log(response);
+        window.location.reload();
+    } catch (error) {
+        console.error('Erreur lors de la requête AJAX:', error);
+    }
 }
+
 
 // La modale maison (pas de librairie)
 
@@ -53,6 +58,7 @@ const closeButton = document.querySelector(".close-button")
 const btn_delete = document.querySelector(".btn_delete")
 
 function toggleModal() {
+    console.log(modal)
     modal.classList.toggle("show-modal")
 }
 

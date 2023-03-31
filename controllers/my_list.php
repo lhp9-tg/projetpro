@@ -9,6 +9,7 @@ require_once '../helpers/database.php';
 require_once '../models/users.php';
 require_once '../models/movies.php';
 require_once '../models/tmdbv2.php';
+require_once '../helpers/minify.php';
 
 $obj_users = new Users();
 

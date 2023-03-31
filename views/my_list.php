@@ -1,6 +1,8 @@
 <?php
 require 'templates/header.php';
+ob_start();
 ?>
+
 
 <h2 style="text-align : center">La liste de vos films</h2>
 <div class="timeline">
@@ -15,10 +17,7 @@ foreach ($tmdb_movies as $tmdb_movie) {
     $movie_infos = $obj_tmdb->getMovieInfosByMovieId($tmdb_movie);
     $viewing_date = $obj_movies->getViewingDates($tmdb_movie);
     $rating = $obj_movies->getRatings($tmdb_movie);
-
-    ob_start();
 ?>
-
 
         <div class="entry">
 
@@ -39,7 +38,7 @@ foreach ($tmdb_movies as $tmdb_movie) {
 
                         <div class='movie_infos'>
                             <h2><?= $movie_infos->title ?></h2>
-                            <p><?= $movie_infos->overview ?></p>
+                            <p><?= minify($movie_infos->overview) ?></p>
                             <p>Date de sortie : <?= date('d/m/Y', strtotime($movie_infos->release_date)) ?></p>
 
                         </div>

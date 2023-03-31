@@ -5,6 +5,7 @@ include '../helpers/session.php';
 $page = 'results';
 
 require_once '../models/tmdbv2.php';
+require_once '../helpers/minify.php';
 
 function cleanString($string) {
 	$string = strtolower($string);

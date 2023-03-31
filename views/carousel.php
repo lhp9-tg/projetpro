@@ -2,11 +2,6 @@
 require 'templates/header.php';
 
 $obj_tmdb = new TMDB('c5c6fbf4667f0cc8747fc1393fb89003');
-// foreach ($tmdb_movies as $tmdb_movie) {
-//     intval($tmdb_movie);
-//     $viewing_date = $obj_movies->getViewingDates($tmdb_movie);
-//     $rating = $obj_movies->getRatings($tmdb_movie);
-// }
 
 $movies_to_js = json_encode($movies);
 ob_start();
@@ -50,16 +45,19 @@ ob_start();
                                 <div class="flip-card-back">
                                     <h1><?= $movie_infos->title ?></h1>
                                     <p class="overview">
-                                        <?= $movie_infos->overview ?>
+                                        <?= minify($movie_infos->overview) ?>
+                                    </p>
+                                    <p class="release_date">Date de sortie : 
+                                        <?= date('d/m/Y', strtotime($movie_infos->release_date)) ?>
                                     </p>
                                     <div class="retrospective_stars">
                                         <div class="stars">
                                             <?php
                                             for ($i = 1; $i <= 5; $i++) {
                                                 if ($i <= $rating) {
-                                                    echo '<i class="bordered_icon fa-solid fa-star gold" alt="étoile' . $i . '"></i>';
+                                                    echo '<i class="fa-solid fa-star gold noHover" alt="étoile' . $i . '"></i>';
                                                 } else {
-                                                    echo '<i class="bordered_icon fa-solid fa-star" alt="étoile' . $i . '"></i>';
+                                                    echo '<i class="fa-solid fa-star noHover" alt="étoile' . $i . '"></i>';
                                                 }
                                             }
                                             ?>
@@ -95,16 +93,19 @@ ob_start();
                                 <div class="flip-card-back">
                                     <h1><?= $movie_infos->title ?></h1>
                                     <p class="overview">
-                                        <?= $movie_infos->overview ?>
+                                        <?= minify($movie_infos->overview) ?>
+                                    </p>
+                                    <p class="release_date">Date de sortie : 
+                                        <?= date('d/m/Y', strtotime($movie_infos->release_date)) ?>
                                     </p>
                                     <div class="retrospective_stars">
                                         <div class="stars">
                                             <?php
                                             for ($i = 1; $i <= 5; $i++) {
                                                 if ($i <= $rating) {
-                                                    echo '<i class="bordered_icon fa-solid fa-star gold" alt="étoile' . $i . '"></i>';
+                                                    echo '<i class="fa-solid fa-star gold noHover" alt="étoile' . $i . '"></i>';
                                                 } else {
-                                                    echo '<i class="bordered_icon fa-solid fa-star" alt="étoile' . $i . '"></i>';
+                                                    echo '<i class="fa-solid fa-star noHover" alt="étoile' . $i . '"></i>';
                                                 }
                                             }
                                             ?>

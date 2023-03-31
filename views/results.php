@@ -53,7 +53,7 @@ if (isset($_POST['search']) && !empty($_POST['search'])) {
 
                         <div class='movie_info'>
                             <h2><?= $movies->title ?></h2>
-                            <p><?= $movies->overview ?></p>
+                            <p><?= minify($movies->overview) ?></p>
                             <p>Date de sortie : <?= date('d/m/Y', strtotime($movies->release_date)) ?></p>
                         </div>
                     </div>

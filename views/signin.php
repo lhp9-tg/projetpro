@@ -75,7 +75,9 @@ require 'templates/header.php';
 
 
             <br>
-            <input type="submit" class='submit' value="S'inscrire">
+            <div class="col_center">
+                <input type="submit" class='submit' value="S'inscrire">
+            </div>
         </form>
 
 
