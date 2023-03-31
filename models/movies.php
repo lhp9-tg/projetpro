@@ -212,8 +212,6 @@ class Movies
     ]);
     }
 
-
-
     /**
      * méthode pour supprimer un film de la liste d'un user
      *

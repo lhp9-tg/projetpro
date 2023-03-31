@@ -12,7 +12,7 @@
 <div class="col_center">
 <p>Erreur 404 : Page non trouvée</p>
     <div>
-        <a href="../index.php"><img src="./assets/img/facepalm-really.gif" alt="404"></a>
+        <a href="../index.php"><img src="../assets/img/facepalm-really.gif" alt="404"></a>
     </div>
 </div>
     

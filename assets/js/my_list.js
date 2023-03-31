@@ -22,7 +22,7 @@ stars.forEach((star, index) => {
         const url = `../helpers/ajax.php?tmdb_id=${film_id}&rating=${rating}`
 
         fetch(url)
-            .then(responce => console.log(responce))
+            .then(response => console.log(response))
 
         let new_rating = document.querySelector(`.movie_list[data-id="${film_id}"] .new_rating`)
         new_rating.value = rating
@@ -40,7 +40,8 @@ function updateDate(element) {
     console.log(url)
 
     fetch(url)
-        .then(responce => console.log(responce))
+        .then(response => console.log(response))
+        .then(window.location.reload())
 }
 
 // La modale maison (pas de librairie)

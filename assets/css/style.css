@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Lao:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
 
 /* ******GENERAL******  */
 
@@ -8,24 +9,25 @@ body {
   padding: 0;
   font-size: 1rem;
   font-family: "Source Sans Pro", sans-serif;
-  color: #383838;
-  background-color: #f8f8f8;
+  color: #ffffff;
+  background-color: #1e1a1a;
 }
 
 h1 {
-  font-family: 'Caveat', cursive;
+  font-family: 'Noto Serif Lao', serif;
   font-size: 2rem;
   font-weight: 600;
   margin: 0;
   margin-left: 10px;
+  color: #ffdc0f;  
 }
 
 h2 {
-  font-family: 'Caveat', cursive;
+  font-family: 'Noto Serif Lao', serif;
   font-size: 2rem;
   font-weight: 600;
   margin: 1rem 0;
-
+  color: #ffdc0f;
 }
 
 /* Les DIV centrées à la Bootstrap */
@@ -59,9 +61,8 @@ h2 {
   transform: translate(-50%, -50%);
 
   font-weight: bold;
-  border: #1b66ca 2px solid;
+  border: #ffdc0f 2px solid;
   border-radius: 5px;
-  box-shadow: 2px 2px 5px 2px #535353;
   padding: 50px;
 }
 
@@ -72,10 +73,10 @@ h2 {
   margin: 1rem 0;
   width: auto;
   height: 2.3em;
-  border: #1b66ca 2px solid;
+  border: #ffdc0f 2px solid;
   border-radius: 5px;
   font-weight: bolder;
-  color: #1b66ca;
+  color: #ffdc0f;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.1em;
   align-self: center;
@@ -86,11 +87,12 @@ h2 {
 }
 
 .modern_button:hover {
-  background-color: #1b66ca;
+  background-color: #ffdc0f;
   color: white;
 }
 
 .modern_button_red {
+  background-color: #1e1a1a;
   position: relative;
   margin: 1rem 0;
   width: auto;
@@ -98,7 +100,7 @@ h2 {
   border: #c72525 2px solid;
   border-radius: 5px;
   font-weight: bolder;
-  color: #c72525;
+  color: #ffffff;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.1em;
   align-self: center;
@@ -119,8 +121,8 @@ h2 {
 header {
   width: 100%;
   height: 10vh;
-  border-bottom: 1px black solid;
-  background-color: rgb(128, 128, 128, 0.50);
+  border-bottom: 1px #383838 solid;
+  background-color: #1e1a1a;
   display: flex;
   justify-content: space-between;
 }
@@ -143,7 +145,7 @@ header {
 
 .title {
   text-decoration: none;
-  color: #000000;
+  color: #ffdc0f;
 }
 
 nav ul {
@@ -158,8 +160,12 @@ nav ul {
 
 nav ul a {
   text-decoration: none;
-  color: black;
+  color: #ffffff;
   font-size: 1.2rem;
+}
+
+nav ul a:hover {
+  color: #ffdc0f;
 }
 
 /* ******MAIN****** */
@@ -170,6 +176,11 @@ main {
   overflow: auto;
   padding-left: 5vw;
   padding-right: 5vw;
+  background-color: #1e1a1a;
+  /* background-image: url(../img/background.svg); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .container {
@@ -187,7 +198,27 @@ main {
   margin-bottom: 1rem;
 }
 
+.hero {
+  width: 60vw;
+  height: 30vh;
+  font-size: 2.5rem;
+  color: #ffdc0f;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
 /* Les formaulaires */
+
+input {
+  background-color: #1c2129;
+  color: #ffffff;
+}
 
 form .modern_input {
   display: flex;
@@ -202,22 +233,26 @@ form.modern_form .modern_label {
 }
 
 form.modern_form .modern_label input {
-  width: 300px;
+  width: 50vw;
   height: 25px;
   font-size: 16px;
   margin-bottom: 25px;
-  border: #1b66ca 2px solid;
-  border-radius: 5px;
+  border: #3b3b3C 2px solid;
+  border-radius: 30px;
   outline: none;
   padding-bottom: 5px;
   padding-top: 20px;
-  padding-left: 5px;
+  padding-left: 25px;
+}
+
+form.modern_form .modern_label input:hover {
+  border: #5e5e5f 2px solid;
 }
 
 form.modern_form .modern_label label {
   position: absolute;
   top: 5px;
-  left: 5px;
+  left: 25px;
   padding-top: 10px;
   font-size: 16px;
   pointer-events: none;
@@ -228,7 +263,7 @@ form.modern_form .modern_label label {
 form.modern_form .modern_label input:focus~label,
 form.modern_form .modern_label input:valid~label {
   top: -8px;
-  left: 5px;
+  left: 25px;
   font-size: 12px;
 }
 
@@ -247,7 +282,7 @@ form.modern_form .modern_label input:valid~label {
 }
 
 .select select {
-  border: 2px solid #1b66ca;
+  border: 2px solid #ffdc0f;
   border-radius: 5px;
   height: 2rem;
   margin-left: 40px;
@@ -260,7 +295,7 @@ form.modern_form .modern_label input:valid~label {
 }
 
 .checkbox .cgu {
-  color: #1b66ca;
+  color: #ffdc0f;
   cursor: pointer;
   font-weight: bold;
 }
@@ -272,10 +307,10 @@ form.modern_form .modern_label input:valid~label {
   width: 10vw;
   height: 2.3em;
   width: auto;
-  border: #1b66ca 2px solid;
+  border: #ffdc0f 2px solid;
   border-radius: 5px;
   font-weight: bolder;
-  color: #1b66ca;
+  color: #ffdc0f;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.1em;
   align-self: center;
@@ -284,10 +319,9 @@ form.modern_form .modern_label input:valid~label {
 }
 
 .submit:hover {
-  background-color: #1b66ca;
-  color: white;
+  background-color: #ffdc0f;
+  color: black;
 }
-
 
 /* Les erreurs de validation */
 
@@ -303,8 +337,8 @@ form .modern_input .error_select {
   color: red;
   font-weight: bold;
 }
-error_ra
-form .modern_input .error_checkbox {
+
+error_ra form .modern_input .error_checkbox {
   margin-left: 50px;
   margin-bottom: -5px;
   color: red;
@@ -322,7 +356,6 @@ form .modern_input .error_checkbox {
   font-weight: bold;
 }
 
-
 /* Les Modales */
 .modal {
   position: fixed;
@@ -337,6 +370,7 @@ form .modern_input .error_checkbox {
 }
 
 .modal-content {
+  color: #000;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -351,6 +385,12 @@ form .modern_input .error_checkbox {
   box-shadow: 5px 5px 15px 5px #000000;
   z-index: 1;
 }
+
+.modal-content h2 {
+  color : #000000;
+}
+
+
 
 .show-modal {
   visibility: visible;
@@ -400,13 +440,18 @@ form .modern_input .error_checkbox {
   overflow-x: clip;
   overflow-y: hidden;
 
-  --value: -2000; /* Referme le rayon si s'approche de 0 */
-  --distance: calc(var(--value) * .60 * 1px); /* Zoom les side cards vers l'avant si s'approche de 0 */
-  --perspective: calc(var(--value) * -.33 * 1px); 
-  --angle: calc(var(--value) / 85 * 1deg); 
-  --zoom: 2.4; /* Zoom tout le carousel si s'approche de 0 */
-  --active-translate-modifier: .8; /* Zoom le card active vers l'avant si s'approche de 0 */
-  --vertical-offset: 0px; /* Décale les cards vers le haut si s'approche de 0 */
+  --value: -2000;
+  /* Referme le rayon si s'approche de 0 */
+  --distance: calc(var(--value) * .60 * 1px);
+  /* Zoom les side cards vers l'avant si s'approche de 0 */
+  --perspective: calc(var(--value) * -.33 * 1px);
+  --angle: calc(var(--value) / 85 * 1deg);
+  --zoom: 2.4;
+  /* Zoom tout le carousel si s'approche de 0 */
+  --active-translate-modifier: 0.8;
+  /* Zoom le card active vers l'avant si s'approche de 0 */
+  --vertical-offset: 0px;
+  /* Décale les cards vers le haut si s'approche de 0 */
 }
 
 
@@ -430,10 +475,6 @@ form .modern_input .error_checkbox {
 
   transition: all 2s;
   position: absolute;
-
-  border: 1px black solid;
-  border-radius: 15px;
-
 }
 
 .cards_container .item:nth-of-type(1) {
@@ -495,6 +536,38 @@ form .modern_input .error_checkbox {
   color: black;
 }
 
+/* Le bandeau date */
+
+.container_date {
+  background-color: #ffffffb5;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+  border: #000000 solid 0.5px;
+  border-top: black solid 2px;
+  border-radius: 0 0 15px 15px;
+  box-sizing: border-box;
+}
+
+.date {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000000;
+  font-family: 'Noto Serif Lao', serif;
+}
+
+.item:nth-child(3):hover .container_date {
+  opacity: 1;
+}
+
+
+
 /* L'effet de peel ou curl ---------------------------------------------------- */
 
 /* Le container */
@@ -517,7 +590,7 @@ form .modern_input .error_checkbox {
 }
 
 /* Le bloc par dessus le container qui contiendra les elements de transformation */
-.item:nth-child(3) div.curl_container > div {
+.item:nth-child(3) div.curl_container>div {
   position: absolute;
   top: 0;
   left: 0;
@@ -526,7 +599,7 @@ form .modern_input .error_checkbox {
 }
 
 /* Ajout d'un linéar-gradient en haut à gauche pour opacifier le coin*/
-.item:nth-child(3) div.curl_container > div::before {
+.item:nth-child(3) div.curl_container>div::before {
   position: absolute;
   top: 0;
   right: 0;
@@ -554,7 +627,6 @@ form .modern_input .error_checkbox {
 /* Ajout de l'effet de distortion (skew) en haut à droite*/
 
 
-
 .item:nth-child(3) div.curl_container .curl:before,
 .item:nth-child(3) div.curl_container .curl:after {
   content: '';
@@ -579,9 +651,9 @@ form .modern_input .error_checkbox {
   transform: skew(-15deg) rotate(-84deg);
 }
 
-/* ??????? */
-.item:nth-child(3) div.curl_container:hover > div::before,
-.item:nth-child(3) div.curl_container.hover > div::before {
+/* C'est le container qui déclenche le ::hover */
+.item:nth-child(3) div.curl_container:hover>div::before,
+.item:nth-child(3) div.curl_container.hover>div::before {
   opacity: 1;
 }
 
@@ -597,11 +669,16 @@ form .modern_input .error_checkbox {
 .flip-card-back {
   border-radius: 15px;
   border: 1px solid black;
+  box-sizing: border-box;
 
-  background-color: dodgerblue;
-  color: white;
+  background-color: #aec6ff;
+  color: black;
 
   transform: rotateY(180deg);
+}
+
+.overview {
+  margin: 15px;
 }
 
 
@@ -647,7 +724,68 @@ form .modern_input .error_checkbox {
   z-index: 2;
 }
 
-/* Résultats de la recherche */
+/************************************* Résultats de la recherche **********************************/
+
+/* Partie timeline */
+
+.entry {
+  clear: both;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.entry .title {
+  float: left;
+  width: 7vw;
+  padding-right: 30px;
+  text-align: right;
+  position: relative;
+  border-right: 1px solid #ffdc0f;
+
+}
+.entry .title:before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 4px solid #ffdc0f;
+  background-color: #fff;
+  border-radius: 100%;
+  top: 15%;
+  right: -8px;
+  z-index: 99;
+}
+.entry .title h3 {
+  margin: 0;
+  font-size: 120%;
+}
+.entry .title p {
+  margin: 0;
+  font-size: 100%;
+}
+.entry .body {
+  margin: 0 0 1em;
+  float: right;
+  width: 85%;
+  padding-left: 30px;
+}
+.entry .body p {
+  line-height: 1.4em;
+}
+.entry .body p:first-child {
+  margin-top: 0;
+  font-weight: 400;
+}
+.entry .body ul {
+  color: #aaa;
+  padding-left: 0;
+  list-style-type: none;
+}
+.entry .body ul li:before {
+  content: "–";
+  margin-right: 0.5em;
+}
 
 /* La grille des résultats */
 
@@ -655,9 +793,9 @@ form .modern_input .error_checkbox {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  padding: 10px 0;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  padding: 10px 10px;
 }
 
 .movie {
@@ -668,31 +806,31 @@ form .modern_input .error_checkbox {
 }
 
 .movie:hover {
-  background: rgb(110, 140, 255);
-  background: linear-gradient(180deg, rgba(110, 140, 255, 0.5718662464985995) 0%, rgba(255, 255, 255, 1) 100%);
+  border: 1px solid #ffdc0f;
 }
 
 .movie_list {
+  color: #ffffff;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto;
   grid-column-gap: 0px;
   grid-row-gap: 10px;
-  grid-template-areas : "movie_list_core movie_list_core movie_list_core movie_list_core movie_other_infos";
+  grid-template-areas: "movie_list_core movie_list_core movie_list_core movie_list_core movie_other_infos";
   border: #000000 1px solid;
   margin-bottom: 20px;
-  }
+  box-shadow: 0 20px 25px -15px rgba(0, 0, 0, .3);
+}
 
 .movie_list:hover {
-  background: rgb(110, 140, 255);
-  background: linear-gradient(180deg, rgba(110, 140, 255, 0.5718662464985995) 0%, rgba(255, 255, 255, 1) 100%);
+  border: 1px solid #ffdc0f;
 }
 
 .movie_list_core {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  grid-area : movie_list_core;
+  grid-area: movie_list_core;
 }
 
 
@@ -703,7 +841,7 @@ form .modern_input .error_checkbox {
   align-items: center;
 
   gap: 20px;
-  grid-area : movie_other_infos;
+  grid-area: movie_other_infos;
 }
 
 .movie_viewing_date {
@@ -713,12 +851,20 @@ form .modern_input .error_checkbox {
   align-items: center;
 }
 
+.input_date {
+  border : 1px solid #ffffff;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
 .movie_list_stars {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 .movie_list_stars p {
@@ -728,6 +874,15 @@ form .modern_input .error_checkbox {
 .movie_list_stars div i {
   color: gray;
   font-size: 20px;
+}
+
+.bordered_icon {
+  text-shadow:
+    3px 3px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .modal_movie {
@@ -753,8 +908,7 @@ form .modern_input .error_checkbox {
   margin: 10px;
 }
 
-.movie .movie_info
-.movie_list_core .movie_info {
+.movie .movie_info .movie_list_core .movie_info {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -796,23 +950,25 @@ form .modern_input .error_checkbox {
 }
 
 .modal_select button {
-  border: #1b66ca 2px solid;
-  color: #1b66ca;
+  background-color: #ffdc0f;
+  border: gray 2px solid;
+  color: #2a2a2a;
 }
 
 .modal_select input {
+  background-color: #c14444;
   border: #c14444 2px solid;
-  color: #c14444;
+  color: #ffffff;
 }
 
 .modal_select button:hover {
-  background-color: #1b66ca;
-  color: white;
+  border: #000000 2px solid;
 }
 
 .modal_select input:hover {
   background-color: #c14444;
   color: white;
+  border: #000000 2px solid;
 }
 
 /* Dans la modale de ma liste */
@@ -873,29 +1029,26 @@ form .modern_input .error_checkbox {
 .stars {
   display: inline-flex;
   justify-content: center;
-	font-size: 2.5em;
+  font-size: 2.5em;
 }
 
 .fa-star {
   color: gray;
   cursor: pointer;
   padding: 2px;
-  transition: color 0.8s ease;
+  transition: color 0.3s ease;
 }
 
 .fa-star.gold {
   color: #ffdc0f;
 }
 
-/**
-     * Et là opère la magie du ':hover' !
-     */
 
 /* A l'état :hover sur le parent '.rating',
        on force TOUTES les étoiles à passer en jaune. */
 .stars:hover .fa-star {
   color: #ffdc0f;
-  transition: color 0.8s
+  transition: color 0.3s
 }
 
 /* Et si la souris survole une étoile en particulier,
@@ -905,50 +1058,17 @@ form .modern_input .error_checkbox {
   color: gray;
 }
 
-/******************************************************************/
-
-
-
 /* ******FOOTER****** */
 
 footer {
-  border-top: 1px solid black;
+  border-top: 1px #383838 solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: auto;
+  background-color: #1e1a1a;
 }
 
-/* Partie timeline */
 
-.timeline {
-  height: 6vh;
-  width: 80vw;
-
-  --rayon: 25px;
-  --thickness: 5px;
-  --gap: calc(calc(var(--thickness) - var(--rayon))/2);
-}
-
-.years {
-  position: absolute;
-  margin-top: 4vh;
-  height: var(--thickness);
-  width: 80vw;
-  background-color: gray;
-  border-radius: 3px;
-  z-index: 2;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.dots {
-  margin-top: var(--gap);
-  height: var(--rayon);
-  width: var(--rayon);
-  background-color: gray;
-  border-radius: 50%;
-  z-index: 1;
-}

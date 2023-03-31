@@ -3,8 +3,7 @@ require 'templates/header.php';
 ?>
 
 <div class="col_center">
-    <h2>The Retrospective</h2>
-    <p>Des classiques aux nouveautés, gardez une trace de tous les films que vous avez regardés</p>
+    <h2 class="hero">Des classiques aux nouveautés,<br> gardez une trace de tous les films<br> que vous avez regardés !</h2>
 </div>
 
 <hr>
@@ -27,17 +26,15 @@ require 'templates/header.php';
     <p>21/03/2023 : Logique JS du carousel (dans le cas où le nombre de film est > à 5)</p>
     <p>22/03/2023 : Suppression d'un film dans la liste de l'utilisateur, tri de l'affichage des resultats du moteur de recherche par popularité, tri de l'affichage des films de la liste par date</p>
     <p>23/03/2023 : Résolution du problème d'affichage du flip des cards du carousel + mise en place d'un effet de "peel" sur la card principal du carousel</p>
+    <p>27/03/2023 : Tests timeline, Affichage de la date sur le carousel</p>
+    <p>31/03/2023 : Changement des couleurs du design, Mise en place de la timeline dans la page "Ma liste"</p>
     <br>
 
     <h2>A venir</h2>
     <ul class="soon">
         <br>
 
-        <li>Affichage en carousel</li>
-        <li>Mise en place de la timeline</li>
-        <li>Mise en place du Captcha</li>
-        <li>Récupération de mot de passe</li>
-        <li>Update et suppression d'un user</li>
+        <li>Backcard à styliser</li>
         <li>Mise en place du design du site</li>
         <li>Responsive design</li>
         <br>
@@ -45,6 +42,10 @@ require 'templates/header.php';
         <li>RELEASE 1.0</li>
         <br>
 
+        <li>Mise en place du Captcha</li>
+        <li>Mise en place de l'Espace utilisateur</li>
+        <li>Récupération de mot de passe</li>
+        <li>Update et suppression d'un user</li>
         <li>Mise en place du block "Nouveauté" ou "Populaire" en dessous de la barre de recherche</li>
         <li>Mise en place du partage entre utilisateurs</li>
         <li>Mise en place des favoris</li>

@@ -1,30 +1,3 @@
-// function addDot() {
-
-//     const addbutton = document.querySelector('.addDot')
-//     const years = document.querySelector('.years')
-
-//     addbutton.addEventListener('click', () => {
-//         let dot = document.createElement('div')
-//         dot.className = 'dots'
-//         dot = years.appendChild(dot)
-
-//     })
-// }
-
-// function removeDot() {
-//     const removeButton = document.querySelector('.removeDot')
-//     const years = document.querySelector('.years')
-
-//     removeButton.addEventListener('click', () => {
-//         if (years.children.length > 3) {
-//             years.children[1].remove()
-//         }
-//     })
-// }
-
-// addDot()
-// removeDot()
-
 const cards_container = document.querySelector('.cards_container');
 
 // Le flip de la carte -------------------------------------------------------------
@@ -48,7 +21,6 @@ let flipCallback = function () {
 }
 
 function enableFlip() {
-
     item.addEventListener('click', flipCallback)
 }
 
@@ -82,8 +54,11 @@ api_key = 'c5c6fbf4667f0cc8747fc1393fb89003'
 document.querySelector('.next-arrow').addEventListener('click', (e) => {
 
     let close_card = cards_container.children[1].firstElementChild
-    if (close_card.dataset.rotation % 360 != 0 ) {
+    if (close_card.dataset.rotation % 360 != 0) {
         close_card.style.transform = `rotateY(${close_card.dataset.rotation - 180}deg)`
+        if (close_card.dataset.rotation >= 0) {
+        close_card.dataset.rotation = close_card.dataset.rotation - 180
+        }
     }
 
     let previous_item = cards_container.children[2]
@@ -129,8 +104,11 @@ document.querySelector('.next-arrow').addEventListener('click', (e) => {
 document.querySelector('.prev-arrow').addEventListener('click', (e) => {
 
     let close_card = cards_container.children[3].firstElementChild
-    if (close_card.dataset.rotation % 360 != 0 ) {
+    if (close_card.dataset.rotation % 360 != 0) {
         close_card.style.transform = `rotateY(${close_card.dataset.rotation - 180}deg)`
+        if (close_card.dataset.rotation >= 0) {
+        close_card.dataset.rotation = close_card.dataset.rotation - 180
+        }
     }
 
     let previous_item = cards_container.children[2]
@@ -173,11 +151,14 @@ document.querySelector('.prev-arrow').addEventListener('click', (e) => {
     enableFlip()
 })
 
-// On simule 3 clics pour que le carousel soit centré sur la première carte
 
-// document.querySelector('.prev-arrow').click()
-// document.querySelector('.prev-arrow').click()
-// document.querySelector('.prev-arrow').click()
+
+
+
+
+
+
+
 
 
 

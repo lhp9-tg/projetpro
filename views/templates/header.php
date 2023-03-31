@@ -20,7 +20,7 @@
             <ul>
                 <?= (isset($_SESSION['user'])) ? '<li><a href="../controllers/login.php?logout">Se déconnecter</a></li>' : '<li><a href="../controllers/login.php">Se connecter</a></li>' ?>
                 <?= (isset($_SESSION['user'])) ? '<li><a href="../controllers/explorer.php">Chercher</a></li>' : '<li><a href="../controllers/signin.php">S\'inscrire</a></li>' ?>
-                <?= (isset($_SESSION['user']) && ($_SESSION['user']['retrospective_active'] === true)) ? '<li><a href="../controllers/my_list.php">Mon profil</a></li>' : '' ?>
+                <?= (isset($_SESSION['user']) && ($_SESSION['user']['retrospective_active'] === true)) ? '<li><a href="../controllers/my_list.php">Ma liste</a></li>' : '' ?>
                 <?= (isset($_SESSION['user']) && ($_SESSION['user']['retrospective_active'] === true)) ? '<li><a href="../controllers/timeline.php">Ma rétrospective</a></li>' : '' ?>
 
 
