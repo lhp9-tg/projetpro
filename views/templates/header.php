@@ -13,20 +13,23 @@
 <body>
     <header>
         <div class="logo">
-            <a href="."><img src="../assets/img/logo.png" alt="logo de bobine par freePNG.fr"> </a>
-            <h1><a  class="title" href="/controllers/home.php">The Retrospective</a></h1>
+            <a href="/controllers/home.php"><img src="../assets/img/logo_inverse.png" alt="logo de bobine" style="margin-left : 10px"> </a>
+            <h1><a class="title" href="/controllers/home.php">The Retrospective</a></h1>
         </div>
         <nav>
-            <ul>
-                <?= (isset($_SESSION['user'])) ? '<li><a href="../controllers/explorer.php">Chercher</a></li>' : '<li><a href="../controllers/signin.php">S\'inscrire</a></li>' ?>
-                <?= (isset($_SESSION['user']) && ($_SESSION['user']['retrospective_active'] === true)) ? '<li><a href="../controllers/my_list.php">Ma liste</a></li>' : '' ?>
+            <a id="link" href="#"><span id="burger"></span></a>
+            <ul class="menu">
+                <?= (isset($_SESSION['user'])) ? '<li><a href="../controllers/explorer.php">Ajouter</a></li>' : '<li><a href="../controllers/signin.php">S\'inscrire</a></li>' ?>
+                <?= (isset($_SESSION['user']) && ($_SESSION['user']['retrospective_active'] === true)) ? '<li><a href="../controllers/my_list.php">Mes films</a></li>' : '' ?>
                 <?= (isset($_SESSION['user']) && ($_SESSION['user']['retrospective_active'] === true)) ? '<li><a href="../controllers/carousel.php">Ma rétrospective</a></li>' : '' ?>
                 <?= (isset($_SESSION['user'])) ? '<li><a href="../controllers/login.php?logout">Se déconnecter</a></li>' : '<li><a href="../controllers/login.php">Se connecter</a></li>' ?>
-
             </ul>
         </nav>
     </header>
     <main>
-            <?php if (isset($_SESSION['user'])) { ?>
-                    <p style="position : absolute; right : 30px;">Bonjour <?= $_SESSION['user']['username'] ?></p>
-            <?php } ?>
+            <ul class="menu_list">
+                <?= (isset($_SESSION['user'])) ? '<li><a href="../controllers/explorer.php">Ajouter</a></li>' : '<li><a href="../controllers/signin.php">S\'inscrire</a></li>' ?>
+                <?= (isset($_SESSION['user']) && ($_SESSION['user']['retrospective_active'] === true)) ? '<li><a href="../controllers/my_list.php">Mes films</a></li>' : '' ?>
+                <?= (isset($_SESSION['user']) && ($_SESSION['user']['retrospective_active'] === true)) ? '<li><a href="../controllers/carousel.php">Ma rétrospective</a></li>' : '' ?>
+                <?= (isset($_SESSION['user'])) ? '<li><a href="../controllers/login.php?logout">Se déconnecter</a></li>' : '<li><a href="../controllers/login.php">Se connecter</a></li>' ?>
+            </ul>

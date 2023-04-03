@@ -23,7 +23,7 @@ foreach ($tmdb_movies as $tmdb_movie) {
 
             <div class="title">
                 <h3><?= date('d/m/Y', $viewing_date['viewing_date']) ?></h3>
-                <p>Film</p>
+                <p style="text-align : end">Film</p>
             </div>
             <div class="body">
                 <div class='movie_list' data-id='<?= $movie_infos->id ?>'>

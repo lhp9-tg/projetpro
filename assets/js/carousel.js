@@ -5,7 +5,6 @@ const cards_container = document.querySelector('.cards_container');
 // Sélectionnez l'élément sur lequel vous voulez ajouter l'effet de clic
 
 
-
 function flipCard(element) {
     let card = element.querySelector('.flip-card')
     let rotation = card.dataset.rotation || 0
@@ -42,6 +41,32 @@ document.querySelector('.next-arrow').addEventListener('click', (e) => {
     disableFlip()
     cards_container.append(cards_container.querySelector('.item:first-of-type'));
 });
+
+// La fonction minify pour réduire la taille des textes trop longs ------------------------------
+
+function minify(overview) {
+    if (overview.length <= 500) {
+        return overview;
+    }
+
+    // Sépare le paragraphe en phrases en utilisant un point, un point d'exclamation ou un point d'interrogation comme séparateurs
+    let phrases = overview.split(/(?<=[.!?])\s+/);
+
+    // Supprime les phrases en trop jusqu'à ce que la longueur de l'overview soit égale ou inférieure à 300 caractères
+    while (overview.length > 500) {
+        phrases.pop();
+        overview = phrases.join(' ');
+    }
+
+    return overview;
+}
+
+// Fonction date pour afficher la date de sortie du film en format français ---------------------------------------
+
+function formatDate(inputDate) {
+    const dateParts = inputDate.split('-');
+    return `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
+}
 
 
 // Les variables utiles  ----------------------------------------------------
@@ -95,8 +120,8 @@ document.querySelector('.next-arrow').addEventListener('click', (e) => {
             front.style = `background-image: url("https://image.tmdb.org/t/p/w500${movie_api_data.poster_path}"); background-size: cover; background-position: center;`
 
             back.firstElementChild.innerHTML = movie_api_data.title
-            back.children[1].innerHTML = movie_api_data.overview
-            back.children[2].innerHTML = movie_api_data.release_date
+            back.children[1].innerHTML = minify(movie_api_data.overview)
+            back.children[2].innerHTML = 'Date de sortie : ' + formatDate(movie_api_data.release_date)
             movies.forEach(movie => {
                 if (movie.viewing_tmdb_id == id) {
                     rate = movie.rating_rates
@@ -147,6 +172,8 @@ document.querySelector('.prev-arrow').addEventListener('click', (e) => {
 
     const container = document.querySelector('.cards_container')
     const front = container.firstElementChild.firstElementChild.firstElementChild
+    const back = container.lastElementChild.firstElementChild.lastElementChild
+    const stars = document.querySelectorAll(".fa-solid")
 
     id = result[0].viewing_tmdb_id
 
@@ -157,6 +184,18 @@ document.querySelector('.prev-arrow').addEventListener('click', (e) => {
             let movie = data
             container.firstElementChild.dataset.tmdb_id = movie.id
             front.style = `background-image: url("https://image.tmdb.org/t/p/w500${movie.poster_path}"); background-size: cover; background-position: center;`
+
+            back.firstElementChild.innerHTML = movie_api_data.title
+            back.children[1].innerHTML = minify(movie_api_data.overview)
+            back.children[2].innerHTML = `Date de sortie : ${movie_api_data.release_date}`
+            movies.forEach(movie => {
+                if (movie.viewing_tmdb_id == id) {
+                    rate = movie.rating_rates
+                    for (let i = 0; i < rate; i++) {
+                        stars[i].classList.add('gold')
+                    }
+                }
+            })
         })
 
     item = cards_container.children[2]

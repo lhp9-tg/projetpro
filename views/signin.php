@@ -47,7 +47,7 @@ require 'templates/header.php';
             <div class='modern_input'>
                 <div class="select">
                     <label>Entrer votre année de naissance :</label>
-                    <select name="year" id="birthdate">
+                    <select name="year" id="birthdate" required>
                         <option value="<?= isset($_POST['year']) ? $_POST['year'] : '' ?>">-- Année --</option>
                         <?php
                         for ($year = date('Y'); $year >= date('Y') - 100; $year--) { ?>

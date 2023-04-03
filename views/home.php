@@ -29,14 +29,13 @@ require 'templates/header.php';
     <p>27/03/2023 : Tests timeline, Affichage de la date sur le carousel</p>
     <p>31/03/2023 : Changement des couleurs du design, Mise en place de la timeline dans la page "Ma liste"</p>
     <p>01/04/2023 : Mise en place du design du site</p>
+    <p>03/04/2023 : Fonction JS minify & date pour la back-card, changement la police des titres</p>
     <br>
 
     <h2>A venir</h2>
     <ul class="soon">
         <br>
 
-        <li>Fonction JS minify & date pour la back-card</li>
-        <li>Changer la police des titres</li>
         <li>Responsive design</li>
 
         <br>
@@ -101,7 +100,7 @@ require 'templates/header.php';
     </ul>
 </div>
 
-    
+
 <?php
 require 'templates/footer.php';
 ?>

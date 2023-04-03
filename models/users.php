@@ -96,9 +96,9 @@ class Users
     /**
      * methode pour récupérer un user par son users_name
      *
-     * @return string
+     * @return mixed 
      */
-    public function CheckUsername($username) : string
+    public function CheckUsername($username) : mixed
     {
         // nous préparons la requête
         $query = $this->_pdo->prepare('SELECT users_name FROM users WHERE users_name = :users_name');
@@ -109,16 +109,15 @@ class Users
         ]);
 
         // nous retournons le resultat de la requête
-        $array = $query->fetch(PDO::FETCH_ASSOC);
-        return $array['users_name'];
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
      * methode pour vérifier le mot de passe du user par son users_name
      *
-     * @return string
+     * @return mixed
      */
-    public function CheckPassword($username) : string
+    public function CheckPassword($username) : mixed
     {
         // nous préparons la requête
         $query = $this->_pdo->prepare('SELECT users_password FROM users WHERE users_name = :users_name');

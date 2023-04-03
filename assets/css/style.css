@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Lao:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 /* ******GENERAL******  */
 
@@ -14,7 +13,7 @@ body {
 }
 
 h1 {
-  font-family: 'Noto Serif Lao', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 2rem;
   font-weight: 600;
   margin: 0;
@@ -23,7 +22,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Noto Serif Lao', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 2rem;
   font-weight: 600;
   margin: 1rem 0;
@@ -64,10 +63,10 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  font-weight: bold;
   border: #f3d269 2px solid;
   border-radius: 5px;
   padding: 50px;
+  background-color: rgb(63, 63, 63);
 }
 
 /* Les boutons modernes */
@@ -152,26 +151,6 @@ header {
   color: #f3d269;
 }
 
-nav ul {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  gap: 50px;
-  list-style: none;
-  margin-right: 50px;
-}
-
-nav ul a {
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 1.2rem;
-}
-
-nav ul a:hover {
-  color: #f3d269;
-}
-
 /* ******MAIN****** */
 
 main {
@@ -210,7 +189,7 @@ main {
   height: 30vh;
   font-size: 2.5rem;
   color: #f3d269;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -350,32 +329,37 @@ form.modern_form .modern_label input:valid~label {
 form .modern_input .error_modern_input {
   margin-left: 50px;
   padding-bottom: 25px;
-  color: red;
+  color: #ffffff;
   font-weight: bold;
+  font-style: italic;
 }
 
 form .modern_input .error_select {
   margin-left: 50px;
-  color: red;
+  color: #ffffff;
   font-weight: bold;
+  font-style: italic;
 }
 
-error_ra form .modern_input .error_checkbox {
+error_rating form .modern_input .error_checkbox {
   margin-left: 50px;
   margin-bottom: -5px;
-  color: red;
+  color: #ffffff;
   font-weight: bold;
+  font-style: italic;
 }
 
 .error_top {
   text-align: center;
-  color: red;
+  color: #ffffff;
   font-weight: bold;
+  font-style: italic;
 }
 
 .error_rating {
-  color: red;
+  color: #ffffff;
   font-weight: bold;
+  font-style: italic;
 }
 
 /* Les Modales */
@@ -583,7 +567,7 @@ error_ra form .modern_input .error_checkbox {
   font-size: 2rem;
   font-weight: bold;
   color: #101114;
-  font-family: 'Noto Serif Lao', serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .item:nth-child(3):hover .container_date {
@@ -794,12 +778,11 @@ error_ra form .modern_input .error_checkbox {
 
 .entry .title h3 {
   margin: 0;
-  font-size: 120%;
+  font-size: 1.3rem;
 }
 
 .entry .title p {
   margin: 0;
-  font-size: 100%;
 }
 
 .entry .body {
@@ -1123,4 +1106,144 @@ footer {
   width: 100%;
   height: auto;
   background-color: #101114;
+}
+
+/* *************************************RESPONSIVE DESIGN ****************************** */
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#burger {
+  width:30px;
+  height:2px;
+  background:white;
+  display:inline-block;
+  position:relative;
+  margin : 0 1rem;
+}
+
+
+#burger::before,
+#burger::after {
+  content:'';
+  width:30px;
+  height:2px;
+  background:white;
+  display:inline-block;
+  position:absolute;
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+#burger::before {
+  top:-7px;
+}
+#burger::after {
+  top:7px;
+}
+
+
+#burger.open {
+  background:transparent; /* la barre du milieu disparait */
+}
+/* celles du haut et du bas s'inclinent pour former une croix */
+#burger.open::before {
+  transform: rotate(45deg); 
+  top:0;
+}
+#burger.open::after {
+  transform: rotate(-45deg);
+  top:0;
+}
+
+/* Le menu déroulant */
+
+.menu_list {
+  padding: 0;
+  margin: 0;
+  height: 0;
+  transform:scaleY(0);
+  transform-origin:center top;
+  transition:all 0.3s ease;
+}
+
+.menu_list.open {
+  height: auto;
+  transform:scaleY(1);
+}
+
+.menu_list li {
+  padding:10px 0;
+  text-align:center;
+  list-style-type: none;
+}
+
+.menu_list li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.menu_list li a:hover {
+  color: #f3d269;
+}
+
+/* Le menu traditionnel */
+
+.menu {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 50px;
+  list-style: none;
+  margin-right: 50px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.menu a:hover {
+  color: #f3d269;
+}
+
+/* *************************************MEDIA QUERIES********************************** */
+
+@media screen and (max-width: 1250px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero {
+    font-size: 1.5rem;
+  }
+
+  .entry .title h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .entry .title p {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .flip-card-back {
+    font-size: 1.2rem;
+  }
+
 }
