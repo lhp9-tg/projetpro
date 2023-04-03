@@ -124,7 +124,6 @@ p {
 header {
   width: 100%;
   height: 10vh;
-  border-bottom: 1px #383838 solid;
   background-color: #101114;
   display: flex;
   justify-content: space-between;
@@ -388,7 +387,7 @@ error_rating form .modern_input .error_checkbox {
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
-  box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #00000082;
   z-index: 1;
 }
 
@@ -984,9 +983,9 @@ error_rating form .modern_input .error_checkbox {
 }
 
 .modal_select button {
-  background-color: #f3d269;
-  border: gray 2px solid;
-  color: #2a2a2a;
+  background-color: #44C197;
+  border: #44C197 2px solid;
+  color: #ffffff;
 }
 
 .modal_select input {
@@ -1162,17 +1161,23 @@ nav {
 /* Le menu déroulant */
 
 .menu_list {
+  position : fixed;
   padding: 0;
   margin: 0;
   height: 0;
+  width: 100vw;
   transform:scaleY(0);
   transform-origin:center top;
   transition:all 0.3s ease;
+  background-color: #101114;
 }
 
 .menu_list.open {
   height: auto;
+  width: 100vw;
   transform:scaleY(1);
+  border-bottom: 1px #383838 solid;
+  background-color: #101114;
 }
 
 .menu_list li {

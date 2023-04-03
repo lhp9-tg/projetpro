@@ -24,4 +24,12 @@ link.addEventListener('click', function(e) {
   burger.classList.toggle('open')
   let menu_list = document.querySelector('.menu_list')
   menu_list.classList.toggle('open')
+
+  // Suppression du border bottom sur le header
+  let header = document.querySelector('header')
+  if (header.getAttribute('style')) {
+    header.removeAttribute('style')
+  } else {
+    header.setAttribute('style', 'border-bottom: 1px #383838 solid')
+  }
 })

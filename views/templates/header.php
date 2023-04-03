@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header>
+    <header style="border-bottom: 1px #383838 solid">
         <div class="logo">
             <a href="/controllers/home.php"><img src="../assets/img/logo_inverse.png" alt="logo de bobine" style="margin-left : 10px"> </a>
             <h1><a class="title" href="/controllers/home.php">The Retrospective</a></h1>
@@ -26,10 +26,10 @@
             </ul>
         </nav>
     </header>
-    <main>
-            <ul class="menu_list">
+    <ul class="menu_list">
                 <?= (isset($_SESSION['user'])) ? '<li><a href="../controllers/explorer.php">Ajouter</a></li>' : '<li><a href="../controllers/signin.php">S\'inscrire</a></li>' ?>
                 <?= (isset($_SESSION['user']) && ($_SESSION['user']['retrospective_active'] === true)) ? '<li><a href="../controllers/my_list.php">Mes films</a></li>' : '' ?>
                 <?= (isset($_SESSION['user']) && ($_SESSION['user']['retrospective_active'] === true)) ? '<li><a href="../controllers/carousel.php">Ma rétrospective</a></li>' : '' ?>
                 <?= (isset($_SESSION['user'])) ? '<li><a href="../controllers/login.php?logout">Se déconnecter</a></li>' : '<li><a href="../controllers/login.php">Se connecter</a></li>' ?>
             </ul>
+    <main>
