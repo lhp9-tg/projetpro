@@ -30,16 +30,11 @@ require 'templates/header.php';
     <p>31/03/2023 : Changement des couleurs du design, Mise en place de la timeline dans la page "Ma liste"</p>
     <p>01/04/2023 : Mise en place du design du site</p>
     <p>03/04/2023 : Fonction JS minify & date pour la back-card, changement la police des titres</p>
+    <p>04/04/2023 : Responsive design</p>
     <br>
 
     <h2>A venir</h2>
     <ul class="soon">
-        <br>
-
-        <li>Responsive design</li>
-
-        <br>
-        <li>RELEASE 1.0</li>
         <br>
 
         <li>Mise en place du Captcha</li>

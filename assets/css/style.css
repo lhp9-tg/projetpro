@@ -198,7 +198,11 @@ main {
 
 
 
-/* Les formaulaires */
+/* Les formulaires */
+
+.notice p{
+  margin : 0.5rem 0;
+}
 
 input {
   background-color: #1c2129;
@@ -340,7 +344,7 @@ form .modern_input .error_select {
   font-style: italic;
 }
 
-error_rating form .modern_input .error_checkbox {
+form .modern_input .error_checkbox {
   margin-left: 50px;
   margin-bottom: -5px;
   color: #ffffff;
@@ -1170,6 +1174,7 @@ nav {
   transform-origin:center top;
   transition:all 0.3s ease;
   background-color: #101114;
+  z-index: 1000;
 }
 
 .menu_list.open {
@@ -1221,6 +1226,11 @@ nav {
 /* *************************************MEDIA QUERIES********************************** */
 
 @media screen and (max-width: 1250px) {
+
+  .container {
+    height: auto;
+  }
+
   .title {
     font-size: 1.5rem;
   }
@@ -1249,6 +1259,92 @@ nav {
 
   .flip-card-back {
     font-size: 1.2rem;
+  }
+
+  form.modern_form .modern_label input {
+    width: 60vw;
+  }
+
+  .error, .info {
+    padding: 20px;
+    text-align: center;
+  }
+
+  ol {
+      padding: 0 15px 0 0;
+      list-style-type: none;
+  }
+
+  form .modern_input {
+    display: block;
+  }
+
+  form .modern_input .error_modern_input {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  .notice p {
+    margin-bottom : 2rem;
+  }
+
+  .my_list_date {
+    display: none;
+  }
+
+  .movie_list_core .movie_image {
+    display: none;
+  }
+
+  .movie_list {
+    display: block;
+  }
+
+  .entry .body h2 {
+    margin : 0 1rem;
+    text-align: center;
+    }
+
+  .entry .body p {
+  margin : 0 1rem 1rem 1rem;
+  }
+
+  button.modern_button_red {
+    margin: 0 0 1rem 0 !important;
+  }
+
+  .movie .movie_info {
+    margin-right : 0;
+  }
+
+  .movie .movie_image {
+    display: none;
+  }
+
+  .movie .movie_info h2 {
+    text-align: center;
+    margin: 0 1rem;
+  }
+
+  .movie .movie_info p {
+    text-align: center;
+    margin: 1rem;
+  }
+
+  .modal_movie .movie_info {
+    display: none;
+  }
+
+  .modal-content-delete {
+    width: 80vw;
+  }
+
+  .overview {
+    font-size: medium;
+  }
+
+  .release_date {
+    font-size: medium;
   }
 
 }

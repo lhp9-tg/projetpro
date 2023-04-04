@@ -21,7 +21,7 @@ require 'templates/header.php';
                     <input type="text" name="username" value="<?= isset($_POST['username']) ? $_POST['username'] : '' ?>" required>
                     <label>Entrer votre nom d'utilisateur</label>
                 </div>
-                <p class="error_modern_input"><?= isset($error['username']) ? $error['username'] : '' ?></p>
+                <span class="error_modern_input"><?= isset($error['username']) ? $error['username'] : '' ?></span>
             </div>
 
             <div class='modern_input'>
@@ -29,7 +29,7 @@ require 'templates/header.php';
                     <input type="email" name="email" value="<?= isset($_POST['email']) ? $_POST['email'] : '' ?>" required>
                     <label>Entrer votre email</label>
                 </div>
-                <p class="error_modern_input"><?= isset($error['email']) ? $error['email'] : '' ?></p>
+                <span class="error_modern_input"><?= isset($error['email']) ? $error['email'] : '' ?></span>
             </div>
 
             <div class="notice">
@@ -41,7 +41,7 @@ require 'templates/header.php';
                     <input type="password" name="password" minlength="8" value="<?= isset($_POST['password']) ? $_POST['password'] : '' ?>" required>
                     <label>Entrer votre mot de passe</label>
                 </div>
-                <p class="error_modern_input"><?= isset($error['password']) ? $error['password'] : '' ?></p>
+                <span class="error_modern_input"><?= isset($error['password']) ? $error['password'] : '' ?></span>
             </div>
 
             <div class='modern_input'>
@@ -55,7 +55,7 @@ require 'templates/header.php';
                         <?php } ?>
                     </select>
                 </div>
-                <p class="error_select"><?= isset($error['birthdate']) ? $error['birthdate'] : '' ?></p>
+                <span class="error_select"><?= isset($error['birthdate']) ? $error['birthdate'] : '' ?></span>
             </div>
 
 
@@ -70,7 +70,7 @@ require 'templates/header.php';
                     <label for="cgu">J'accepte les <span class="cgu">Conditions Générales d'Utilisation (CGU)</span></label>
                     <br>
                 </div>
-                <p class="error_checkbox"><?= isset($error['cgu']) ? $error['cgu'] : '' ?></p>
+                <span class="error_checkbox"><?= isset($error['cgu']) ? $error['cgu'] : '' ?></span>
             </div>
 
 

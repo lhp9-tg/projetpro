@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['password'])) {
         if ($_POST['password'] === '') {
-            $error['password'] = 'un mot de passe est obligatoire.';
+            $error['password'] = 'Un mot de passe est obligatoire.';
         } 
         elseif (!preg_match($regexpassword, $_POST['password'])) {
             $error['password'] = 'Les conditions de sécurité ne sont pas validées';

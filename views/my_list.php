@@ -21,7 +21,7 @@ foreach ($tmdb_movies as $tmdb_movie) {
 
         <div class="entry">
 
-            <div class="title">
+            <div class="my_list_date">
                 <h3><?= date('d/m/Y', $viewing_date['viewing_date']) ?></h3>
                 <p style="text-align : end">Film</p>
             </div>
