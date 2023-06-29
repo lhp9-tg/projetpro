@@ -171,7 +171,7 @@ document.querySelector('.prev-arrow').addEventListener('click', (e) => {
     }
 
     const container = document.querySelector('.cards_container')
-    const front = container.firstElementChild.firstElementChild.firstElementChild
+    const front = container.lastElementChild.firstElementChild.firstElementChild
     const back = container.lastElementChild.firstElementChild.lastElementChild
     const stars = document.querySelectorAll(".fa-solid")
 
@@ -181,13 +181,13 @@ document.querySelector('.prev-arrow').addEventListener('click', (e) => {
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&language=fr-FR&adult=false`)
         .then(response => response.json())
         .then((data) => {
-            let movie = data
-            container.firstElementChild.dataset.tmdb_id = movie.id
-            front.style = `background-image: url("https://image.tmdb.org/t/p/w500${movie.poster_path}"); background-size: cover; background-position: center;`
+            let movie_api_data = data
+            container.firstElementChild.dataset.tmdb_id = movie_api_data.id
+            front.style = `background-image: url("https://image.tmdb.org/t/p/w500${movie_api_data.poster_path}"); background-size: cover; background-position: center;`
 
             back.firstElementChild.innerHTML = movie_api_data.title
             back.children[1].innerHTML = minify(movie_api_data.overview)
-            back.children[2].innerHTML = `Date de sortie : ${movie_api_data.release_date}`
+            back.children[2].innerHTML = 'Date de sortie : ' + formatDate(movie_api_data.release_date)
             movies.forEach(movie => {
                 if (movie.viewing_tmdb_id == id) {
                     rate = movie.rating_rates

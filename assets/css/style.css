@@ -166,6 +166,11 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .container {
@@ -1345,6 +1350,15 @@ nav {
 
   .release_date {
     font-size: medium;
+  }
+
+}
+
+@media screen and (min-width: 1700px) {
+
+  .container {
+    max-width: 1530px;
+    height: auto;
   }
 
 }

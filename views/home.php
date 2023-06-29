@@ -14,7 +14,7 @@ require 'templates/header.php';
 
     <p>21/02/2023 : Mise en place de la partie inscription</p>
     <p>22/02/2023 : Mise en place de la partie connexion et session</p>
-    <p>22/02/2023 : Branchement API "The Movie DataBase" avec tunnel SSL (library cURL) et OAuth par token </p>
+    <p>22/02/2023 : Branchement API "The Movie DataBase" avec protocole TLS (library cURL) et OAuth par token </p>
     <p>23/02/2023 : Mise en place de la partie recherche</p>
     <p>24/02/2023 : Mise en place de la partie ajout de film</p>
     <p>24/02/2023 : Mise en place du système de notation</p>
@@ -33,66 +33,6 @@ require 'templates/header.php';
     <p>04/04/2023 : Responsive design</p>
     <br>
 
-    <h2>A venir</h2>
-    <ul class="soon">
-        <br>
-
-        <li>Mise en place du Captcha</li>
-        <li>Mise en place de l'Espace utilisateur</li>
-        <li>Récupération de mot de passe</li>
-        <li>Update et suppression d'un user</li>
-
-        <br>
-        <li>RELEASE 1.1</li>
-        <br>
-
-        <li>Mise en place du partage entre utilisateurs</li>
-        <li>Mise en place des favoris</li>
-        <li>Mise en place de la partie "A voir"</li>
-
-        <br>
-        <li>RELEASE 1.2</li>
-        <br>
-
-        <li>Mise en place du block "Nouveauté" ou "Populaire" en dessous de la barre de recherche</li>
-        <li>Ajout du casting des films, de la durée, le genre etc...</li>
-
-        <br>
-        <li>RELEASE 1.3</li>
-        <br>
-
-        <li>Tri des films par date de visionnage</li>
-        <li>Tri des films par note</li>
-        <li>Tri par acteurs, realisateurs, genre, durée...</li>
-
-        <br>
-        <li>RELEASE 1.4</li>
-        <br>
-
-        <li>Recherche par acteur, réalisateur, genre etc...</li>
-        <li>Recherche par année</li>
-
-        <br>
-        <li>RELEASE 1.5</li>
-        <br>
-
-        <li>Ajout des series</li>
-        <li>Recherche par saison</li>
-        <li>Recherche par episode</li>
-
-        <br>
-        <li>RELEASE 1.6</li>
-        <br>
-
-        <li>Ajout des jeux vidéos</li>
-        <li>Recherche par plateforme</li>
-        <li>Recherche par genre</li>
-
-        <br>
-        <li>RELEASE 1.7</li>
-        <br>
-
-    </ul>
 </div>
 
 
